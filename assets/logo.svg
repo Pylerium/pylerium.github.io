@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5f5bff"/>
+      <stop offset="0.55" stop-color="#7a4dff"/>
+      <stop offset="1" stop-color="#b13cf5"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0.28" cy="0.12" r="0.85">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1edff"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6e0ff"/>
+      <stop offset="1" stop-color="#d4caff"/>
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c6b8ff"/>
+      <stop offset="1" stop-color="#ad9cff"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#25106b" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="118" fill="url(#shine)"/>
+  <g filter="url(#drop)" stroke-linejoin="round">
+    <!-- parcel -->
+    <path d="M256 226 L370 286 L256 346 L142 286 Z" fill="url(#top)" stroke="url(#top)" stroke-width="16"/>
+    <path d="M142 286 L256 346 L256 470 L142 410 Z" fill="url(#left)" stroke="url(#left)" stroke-width="16"/>
+    <path d="M256 346 L370 286 L370 410 L256 470 Z" fill="url(#right)" stroke="url(#right)" stroke-width="16"/>
+    <!-- packing tape across the lid and down the front -->
+    <path d="M199 256 L313 316" stroke="#d9d0ff" stroke-width="26" stroke-linecap="butt"/>
+    <path d="M313 316 L313 440" stroke="#9c89ff" stroke-width="26" stroke-linecap="butt"/>
+    <!-- download arrow dropping into the parcel -->
+    <path d="M256 50 L256 150" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
+    <path d="M198 120 L256 178 L314 120" fill="none" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
+  </g>
+</svg>
