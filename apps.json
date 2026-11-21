@@ -293,17 +293,22 @@
     "tagline": "QA telemetry and environment virtualization suite for deterministic testing.",
     "description": "Sandboxed Electron preloads, QEMU MicroVMs, encrypted profile state and proxy routing.",
     "category": "desktop",
-    "status": "dev",
-    "version": "",
+    "status": "beta",
+    "version": "v0.1.0",
     "platform": "Windows",
-    "featured": false,
-    "accent": "sky",
-    "glyph": "globe",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
-    "metricLabel": "",
-    "metricValue": "",
+    "price": "",
+    "requirements": "",
+    "badge": "",
+    "featured": true,
+    "accent": "ember",
+    "glyph": "chrome",
+    "iconImage": "platypusbrowser/platypusbrowser-logo-2.png",
+    "cover": "platypusbrowser/preview1.png",
+    "screenshots": [
+      "platypusbrowser/platypusbrowser-logo.png"
+    ],
+    "metricLabel": "utilizes",
+    "metricValue": "virtualization",
     "techStack": [
       "Electron",
       "TypeScript",
@@ -317,7 +322,10 @@
     "videoUrl": "",
     "installCommand": "",
     "features": [],
+    "embedTitle": "Change your telemetry!",
+    "embedCode": "<iframe>src=\"https://github.com/Pylerium/PlatypusBrowser\"></iframe>",
     "changelog": [],
+    "community": false,
     "updatedAt": "2026-10-24"
   }
 ]
