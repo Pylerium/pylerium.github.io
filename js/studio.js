@@ -1,6 +1,6 @@
 // Pylerium Studio public site: filters, app dialogs, YouTube players, Shorts, sharing and supporter submissions.
 // Cards and pages are pre-rendered by the hub's builder; this script only adds interaction.
-import { detailHTML, icon, esc, setCategories, categories } from './render.js';
+import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=059208f39d';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 setCategories(D.categories);
