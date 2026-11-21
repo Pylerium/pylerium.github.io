@@ -279,8 +279,31 @@ function done(msg) {
   subBody.innerHTML = `<div class="sub done"><span class="comm-ico ok big">${icon('check')}</span><h2 id="sub-title">Almost there</h2><p>${msg}</p><p class="fine">We review every submission and reply within a week. Accepted apps appear in the Community section with your name.</p><button class="btn ghost" type="button" onclick="this.closest('dialog').close()">Close</button></div>`;
 }
 
-// ---------- reveal on scroll ----------
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -40px 0px' });
-$$('.reveal').forEach(el => io.observe(el));
+// ---------- featured spotlight ----------
+const spot = $('#spot');
+if (spot && $$('.spot-slide', spot).length > 1) {
+  const track = $('.spot-track', spot), dots = $$('.spot-dots button', spot), n = dots.length, MS = 7000;
+  let idx = 0, timer = 0, paused = false;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const go = i => { idx = (i + n) % n; track.scrollTo({ left: idx * (track.clientWidth + 22), behavior: 'smooth' }); mark(); };
+  const mark = () => { dots.forEach((d, j) => d.classList.toggle('on', j === idx)); restart(); };
+  const restart = () => {
+    clearTimeout(timer); spot.classList.remove('playing'); void spot.offsetWidth;
+    if (paused || reduce) return;
+    spot.style.setProperty('--spot-ms', MS + 'ms'); spot.classList.add('playing');
+    timer = setTimeout(() => go(idx + 1), MS);
+  };
+  $$('[data-spot]', spot).forEach(b => b.addEventListener('click', () => go(idx + +b.dataset.spot)));
+  dots.forEach((d, j) => d.addEventListener('click', () => go(j)));
+  let st = 0;
+  track.addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(() => { const j = Math.round(track.scrollLeft / (track.clientWidth + 22)); if (j !== idx) { idx = j; mark(); } }, 120); }, { passive: true });
+  spot.addEventListener('mouseenter', () => { paused = true; restart(); });
+  spot.addEventListener('mouseleave', () => { paused = false; restart(); });
+  spot.addEventListener('focusin', () => { paused = true; restart(); });
+  spot.addEventListener('focusout', () => { paused = false; restart(); });
+  document.addEventListener('visibilitychange', () => { paused = document.hidden; restart(); });
+  new IntersectionObserver(([e]) => { paused = !e.isIntersecting; restart(); }).observe(spot);
+  addEventListener('resize', () => track.scrollTo({ left: idx * (track.clientWidth + 22) }));
+}
 
 route();
