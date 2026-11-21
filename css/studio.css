@@ -275,3 +275,23 @@ button.btn.ghost { border: 1px solid var(--line2); }
 .hero > *:nth-child(2) { animation-delay: .06s; } .hero > *:nth-child(3) { animation-delay: .12s; } .hero > *:nth-child(4) { animation-delay: .18s; } .hero > *:nth-child(5) { animation-delay: .24s; } .hero > *:nth-child(6) { animation-delay: .3s; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 .sec-head { margin-bottom: 22px; }
+
+/* ---------- Floating "Supply caffeine" badge ---------- */
+.cafe-float { position: fixed; right: 22px; bottom: 22px; z-index: 60; display: inline-flex; align-items: center; gap: 10px; height: 54px; padding: 0 20px 0 8px; border-radius: 999px;
+  text-decoration: none; color: #1B0F02; font-weight: 800; font-size: 15px; white-space: nowrap; overflow: hidden; max-width: 260px;
+  background: linear-gradient(120deg, #FDE68A, #FBBF24 40%, #F59E0B 75%, #FB923C); box-shadow: 0 18px 40px -12px rgba(245,158,11,.9), 0 0 0 1px rgba(255,255,255,.25) inset;
+  transform: translateY(120px); opacity: 0; transition: transform .6s var(--ease), opacity .4s, max-width .45s var(--ease), padding .45s var(--ease), box-shadow .25s; }
+.cafe-float.in { transform: none; opacity: 1; }
+.cafe-float:hover { box-shadow: 0 22px 46px -10px rgba(251,146,60,1), 0 0 0 1px rgba(255,255,255,.35) inset; transform: translateY(-3px); }
+.cf-cup { position: relative; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #1B0F02; color: #FCD34D; flex: none; font-size: 20px; }
+.cf-cup .steam { left: 13px; top: -5px; }
+.cf-cup .steam i { background: rgba(252,211,77,.9); }
+.cafe-float.mini { max-width: 56px; padding: 0 8px; }
+.cafe-float.mini:hover { max-width: 260px; padding: 0 20px 0 8px; }
+.cafe-float:hover .cf-cup .i { animation: tilt .6s var(--ease); }
+@keyframes tilt { 40% { transform: rotate(-14deg); } 80% { transform: rotate(6deg); } }
+body:has(dialog[open]) .cafe-float { opacity: 0; pointer-events: none; }
+@media (max-width: 640px) { .cafe-float { right: 14px; bottom: 14px; height: 50px; } .cafe-float .cf-cup { width: 36px; height: 36px; } }
+
+.nav-links a.caffeine, .nav-links a.caffeine:hover { color: #1B0F02; background: linear-gradient(120deg, #FCD34D, #F59E0B 45%, #FB923C); padding: 8px 14px 8px 12px; }
+.nav-links a.caffeine:hover { filter: brightness(1.06); }

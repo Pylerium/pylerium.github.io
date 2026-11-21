@@ -24,6 +24,8 @@ ann?.querySelector('.ann-x').addEventListener('click', () => { ann.hidden = true
 
 // ---------- nav ----------
 const nav = $('.nav');
+const cafe = $('.cafe-float');
+if (cafe) { let lastY = 0; const upd = () => { const y = scrollY; cafe.classList.toggle('in', y > 420 || !$('.hero')); cafe.classList.toggle('mini', y > 900 && y > lastY); lastY = y; }; addEventListener('scroll', upd, { passive: true }); upd(); }
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
 $('.menu-btn')?.addEventListener('click', () => nav.classList.toggle('open'));
 $$('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
