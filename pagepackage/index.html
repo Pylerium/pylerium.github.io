@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pagePackage: download every image, video &amp; file on any page</title>
+  <meta name="description" content="pagePackage is a Chrome extension that finds every image, video, document and file on a web page, previews them in a gallery, and downloads them in one click, converted or as a ZIP." />
+  <link rel="icon" href="../assets/favicon.png" />
+  <meta property="og:title" content="pagePackage" />
+  <meta property="og:description" content="Every image, video & file on a page. One gallery. One click." />
+  <meta property="og:image" content="../assets/hero.png" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="./"><img src="../assets/logo.svg" alt="" /><span>page<span class="grad">Package</span></span></a>
+      <nav><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#apps">Apps</a><a href="../privacy.html">Privacy</a><a href="#support">Support</a></nav>
+    </header>
+
+    <div class="hero">
+      <h1>Every image, video &amp; file on a page. <span class="grad">One gallery. One click.</span></h1>
+      <p>pagePackage is a Chrome extension that finds everything a page contains, shows it in a gallery you can filter and preview, and saves what you pick: one by one, all at once, converted, or as a single ZIP.</p>
+      <div class="ctas">
+        <a class="btn primary" id="storeLink" href="#">Add to Chrome <span class="soon">Coming soon</span></a>
+        <a class="btn" href="#pricing">See pricing</a>
+      </div>
+      <div class="hero-img"><img src="../assets/hero.png" alt="pagePackage gallery and popup" /></div>
+    </div>
+
+    <section id="features">
+      <h2>Everything you need to <span class="grad">package a page</span></h2>
+      <p class="lede">Built for designers, researchers and creators who collect from the web every day.</p>
+      <div class="features">
+        <div class="feature"><b>Finds everything</b><span>Images, video, audio, documents, fonts, design files, 3D models and streams, including files hidden in code and lazy-loaded galleries.</span></div>
+        <div class="feature"><b>Full-size originals</b><span>Swaps thumbnails for the original images on hundreds of sites, so downloads look sharp.</span></div>
+        <div class="feature"><b>Batch download &amp; ZIP</b><span>Download everything at once into tidy folders, or save a whole page as one ZIP.</span></div>
+        <div class="feature"><b>Convert in your browser</b><span>WebP, AVIF and SVG to PNG or JPG, video to MP4, audio from any video to MP3. Nothing is uploaded.</span></div>
+        <div class="feature"><b>See and strip metadata</b><span>View camera, lens, colour profile and GPS location, and remove them before you share.</span></div>
+        <div class="feature"><b>Built for sessions</b><span>Scan every open tab into one gallery, watch pages for new files, and keep a searchable library.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shots">
+        <img src="../assets/01-every-file-one-gallery.png" alt="Gallery of every file on a page" />
+        <img src="../assets/02-convert-anything.png" alt="Convert menu" />
+        <img src="../assets/03-metadata-viewer.png" alt="Metadata viewer" />
+        <img src="../assets/04-one-click-popup.png" alt="Extension popup" />
+        <img src="../assets/05-free-and-pro.png" alt="Free and Pro plans" />
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Free to use. <span class="grad">Unlimited with Pro.</span></h2>
+      <p class="lede">The free plan covers everyday downloading. Pro removes every limit and adds power tools. Prices in Australian dollars.</p>
+      <div class="pricecard">
+        <div class="tier">
+          <span class="pbadge free">FREE FOREVER</span>
+          <div class="amount">A$0</div>
+          <ul>
+            <li>40 files per batch</li>
+            <li>Unlimited PNG/JPG/WebP conversion</li>
+            <li>10 deep scans monthly</li>
+            <li>10 stream captures monthly</li>
+            <li>Basic download history</li>
+            <li>Essential media tools</li>
+          </ul>
+        </div>
+        <div class="tier">
+          <span class="pbadge pop">MOST POPULAR</span>
+          <div class="amount">A$14.99</div>
+          <div class="tname">Pro Lifetime</div>
+          <ul>
+            <li>Unlimited operations</li>
+            <li>All advanced features</li>
+            <li>Permanent duplicate detection</li>
+            <li>Advanced naming</li>
+            <li>Full download history</li>
+            <li>All future Pro features while the product is supported</li>
+          </ul>
+          <div class="tnote">One payment. No recurring subscription.</div>
+        </div>
+        <div class="tier">
+          <div class="tlabel">OPTIONAL PRO MONTHLY</div>
+          <div class="amount small">A$2.99/month</div>
+          <div class="tdesc">For people who only need Pro temporarily.</div>
+        </div>
+      </div>
+      <p class="fine">Upgrade from inside the extension. Payments are processed securely by Stripe through ExtensionPay. See the <a href="../refunds.html">refund policy</a>.</p>
+      <table class="compare">
+        <thead><tr><th></th><th>Free</th><th>Pro</th></tr></thead>
+        <tbody>
+          <tr><td>Files per batch</td><td>40</td><td class="y">Unlimited</td></tr>
+          <tr><td>Deep scans · stream captures · conversions</td><td>10 each / month</td><td class="y">Unlimited</td></tr>
+          <tr><td>Download history</td><td>Last 100</td><td class="y">Everything + search, tags, collections</td></tr>
+          <tr><td>File naming</td><td>{name} {index} {ext}</td><td class="y">All tokens + regex rename</td></tr>
+          <tr><td>Advanced filters, site presets, all-tabs, ZIP, watch page</td><td>—</td><td class="y">✓</td></tr>
+          <tr><td>Video frames, resize, metadata viewer, exports</td><td>—</td><td class="y">✓</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="apps">
+      <h2>More from <span class="grad">Pylerium</span></h2>
+      <p class="lede">Other tools we build, with the same care for speed, privacy and design.</p>
+      <div class="apps">
+        <a class="app" href="https://github.com/Pylerium/pyleriumTV"><b>pyleriumTV</b><span class="tag">Android TV</span><p>Turns the movies and shows on your drives into personal TV channels with a live programme guide.</p></a>
+        <a class="app" href="https://github.com/Pylerium/PyleriumPurge"><b>Pylerium Purge</b><span class="tag">Android TV</span><p>A clean, ad-free TV launcher with a quiet app grid and quick launch bar.</p></a>
+        <div class="app"><b>Pylerium Player</b><span class="tag">Coming soon</span><p>A polished player for your own movie and TV library.</p></div>
+        <div class="app"><b>Speak</b><span class="tag">Coming soon</span><p>Natural, private text-to-speech that runs on your computer.</p></div>
+      </div>
+    </section>
+
+    <section id="support">
+      <h2>Support</h2>
+      <p class="lede">Questions, refunds or a bug to report? Email <a href="mailto:danqhu3@gmail.com">danqhu3@gmail.com</a> and we'll reply within two business days. Already paid on another browser? Open pagePackage → Settings → Plan → <b>Restore purchase</b>.</p>
+    </section>
+
+    <footer>
+      <span>© 2026 Pylerium</span><span class="sp"></span>
+      <a href="../privacy.html">Privacy policy</a><a href="../refunds.html">Refund policy</a><a href="mailto:danqhu3@gmail.com">Contact</a>
+    </footer>
+  </div>
+</body>
+</html>
