@@ -340,7 +340,7 @@
     "price": "Free",
     "requirements": "GTA V, ScriptHookV, ScriptHookVDotNet 3, OpenIV.asi",
     "badge": "",
-    "featured": false,
+    "featured": true,
     "accent": "violet",
     "glyph": "wrench",
     "iconImage": "",
