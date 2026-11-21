@@ -1,6 +1,6 @@
 // Pylerium Studio: shared catalog vocabulary and renderers.
-// Used by the local hub (live preview), the site builder (static HTML) and the public site (detail dialog),
-// so a card looks identical everywhere. Plain ES module, no dependencies.
+// Used by the local hub (live preview), the site builder (static HTML) and the public site,
+// so every card, video and detail view looks identical everywhere. Plain ES module, no dependencies.
 
 export const ACCENTS = {
   studio:  { label: 'Studio Teal',   a1: '#2DD4BF', a2: '#38BDF8' },
@@ -9,16 +9,24 @@ export const ACCENTS = {
   emerald: { label: 'Emerald',       a1: '#10B981', a2: '#2DD4BF' },
   amber:   { label: 'Solar Amber',   a1: '#F59E0B', a2: '#FB7185' },
   ember:   { label: 'Ember & Cyan',  a1: '#F97316', a2: '#22D3EE' },
-  rose:    { label: 'Rose Quartz',   a1: '#FB7185', a2: '#A78BFA' }
+  rose:    { label: 'Rose Quartz',   a1: '#FB7185', a2: '#A78BFA' },
+  crimson: { label: 'Crimson',       a1: '#EF4444', a2: '#F59E0B' },
+  lime:    { label: 'Acid Lime',     a1: '#A3E635', a2: '#22D3EE' }
 };
 
-export const CATEGORIES = [
+// Categories are edited in the hub (Site → Categories). These are only the defaults.
+export const DEFAULT_CATEGORIES = [
   { id: 'desktop',   label: 'Desktop',            icon: 'monitor' },
   { id: 'extension', label: 'Browser extensions', icon: 'chrome' },
   { id: 'tv',        label: 'Android TV',         icon: 'tv' },
+  { id: 'mods',      label: 'Game mods',          icon: 'gamepad' },
   { id: 'web',       label: 'Web',                icon: 'globe' },
   { id: 'devtools',  label: 'Developer tools',    icon: 'terminal' }
 ];
+let CATS = DEFAULT_CATEGORIES;
+export function setCategories(list) { if (Array.isArray(list) && list.length) CATS = list; }
+export const categories = () => CATS;
+export const categoryOf = id => CATS.find(c => c.id === id) || { id, label: 'Software', icon: 'code' };
 
 export const STATUS = {
   live: { label: 'Available',      short: 'Live' },
@@ -26,6 +34,27 @@ export const STATUS = {
   soon: { label: 'Coming soon',    short: 'Soon' },
   dev:  { label: 'In development', short: 'In dev' }
 };
+
+export const SOCIALS = {
+  youtube:   { label: 'YouTube',   icon: 'youtube',   match: /youtube\.com|youtu\.be/i },
+  github:    { label: 'GitHub',    icon: 'github',    match: /github\.com/i },
+  discord:   { label: 'Discord',   icon: 'discord',   match: /discord\.(gg|com)/i },
+  x:         { label: 'X',         icon: 'xlogo',     match: /(^|\/\/|\.)(x|twitter)\.com/i },
+  tiktok:    { label: 'TikTok',    icon: 'tiktok',    match: /tiktok\.com/i },
+  instagram: { label: 'Instagram', icon: 'instagram', match: /instagram\.com/i },
+  twitch:    { label: 'Twitch',    icon: 'twitch',    match: /twitch\.tv/i },
+  reddit:    { label: 'Reddit',    icon: 'reddit',    match: /reddit\.com/i },
+  bluesky:   { label: 'Bluesky',   icon: 'bluesky',   match: /bsky\.(app|social)/i },
+  linkedin:  { label: 'LinkedIn',  icon: 'linkedin',  match: /linkedin\.com/i },
+  patreon:   { label: 'Patreon',   icon: 'patreon',   match: /patreon\.com/i },
+  kofi:      { label: 'Ko-fi',     icon: 'coffee',    match: /ko-fi\.com/i },
+  email:     { label: 'Email',     icon: 'mail',      match: /^mailto:/i },
+  website:   { label: 'Website',   icon: 'globe',     match: /./ }
+};
+export function detectSocial(url) {
+  for (const [k, v] of Object.entries(SOCIALS)) if (k !== 'website' && v.match.test(url || '')) return k;
+  return 'website';
+}
 
 const P = {
   search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
@@ -56,6 +85,7 @@ const P = {
   chrome: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M21.17 8H12M3.95 6.06 8.54 14M10.88 21.94 15.46 14"/>',
   shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
   chevron: '<path d="m9 18 6-6-6-6"/>',
+  chevleft: '<path d="m15 18-6-6 6-6"/>',
   up: '<path d="m18 15-6-6-6 6"/>',
   down: '<path d="m6 9 6 6 6-6"/>',
   refresh: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
@@ -64,12 +94,14 @@ const P = {
   image: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/>',
   cpu: '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/>',
   play: '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
+  playfill: '<path d="M7 4.5v15l13-7.5z" fill="currentColor"/>',
   home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
   mic: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/>',
   moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>',
   mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
   video: '<path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
   lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  unlock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>',
   zap: '<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>',
   book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>',
   send: '<path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/>',
@@ -79,12 +111,44 @@ const P = {
   heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/>',
   link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
   calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
-  save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>'
+  save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
+  gamepad: '<rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/>',
+  wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',
+  car: '<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5M3 12h18"/>',
+  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
+  inbox: '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
+  megaphone: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 8a5 5 0 0 1 0 8M18 5a9 9 0 0 1 0 14"/>',
+  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
+  film: '<rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/>',
+  phone: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
+  puzzle: '<path d="M19.4 14.6a2 2 0 1 0 0-3.2V7a1 1 0 0 0-1-1h-4.4a2 2 0 1 0-3.2 0H6a1 1 0 0 0-1 1v4.4a2 2 0 1 1 0 3.2V19a1 1 0 0 0 1 1h4.4a2 2 0 1 1 3.2 0h4.8a1 1 0 0 0 1-1z"/>',
+  crown: '<path d="m2 6 4 10h12l4-10-6 5-4-7-4 7z"/><path d="M6 20h12"/>',
+  coffee: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/>',
+  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
+  hash: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  palette: '<circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2a10 10 0 0 0 0 20c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.02A1.5 1.5 0 0 1 14.25 17H16a6 6 0 0 0 6-6c0-5-4.5-9-10-9z"/>',
+  bot: '<rect x="3" y="8" width="18" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="8.5" cy="14" r="1.2"/><circle cx="15.5" cy="14" r="1.2"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  // brand marks (simplified line versions)
+  youtube: '<path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>',
+  xlogo: '<path d="M4 4h4.5L20 20h-4.5z"/><path d="M20 4l-6.6 7.2M4 20l6.6-7.2"/>',
+  discord: '<path d="M8.5 17.5 7.5 19C5 18.5 3.3 17.4 2.5 16.5c0-4.5 1.3-8.5 3-11 1.4-.7 2.8-1 4-1.2l.6 1.3a14 14 0 0 1 3.8 0l.6-1.3c1.2.2 2.6.5 4 1.2 1.7 2.5 3 6.5 3 11-.8.9-2.5 2-5 2.5l-1-1.5"/><path d="M7.5 15.5c3 1.5 6 1.5 9 0"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/>',
+  tiktok: '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5"/>',
+  instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
+  twitch: '<path d="M4 3h16v11l-4 4h-4l-3 3v-3H5l-1-1z"/><path d="M11 8v4M15 8v4"/>',
+  reddit: '<circle cx="12" cy="14" r="7"/><path d="m12 7 1-4 4 1"/><circle cx="18" cy="4" r="1"/><path d="M9 16.5c1.5 1 4.5 1 6 0M9.5 12.5h.01M14.5 12.5h.01"/>',
+  bluesky: '<path d="M12 11C10 7 6.5 4 4 4c-1.5 0-2 1-2 2.5S3 12 6 12c-3 1-3 4-1 5.5S10 17 12 13c2 4 5 6 7 4.5s2-4.5-1-5.5c3 0 4-4 4-5.5S21.5 4 20 4c-2.5 0-6 3-8 7z"/>',
+  linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
+  patreon: '<circle cx="15" cy="9.5" r="6.5"/><path d="M3 3v18"/>'
 };
 
-// Glyphs an app can use as its icon (subset of the icon set, in picker order).
-export const GLYPHS = ['package', 'sparkles', 'monitor', 'tv', 'play', 'home', 'cpu', 'chrome', 'terminal', 'code',
-  'layers', 'shield', 'globe', 'mic', 'moon', 'zap', 'rocket', 'compass', 'image', 'video', 'book', 'heart'];
+// Glyphs an app or category can use as its icon (subset of the icon set, in picker order).
+export const GLYPHS = ['package', 'sparkles', 'monitor', 'tv', 'play', 'home', 'cpu', 'chrome', 'terminal', 'code', 'gamepad', 'car', 'wrench',
+  'puzzle', 'layers', 'shield', 'globe', 'mic', 'music', 'film', 'moon', 'zap', 'rocket', 'compass', 'image', 'video', 'phone', 'bot',
+  'palette', 'book', 'heart', 'users', 'crown', 'coffee', 'key', 'megaphone'];
 
 export function icon(name, cls = 'i') {
   return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[name] || P.code}</svg>`;
@@ -103,8 +167,11 @@ export function brandMark(cls = 'mark') {
 }
 
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const safeUrl = u => (/^(https?:|mailto:|\/|\.{0,2}\/|#|[\w-]+(\/|\.html|$))/i.test(String(u || '').trim()) ? String(u).trim() : '');
-export const categoryOf = id => CATEGORIES.find(c => c.id === id) || { id, label: 'Software', icon: 'code' };
+const isAbs = u => /^(https?:|mailto:|#|\/)/i.test(u);
+const safeUrl = u => (/^(javascript|data|vbscript):/i.test(String(u || '').trim()) ? '' : String(u || '').trim());
+// Resolve a catalog link: absolute stays as-is, site-relative ("pagepackage/") gets the page's base prefix.
+export function href(u, base = '') { const s = safeUrl(u); return !s ? '' : isAbs(s) ? s : base + s; }
+const ext = u => (/^https?:/i.test(u) ? ' target="_blank" rel="noopener"' : '');
 export const accentOf = id => ACCENTS[id] || ACCENTS.studio;
 export const statusOf = id => STATUS[id] || STATUS.live;
 
@@ -113,92 +180,121 @@ export function media(path, base) {
   if (!path) return '';
   return /^(https?:|data:|blob:)/i.test(path) ? path : base + path;
 }
-
-export function accentStyle(app) {
-  const a = accentOf(app.accent);
-  return `--a1:${a.a1};--a2:${a.a2}`;
-}
+export function accentStyle(app) { const a = accentOf(app.accent); return `--a1:${a.a1};--a2:${a.a2}`; }
 
 export function appIcon(app, opts = {}, size = '') {
-  const inner = app.iconImage
-    ? `<img src="${esc(media(app.iconImage, opts.mediaBase || ''))}" alt="" loading="lazy">`
-    : icon(app.glyph || 'code');
+  const inner = app.iconImage ? `<img src="${esc(media(app.iconImage, opts.mediaBase || ''))}" alt="" loading="lazy">` : icon(app.glyph || 'code');
   return `<span class="app-ico${size ? ' ' + size : ''}">${inner}</span>`;
 }
-
-function statusPill(app) {
+function statusPill(app, long) {
   const s = statusOf(app.status);
-  return `<span class="spill s-${esc(app.status || 'live')}"><i></i>${esc(s.short)}</span>`;
+  return `<span class="spill s-${esc(app.status || 'live')}"><i></i>${esc(long ? s.label : s.short)}</span>`;
 }
-
-function primaryLink(app) {
-  const url = safeUrl(app.primaryUrl) || safeUrl(app.pageUrl) || safeUrl(app.repoUrl);
-  if (!url) return '';
-  const label = app.primaryLabel || (url === app.repoUrl ? 'View on GitHub' : 'Learn more');
-  return { url, label };
+// "New" for 30 days after it was added, "Updated" for 21 days after a release; a manual badge always wins.
+export function badgeOf(app, now = Date.now()) {
+  if (app.badge) return app.badge;
+  const days = d => (d ? (now - new Date(d + 'T00:00:00')) / 864e5 : 1e9);
+  if (days(app.createdAt) <= 30) return 'New';
+  if (days(app.updatedAt) <= 21 && app.status !== 'soon' && app.status !== 'dev') return 'Updated';
+  return '';
+}
+function primaryLink(app, base) {
+  const raw = app.primaryUrl || app.pageUrl || app.repoUrl;
+  if (!safeUrl(raw)) return null;
+  return { url: href(raw, base), label: app.primaryLabel || (raw === app.repoUrl ? 'View on GitHub' : 'Learn more'), raw };
+}
+function byline(app, base) {
+  if (!app.community || !app.author?.name) return '';
+  const n = esc(app.author.name);
+  return `<span class="byline">${icon('users')}by ${app.author.url ? `<a href="${esc(href(app.author.url, base))}"${ext(app.author.url)}>${n}</a>` : n}</span>`;
 }
 
 export function coverHTML(app, opts = {}) {
-  if (app.cover) {
-    return `<div class="cover"><img src="${esc(media(app.cover, opts.mediaBase || ''))}" alt="${esc(app.name)} screenshot" loading="lazy"></div>`;
-  }
-  // Generated cover: accent light field, faint grid and an oversized glyph, so image-less apps still look intentional.
+  if (app.cover) return `<div class="cover"><img src="${esc(media(app.cover, opts.mediaBase || ''))}" alt="${esc(app.name)} screenshot" loading="lazy"></div>`;
   return `<div class="cover gen"><span class="gen-grid"></span><span class="gen-glyph">${icon(app.glyph || 'code')}</span><span class="gen-name">${esc(app.name)}</span></div>`;
 }
 
-// A showcase card. opts.mediaBase: image prefix. opts.wide: featured layout. opts.preview: inert (hub editor).
+// A showcase card. opts: mediaBase (image prefix), base (link prefix), wide (featured layout), preview (inert, hub editor).
 export function cardHTML(app, opts = {}) {
+  const base = opts.base || '';
   const cat = categoryOf(app.category);
-  const pl = primaryLink(app);
+  const pl = primaryLink(app, base);
   const tags = (app.techStack || []).slice(0, 4);
   const more = (app.techStack || []).length - tags.length;
-  const href = opts.preview ? '#' : `#app/${encodeURIComponent(app.id)}`;
-  return `<article class="pcard${opts.wide ? ' wide' : ''}${app.featured ? ' is-featured' : ''}" data-id="${esc(app.id)}" data-cat="${esc(app.category)}" data-status="${esc(app.status)}" style="${accentStyle(app)}">
-  <a class="pcard-hit" href="${href}" aria-label="${esc(app.name)} details"></a>
-  <div class="pcard-media">${coverHTML(app, opts)}${statusPill(app)}${app.featured ? `<span class="fpill">${icon('star')}Featured</span>` : ''}</div>
+  const link = opts.preview ? '#' : `${base}apps/${encodeURIComponent(app.id)}/`;
+  const badge = badgeOf(app, opts.now);
+  return `<article class="pcard${opts.wide ? ' wide' : ''}${app.featured ? ' is-featured' : ''}${app.community ? ' is-community' : ''}" data-id="${esc(app.id)}" data-cat="${esc(app.category)}" data-status="${esc(app.status)}" style="${accentStyle(app)}">
+  <a class="pcard-hit" href="${link}" data-app="${esc(app.id)}" aria-label="${esc(app.name)} details"></a>
+  <div class="pcard-media">${coverHTML(app, opts)}<div class="pills">${statusPill(app)}${app.community ? `<span class="cpill">${icon('users')}Community</span>` : ''}</div><div class="pills r">${badge ? `<span class="npill">${esc(badge)}</span>` : ''}${app.featured ? `<span class="fpill">${icon('star')}Featured</span>` : ''}</div></div>
   ${opts.wide ? '<div class="pcard-side">' : ''}<div class="pcard-body">
     <div class="pcard-head">${appIcon(app, opts)}<div class="pcard-title"><h3>${esc(app.name || 'Untitled app')}</h3><div class="meta">${icon(cat.icon)}<span>${esc(cat.label)}</span>${app.version ? `<span class="dot">·</span><span class="ver">${esc(app.version)}</span>` : ''}</div></div></div>
+    ${byline(app, base)}
     <p class="tagline">${esc(app.tagline)}</p>
     ${opts.wide && app.description ? `<p class="desc">${esc(app.description)}</p>` : ''}
     ${app.metricLabel || app.metricValue ? `<div class="metric"><span>${esc(app.metricLabel)}</span><b>${esc(app.metricValue)}</b></div>` : ''}
     ${tags.length ? `<div class="tags">${tags.map(t => `<span>${esc(t)}</span>`).join('')}${more > 0 ? `<span class="more">+${more}</span>` : ''}</div>` : ''}
   </div>
   <div class="pcard-foot">
-    ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${/^https?:/.test(pl.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(pl.label)}${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
+    ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
     <span class="sp"></span>
-    ${safeUrl(app.repoUrl) && pl.url !== app.repoUrl ? `<a class="ibtn" href="${esc(app.repoUrl)}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
-    <a class="details" href="${href}">Details${icon('chevron')}</a>
+    ${app.repoUrl && (!pl || pl.raw !== app.repoUrl) ? `<a class="ibtn" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
+    <a class="details" href="${link}" data-app="${esc(app.id)}">Details${icon('chevron')}</a>
   </div>${opts.wide ? '</div>' : ''}
 </article>`;
 }
 
-// The full detail view shown in the dialog on the site (and in the hub's preview).
+// ---------- YouTube ----------
+export function youtubeId(url) {
+  const m = String(url || '').match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/|v\/))([\w-]{11})/i);
+  return m ? m[1] : (/^[\w-]{11}$/.test(url || '') ? url : '');
+}
+export const ytThumb = (id, q = 'hqdefault') => `https://i.ytimg.com/vi/${id}/${q}.jpg`;
+export function ytEmbedHTML(id, title = 'Video', vertical = false) {
+  return `<button type="button" class="yt-lite${vertical ? ' vert' : ''}" data-yt="${esc(id)}" aria-label="Play ${esc(title)}"><img src="${ytThumb(id, vertical ? 'hqdefault' : 'maxresdefault')}" onerror="this.onerror=null;this.src='${ytThumb(id)}'" alt="" loading="lazy"><span class="yt-play">${icon('playfill')}</span></button>`;
+}
+export function videoCardHTML(v) {
+  return `<article class="vcard">${ytEmbedHTML(v.id, v.title)}<div class="vmeta"><h3>${esc(v.title)}</h3><span>${esc(fmtDate((v.published || '').slice(0, 10)))}${v.views >= 100 ? ` · ${esc(fmtViews(v.views))} views` : ''}</span></div></article>`;
+}
+export function shortCardHTML(v) {
+  return `<button type="button" class="scard" data-short="${esc(v.id)}" aria-label="Play ${esc(v.title)}"><img src="${ytThumb(v.id, 'oardefault')}" onerror="this.onerror=null;this.src='${ytThumb(v.id)}'" alt="" loading="lazy"><span class="s-ov"><span class="yt-play sm">${icon('playfill')}</span><b>${esc(cleanTitle(v.title))}</b>${v.views >= 100 ? `<small>${esc(fmtViews(v.views))} views</small>` : ''}</span></button>`;
+}
+export const cleanTitle = t => String(t || '').replace(/\s#\S+/g, '').trim() || t;
+export function fmtViews(n) { n = +n || 0; return n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : n >= 1e3 ? (n / 1e3).toFixed(1).replace(/\.0$/, '') + 'K' : String(n); }
+
+// ---------- detail view (site dialog, app pages, hub preview) ----------
 export function detailHTML(app, opts = {}) {
+  const base = opts.base || '';
+  const mb = opts.mediaBase || '';
   const cat = categoryOf(app.category);
   const st = statusOf(app.status);
-  const base = opts.mediaBase || '';
   const shots = [app.cover, ...(app.screenshots || [])].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i);
-  const pl = primaryLink(app);
+  const pl = primaryLink(app, base);
+  const yt = youtubeId(app.videoUrl);
   const links = [];
-  if (pl) links.push(`<a class="btn-acc lg" href="${esc(pl.url)}"${/^https?:/.test(pl.url) ? ' target="_blank" rel="noopener"' : ''}>${esc(pl.label)}${icon('arrow')}</a>`);
-  if (safeUrl(app.pageUrl) && app.pageUrl !== pl.url) links.push(`<a class="btn-soft" href="${esc(app.pageUrl)}">${icon('globe')}Product page</a>`);
-  if (safeUrl(app.repoUrl) && app.repoUrl !== pl.url) links.push(`<a class="btn-soft" href="${esc(app.repoUrl)}" target="_blank" rel="noopener">${icon('github')}Source</a>`);
-  if (safeUrl(app.docsUrl)) links.push(`<a class="btn-soft" href="${esc(app.docsUrl)}" target="_blank" rel="noopener">${icon('book')}Docs</a>`);
-  if (safeUrl(app.videoUrl)) links.push(`<a class="btn-soft" href="${esc(app.videoUrl)}" target="_blank" rel="noopener">${icon('video')}Watch video</a>`);
+  if (pl) links.push(`<a class="btn-acc lg" href="${esc(pl.url)}"${ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>`);
+  if (app.pageUrl && (!pl || app.pageUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.pageUrl, base))}"${ext(app.pageUrl)}>${icon('globe')}Product page</a>`);
+  if (app.repoUrl && (!pl || app.repoUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener">${icon('github')}Source</a>`);
+  if (app.docsUrl) links.push(`<a class="btn-soft" href="${esc(href(app.docsUrl, base))}"${ext(app.docsUrl)}>${icon('book')}Docs</a>`);
+  if (app.videoUrl && !yt) links.push(`<a class="btn-soft" href="${esc(href(app.videoUrl, base))}" target="_blank" rel="noopener">${icon('video')}Watch video</a>`);
+  if (!opts.preview) links.push(`<button type="button" class="btn-soft share" data-share="${esc(app.id)}">${icon('share')}<span>Share</span></button>`);
   return `<div class="detail" style="${accentStyle(app)}">
-  <header class="d-head">${appIcon(app, opts, 'lg')}<div class="d-title"><div class="d-row"><h2 id="dlg-title">${esc(app.name)}</h2>${app.version ? `<span class="ver-chip">${esc(app.version)}</span>` : ''}<span class="spill s-${esc(app.status || 'live')}"><i></i>${esc(st.label)}</span></div><p>${esc(app.tagline)}</p></div></header>
-  ${shots.length ? `<div class="d-gallery"><div class="d-stage"><img src="${esc(media(shots[0], base))}" alt="${esc(app.name)} screenshot"></div>${shots.length > 1 ? `<div class="d-thumbs">${shots.map((s, i) => `<button type="button" class="${i ? '' : 'on'}" data-src="${esc(media(s, base))}" aria-label="Screenshot ${i + 1}"><img src="${esc(media(s, base))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}</div>` : `<div class="d-gallery">${coverHTML(app, opts)}</div>`}
+  <header class="d-head">${appIcon(app, opts, 'lg')}<div class="d-title"><div class="d-row"><h2 id="dlg-title">${esc(app.name)}</h2>${app.version ? `<span class="ver-chip">${esc(app.version)}</span>` : ''}${statusPill(app, true)}${app.community ? `<span class="cpill">${icon('users')}Community</span>` : ''}</div><p>${esc(app.tagline)}</p>${byline(app, base)}</div></header>
+  ${shots.length ? `<div class="d-gallery"><div class="d-stage"><img src="${esc(media(shots[0], mb))}" alt="${esc(app.name)} screenshot"></div>${shots.length > 1 ? `<div class="d-thumbs">${shots.map((s, i) => `<button type="button" class="${i ? '' : 'on'}" data-src="${esc(media(s, mb))}" aria-label="Screenshot ${i + 1}"><img src="${esc(media(s, mb))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}</div>` : `<div class="d-gallery">${coverHTML(app, opts)}</div>`}
   <div class="d-grid">
     <div class="d-main">
       ${app.description ? `<section><h4>Overview</h4><p class="d-desc">${esc(app.description)}</p></section>` : ''}
+      ${yt ? `<section><h4>Video</h4><div class="d-video">${ytEmbedHTML(yt, app.name)}</div></section>` : ''}
       ${(app.features || []).length ? `<section><h4>Highlights</h4><ul class="d-feats">${app.features.map(f => `<li>${icon('check')}<span>${esc(f)}</span></li>`).join('')}</ul></section>` : ''}
       ${app.installCommand ? `<section><h4>Get started</h4><div class="cmd"><code>${esc(app.installCommand)}</code><button type="button" class="copy" data-copy="${esc(app.installCommand)}">${icon('copy')}<span>Copy</span></button></div></section>` : ''}
+      ${app.embedCode ? `<section><h4>${esc(app.embedTitle || 'More')}</h4><div class="embed-box">${opts.preview ? `<div class="embed-ph">${icon('code')}Custom embed shows here on the website</div>` : app.embedCode}</div></section>` : ''}
     </div>
     <aside class="d-side">
       <dl class="facts">
         <div><dt>Platform</dt><dd>${esc(app.platform || cat.label)}</dd></div>
         <div><dt>Status</dt><dd>${esc(st.label)}</dd></div>
+        ${app.price ? `<div><dt>Price</dt><dd>${esc(app.price)}</dd></div>` : ''}
         ${app.version ? `<div><dt>Version</dt><dd>${esc(app.version)}</dd></div>` : ''}
+        ${app.requirements ? `<div><dt>Requires</dt><dd>${esc(app.requirements)}</dd></div>` : ''}
         ${app.metricLabel ? `<div><dt>${esc(app.metricLabel)}</dt><dd>${esc(app.metricValue)}</dd></div>` : ''}
         ${app.updatedAt ? `<div><dt>Updated</dt><dd>${esc(fmtDate(app.updatedAt))}</dd></div>` : ''}
       </dl>
@@ -211,14 +307,21 @@ export function detailHTML(app, opts = {}) {
 }
 
 export function fmtDate(iso) {
+  if (!iso) return '';
   const d = new Date(iso + (iso.length === 10 ? 'T00:00:00' : ''));
   return isNaN(d) ? iso : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
+export function socialLinksHTML(socials = [], cls = 'socials') {
+  if (!socials.length) return '';
+  return `<div class="${cls}">${socials.map(s => { const m = SOCIALS[s.type] || SOCIALS.website; return `<a href="${esc(safeUrl(s.url))}"${ext(s.url)} title="${esc(s.label || m.label)}" aria-label="${esc(s.label || m.label)}">${icon(m.icon)}</a>`; }).join('')}</div>`;
+}
+
 // Fields that never leave the hub.
-export const PRIVATE_FIELDS = ['notes', 'localPath', 'published', 'order'];
+export const PRIVATE_FIELDS = ['notes', 'localPath', 'published', 'order', 'submission'];
 export function publicApp(app) {
   const o = { ...app };
   for (const k of PRIVATE_FIELDS) delete o[k];
+  if (o.author) o.author = { name: o.author.name || '', url: o.author.url || '' };
   return o;
 }
