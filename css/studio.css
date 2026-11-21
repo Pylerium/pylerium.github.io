@@ -295,3 +295,8 @@ body:has(dialog[open]) .cafe-float { opacity: 0; pointer-events: none; }
 
 .nav-links a.caffeine, .nav-links a.caffeine:hover { color: #1B0F02; background: linear-gradient(120deg, #FCD34D, #F59E0B 45%, #FB923C); padding: 8px 14px 8px 12px; }
 .nav-links a.caffeine:hover { filter: brightness(1.06); }
+
+/* energy-drink fizz: bubbles rise from the can instead of steam */
+.steam i { width: 4px; height: 4px; border-radius: 50%; animation: fizz 2.1s infinite ease-out; }
+.steam i:nth-child(1) { --dx: -3px; } .steam i:nth-child(2) { --dx: 1px; animation-delay: .7s; } .steam i:nth-child(3) { --dx: 3px; animation-delay: 1.4s; }
+@keyframes fizz { 0% { opacity: 0; transform: translate(0, 5px) scale(.4); } 25% { opacity: .95; } 100% { opacity: 0; transform: translate(var(--dx, 1px), -13px) scale(1.1); } }

@@ -1,6 +1,6 @@
 // Pylerium Studio public site: filters, app dialogs, YouTube players, Shorts, sharing and supporter submissions.
 // Cards and pages are pre-rendered by the hub's builder; this script only adds interaction.
-import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=059208f39d';
+import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=6f084d5815';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 setCategories(D.categories);
@@ -126,7 +126,7 @@ function route() {
 addEventListener('popstate', route);
 
 function thanks() {
-  toast(`${icon('coffee')} <b>Thank you for the caffeine!</b>&nbsp;If you gave A$${esc(D.community?.threshold ?? 10)}+, your supporter code arrives by email.`, 7000);
+  toast(`${icon('can')} <b>Thank you for the caffeine!</b>&nbsp;If you gave A$${esc(D.community?.threshold ?? 10)}+, your supporter code arrives by email.`, 7000);
   history.replaceState(null, '', location.pathname);
 }
 
@@ -153,7 +153,7 @@ function showUnlock(err) {
       ${err ? `<p class="err">${icon('info')}${esc(err)}</p>` : ''}
       <button class="btn primary" type="submit">${icon('unlock')}Unlock</button></form>
     <div class="sub-alt">
-      ${D.donate ? `<a class="caffeine lg" href="${esc(D.donate.url)}" target="_blank" rel="noopener"><span class="steam"><i></i><i></i><i></i></span>${icon('coffee')}<span>${esc(D.donate.label)}</span></a><p>Give A$${esc(c.threshold)}+ and your code arrives by email.</p>` : ''}
+      ${D.donate ? `<a class="caffeine lg" href="${esc(D.donate.url)}" target="_blank" rel="noopener"><span class="steam"><i></i><i></i><i></i></span>${icon('can')}<span>${esc(D.donate.label)}</span></a><p>Give A$${esc(c.threshold)}+ and your code arrives by email.</p>` : ''}
       <p>Bought a lifetime licence? Email <a href="mailto:${esc(c.email)}?subject=${encodeURIComponent('Supporter code request')}">${esc(c.email)}</a> from your purchase address and we'll send your code.</p>
     </div></div>`;
   $('#unlockForm').addEventListener('submit', async e => {

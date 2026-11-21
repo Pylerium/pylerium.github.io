@@ -125,6 +125,7 @@ const P = {
   phone: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
   puzzle: '<path d="M19.4 14.6a2 2 0 1 0 0-3.2V7a1 1 0 0 0-1-1h-4.4a2 2 0 1 0-3.2 0H6a1 1 0 0 0-1 1v4.4a2 2 0 1 1 0 3.2V19a1 1 0 0 0 1 1h4.4a2 2 0 1 1 3.2 0h4.8a1 1 0 0 0 1-1z"/>',
   crown: '<path d="m2 6 4 10h12l4-10-6 5-4-7-4 7z"/><path d="M6 20h12"/>',
+  can: '<path d="M9 2h6"/><path d="M8.5 2 7 4.5V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4.5L15.5 2"/><path d="M7 7h10M7 18.5h10"/><path d="m12.8 9.2-2.3 3.4h3.1l-2.3 3.4"/>',
   coffee: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/>',
   share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
   hash: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
@@ -148,7 +149,7 @@ const P = {
 // Glyphs an app or category can use as its icon (subset of the icon set, in picker order).
 export const GLYPHS = ['package', 'sparkles', 'monitor', 'tv', 'play', 'home', 'cpu', 'chrome', 'terminal', 'code', 'gamepad', 'car', 'wrench',
   'puzzle', 'layers', 'shield', 'globe', 'mic', 'music', 'film', 'moon', 'zap', 'rocket', 'compass', 'image', 'video', 'phone', 'bot',
-  'palette', 'book', 'heart', 'users', 'crown', 'coffee', 'key', 'megaphone'];
+  'palette', 'book', 'heart', 'users', 'crown', 'can', 'coffee', 'key', 'megaphone'];
 
 export function icon(name, cls = 'i') {
   return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[name] || P.code}</svg>`;
