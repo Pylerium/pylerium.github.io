@@ -142,22 +142,23 @@
   </section>
 
   <section class="pm-sec wrap" id="buy">
-    <div class="center-head"><div class="kicker">Pricing</div><h2>Try it free. Buy once.</h2><p>Every feature is unlocked during the 14-day trial. When you’re happy, a licence keeps it running for good.</p></div>
+    <div class="center-head"><div class="kicker">Pricing</div><h2>Try it free. Then A$19.99 a month.</h2><p>Every feature is unlocked during the 14-day trial, no card needed. Subscribe when you’re happy and cancel any time.</p></div>
     <div class="pm-price">
-      <div class="plan" id="plan">Lifetime licence</div>
+      <div class="plan" id="plan">Pylerium Manager Pro</div>
       <div class="amt" id="amt"><small>Loading price…</small></div>
-      <p class="note" id="planNote">Pay once. Includes every 1.x update.</p>
+      <p class="note" id="planNote">Billed monthly. Cancel any time.</p>
       <ul>
         <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every feature, no limits on apps or sales</li>
         <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Use it on all of your own computers</li>
-        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Licence key emailed within minutes</li>
-        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14-day money-back guarantee</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every update included</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Licence key emailed within minutes, enter it once</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cancel any time, 14-day money-back on your first payment</li>
       </ul>
       <div class="stack">
-        <button class="btn primary" type="button" id="buyBtn" aria-disabled="true">Buy a licence</button>
+        <button class="btn primary" type="button" id="buyBtn" aria-disabled="true">Subscribe</button>
         <a class="btn ghost" href="download/" data-dl>Start the free trial first</a>
       </div>
-      <p class="fine" id="buyFine">Checkout by Paddle, our reseller. They handle payment, invoices and sales tax. <a href="../refunds.html">Refunds</a> · <a href="../privacy.html">Privacy</a></p>
+      <p class="fine" id="buyFine">Secure checkout by Stripe. Receipts and tax are handled automatically. <a href="refunds/">Subscriptions &amp; refunds</a> · <a href="privacy/">Privacy</a><span id="manageLink"></span></p>
     </div>
     <p class="pm-req" id="req">Runs on Windows 10 or 11, macOS and Linux. Needs a free GitHub account. Stripe, Cloudflare, Discord and Gmail are optional.</p>
   </section>
@@ -169,9 +170,11 @@
       <details><summary>Where does my data live?</summary><p>On your computer. Your keys and settings never leave it, except for what you choose to publish (your website, to your own GitHub account) and the services you connect yourself, like Stripe, Discord, Gmail and, for paid downloads, your own Cloudflare account.</p></details>
       <details><summary>Does hosting cost anything?</summary><p>No. GitHub Pages hosts your site for free and Cloudflare’s free plan covers paid-download delivery. Stripe only charges its usual fee when you make a sale.</p></details>
       <details><summary>Can I use my own domain?</summary><p>Yes. GitHub Pages supports custom domains; point yours at your github.io site and it keeps working with Pylerium Manager.</p></details>
-      <details><summary>What happens when the trial ends?</summary><p>Your website stays online. You just can’t publish changes until you add a licence key, and everything you made is still there when you do.</p></details>
-      <details><summary>How do updates work?</summary><p>Download the new version and replace the folder. Your apps, settings and keys are stored separately, so nothing is lost. Lifetime licences include every 1.x update.</p></details>
-      <details><summary>Can I get a refund?</summary><p>Yes, within 14 days of purchase, no questions asked. Email us and we’ll sort it out.</p></details>
+      <details><summary>What happens when the trial ends?</summary><p>Your website stays online. You just can’t publish changes or sell downloads until you subscribe, and everything you made is still there when you do.</p></details>
+      <details><summary>Do I need a new key every month?</summary><p>No. You paste your licence key once. Pylerium Manager checks your subscription by itself, and it keeps working offline until the end of the month you’ve paid for.</p></details>
+      <details><summary>How do I cancel or change my card?</summary><p>Use the link in your Stripe receipt, or Settings → Licence → Manage subscription in the app. You keep Pro until the end of the month you’ve paid for.</p></details>
+      <details><summary>How do updates work?</summary><p>Download the new version and replace the folder. Your apps, settings and keys are stored separately, so nothing is lost. The app tells you when a new version is out, and your subscription includes every update.</p></details>
+      <details><summary>Can I get a refund?</summary><p>Yes, within 14 days of your first payment, no questions asked. Email us and we’ll sort it out. <a href="refunds/">Full policy</a>.</p></details>
     </div>
   </section>
 </main>
@@ -179,7 +182,7 @@
 <footer class="site">
   <div class="wrap">
     <div class="f-brand"><a class="brand" href="./"><img class="mark" src="assets/icon.svg" alt="" width="30" height="30"><span>Pylerium Manager</span></a><span class="copy-note">© <span id="yr">2026</span> Pylerium Studio</span></div>
-    <nav><a href="../">Pylerium Studio</a><a href="../privacy.html">Privacy</a><a href="../refunds.html">Refunds</a><a href="mailto:danqhu3@gmail.com">Contact</a></nav>
+    <nav><a href="../">Pylerium Studio</a><a href="privacy/">Privacy</a><a href="refunds/">Subscriptions &amp; refunds</a><a href="mailto:danqhu3@gmail.com">Contact</a></nav>
   </div>
 </footer>
 
@@ -187,7 +190,7 @@
 (() => {
   const C = window.PM_SHOP || {};
   document.getElementById('yr').textContent = new Date().getFullYear();
-  document.getElementById('plan').textContent = C.plan || 'Lifetime licence';
+  document.getElementById('plan').textContent = C.plan || 'Pylerium Manager Pro';
   document.getElementById('planNote').textContent = C.planNote || '';
   const menu = document.querySelector('.menu-btn'), nav = document.querySelector('.nav-links');
   menu?.addEventListener('click', () => nav.classList.toggle('open'));
@@ -199,30 +202,15 @@
     document.querySelectorAll('[data-dl]').forEach(a => { a.href = `download/${v.file}`; a.setAttribute('download', ''); a.title = `Pylerium Manager ${v.version} · ${(v.size / 1048576).toFixed(1)} MB`; });
   }).catch(() => {});
 
+  // Subscribe: the Stripe Payment Link (config.js, written by PyleriumManager/vendor/stripe-setup.mjs).
   const amt = document.getElementById('amt'), buy = document.getElementById('buyBtn');
-  const soon = () => { amt.innerHTML = '<small>Licences go on sale very soon</small>'; buy.textContent = 'Coming soon'; buy.setAttribute('aria-disabled', 'true'); };
-  if (!C.paddleToken || !C.priceId) return soon();
-  const s = document.createElement('script');
-  s.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
-  s.onload = async () => {
-    try {
-      if (C.sandbox) Paddle.Environment.set('sandbox');
-      Paddle.Initialize({ token: C.paddleToken });
-      const p = await Paddle.PricePreview({ items: [{ priceId: C.priceId, quantity: 1 }] });
-      const li = p?.data?.details?.lineItems?.[0];
-      amt.textContent = li?.formattedTotals?.total || li?.formattedTotals?.subtotal || '';
-      if (!amt.textContent) amt.innerHTML = '<small>See the price at checkout</small>';
-    } catch { amt.innerHTML = '<small>See the price at checkout</small>'; }
-    buy.removeAttribute('aria-disabled');
-    buy.textContent = 'Buy a licence';
-    buy.addEventListener('click', () => Paddle.Checkout.open({
-      items: [{ priceId: C.priceId, quantity: 1 }],
-      settings: { displayMode: 'overlay', theme: 'dark', successUrl: new URL('thanks/', location.href).href }
-    }));
-    if (location.hash === '#buy' && new URLSearchParams(location.search).has('checkout')) buy.click();
-  };
-  s.onerror = soon;
-  document.head.append(s);
+  amt.innerHTML = `${C.price || 'A$19.99'}<small> / ${C.interval || 'month'}</small>`;
+  if (C.manageUrl) document.getElementById('manageLink').innerHTML = ` · <a href="${C.manageUrl}" rel="noopener">Manage subscription</a>`;
+  if (!C.checkoutUrl) { buy.textContent = 'Subscriptions open soon'; buy.setAttribute('aria-disabled', 'true'); return; }
+  buy.removeAttribute('aria-disabled');
+  buy.textContent = 'Subscribe';
+  buy.addEventListener('click', () => { location.href = C.checkoutUrl; });
+  if (location.hash === '#buy' && new URLSearchParams(location.search).has('checkout')) buy.click();
 })();
 </script>
 </body>

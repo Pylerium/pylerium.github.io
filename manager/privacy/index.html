@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy · Pylerium Manager</title>
+<meta name="description" content="What Pylerium Manager and its subscription collect, and what they don't.">
+<meta name="theme-color" content="#07080E">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/showcase.css">
+<link rel="stylesheet" href="../../css/studio.css">
+<style>
+  .doc { max-width: 720px; margin: 60px auto 90px; padding: 38px 34px; border-radius: 26px; border: 1px solid var(--line); background: linear-gradient(170deg, rgba(20,24,41,.92), rgba(10,12,20,.94)); box-sizing: border-box; line-height: 1.65; }
+  .doc h1 { margin: 0 0 6px; font-size: clamp(26px, 4vw, 34px); letter-spacing: -.03em; }
+  .doc .upd { color: var(--muted); font-size: 13px; margin: 0 0 24px; }
+  .doc h2 { margin: 28px 0 8px; font-size: 18px; }
+  .doc p, .doc li { color: var(--soft); }
+  .doc a { color: #7DD3FC; }
+</style>
+</head>
+<body class="app-page">
+<div class="ambient" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="gridlines"></span></div>
+<header class="nav"><div class="wrap"><a class="brand" href="../"><img class="mark" src="../assets/icon.svg" alt="" width="34" height="34"><span>Pylerium Manager<small>by Pylerium Studio</small></span></a></div></header>
+<main class="wrap">
+  <article class="doc">
+    <h1>Privacy</h1>
+    <p class="upd">Pylerium Manager · Effective 22 November 2026</p>
+
+    <h2>The app keeps your data on your computer</h2>
+    <p>Your apps, settings, keys and tokens are stored in your user profile on your own computer. Pylerium Manager doesn’t send them to us. It talks directly to the services you connect yourself (GitHub, and optionally Stripe, Cloudflare, Discord and Gmail) using your own accounts.</p>
+
+    <h2>What the app sends to us</h2>
+    <ul>
+      <li><b>Update check:</b> it downloads <code>latest.json</code> from this website to see if there’s a new version.</li>
+      <li><b>Licence check:</b> with a subscription, it sends only your subscription id to our licence service, which replies whether it’s paid and until when. No name, email or usage data is sent.</li>
+      <li><b>Refund list:</b> it downloads a list of cancelled licence ids from this website.</li>
+    </ul>
+    <p>There are no analytics, trackers or ads in the app or on this page.</p>
+
+    <h2>When you subscribe</h2>
+    <p>Payment is handled by Stripe. We receive your name, email address, country and payment status (never your full card number) and use them only to send your licence key and receipts, provide support, keep tax records and handle refunds. Stripe’s own privacy policy applies to the payment itself.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or a request to see or delete your details: <a href="mailto:danqhu3@gmail.com?subject=Pylerium%20Manager%20privacy">danqhu3@gmail.com</a>.</p>
+    <p><a href="../">← Back to Pylerium Manager</a> · <a href="../refunds/">Subscriptions &amp; refunds</a></p>
+  </article>
+</main>
+</body>
+</html>

@@ -1,13 +1,14 @@
-// Pylerium Manager shop settings. This is the only file to edit when Paddle is ready.
-//   paddleToken : Paddle → Developer tools → Authentication → Client-side tokens (starts with live_ or test_)
-//   priceId     : Paddle → Catalog → Products → Pylerium Manager → the price (starts with pri_)
-//   sandbox     : true while testing with a Paddle sandbox account
-// Until both are filled in, the page offers the free trial and says licences are coming soon.
+// Pylerium Manager shop settings.
+//   checkoutUrl : the Stripe Payment Link for the monthly subscription
+//   manageUrl   : the Stripe customer portal login link (change card, see invoices, cancel)
+// Both are written by PyleriumManager/vendor/stripe-setup.mjs. Until checkoutUrl is set, the page offers the free trial
+// and says subscriptions open soon.
 window.PM_SHOP = {
-  paddleToken: '',
-  priceId: '',
-  sandbox: false,
-  plan: 'Lifetime licence',
-  planNote: 'Pay once. Includes every 1.x update.',
+  checkoutUrl: '',
+  manageUrl: '',
+  price: 'A$19.99',
+  interval: 'month',
+  plan: 'Pylerium Manager Pro',
+  planNote: 'Billed monthly. Cancel any time. Prices include any applicable tax.',
   support: 'danqhu3@gmail.com'
 };
