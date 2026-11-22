@@ -134,8 +134,8 @@
       "XBDM",
       "JRPC2"
     ],
-    "primaryLabel": "",
-    "primaryUrl": "",
+    "primaryLabel": "BUY NOW",
+    "primaryUrl": "https://buy.stripe.com/bJe00l6Tw5X190x5bPdAk02",
     "pageUrl": "",
     "docsUrl": "",
     "videoUrl": "",
@@ -158,7 +158,9 @@
         "note": "Latest release for Windows x64."
       }
     ],
-    "updatedAt": "2026-11-22"
+    "updatedAt": "2026-11-22",
+    "price": "A$3.99",
+    "paid": true
   },
   {
     "id": "pyleriumtv",
