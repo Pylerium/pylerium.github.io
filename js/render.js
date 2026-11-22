@@ -279,12 +279,14 @@ export function detailHTML(app, opts = {}) {
   const shots = [app.cover, ...(app.screenshots || [])].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i);
   const pl = primaryLink(app, base);
   const yt = youtubeId(app.videoUrl);
+  // a video file uploaded with the app's media (mp4/webm) plays right on the page
+  const vid = !yt && /\.(mp4|webm)$/i.test(app.videoUrl || '') && !/^https?:/i.test(app.videoUrl) ? app.videoUrl : '';
   const links = [];
   if (pl) links.push(`<a class="btn-acc lg" href="${esc(pl.url)}"${ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>`);
   if (app.pageUrl && (!pl || app.pageUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.pageUrl, base))}"${ext(app.pageUrl)}>${icon('globe')}Product page</a>`);
   if (app.repoUrl && (!pl || app.repoUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener">${icon('github')}Source</a>`);
   if (app.docsUrl) links.push(`<a class="btn-soft" href="${esc(href(app.docsUrl, base))}"${ext(app.docsUrl)}>${icon('book')}Docs</a>`);
-  if (app.videoUrl && !yt) links.push(`<a class="btn-soft" href="${esc(href(app.videoUrl, base))}" target="_blank" rel="noopener">${icon('video')}Watch video</a>`);
+  if (app.videoUrl && !yt && !vid) links.push(`<a class="btn-soft" href="${esc(href(app.videoUrl, base))}" target="_blank" rel="noopener">${icon('video')}Watch video</a>`);
   if (!opts.preview) links.push(`<button type="button" class="btn-soft share" data-share="${esc(app.id)}">${icon('share')}<span>Share</span></button>`);
   return `<div class="detail" data-detail="${esc(app.id)}" style="${accentStyle(app)}">
   <header class="d-head">${appIcon(app, opts, 'lg')}<div class="d-title"><div class="d-row"><h2 id="dlg-title">${esc(app.name)}</h2>${app.version ? `<span class="ver-chip">${esc(app.version)}</span>` : ''}${statusPill(app, true)}${app.community ? `<span class="cpill">${icon('users')}Community</span>` : ''}</div><p>${esc(app.tagline)}</p>${byline(app, base)}</div></header>
@@ -293,6 +295,7 @@ export function detailHTML(app, opts = {}) {
     <div class="d-main">
       ${app.description ? `<section><h4>Overview</h4><div class="d-desc md">${md(app.description, base)}</div></section>` : ''}
       ${yt ? `<section><h4>Video</h4><div class="d-video">${ytEmbedHTML(yt, app.name)}</div></section>` : ''}
+      ${vid ? `<section><h4>Video</h4><div class="d-video"><video class="d-vid" src="${esc(media(vid, mb))}"${app.cover ? ` poster="${esc(media(app.cover, mb))}"` : ''} controls preload="metadata" playsinline></video></div></section>` : ''}
       ${(app.features || []).length ? `<section><h4>Highlights</h4><ul class="d-feats">${app.features.map(f => `<li>${icon('check')}<span>${esc(f)}</span></li>`).join('')}</ul></section>` : ''}
       ${app.installCommand ? `<section><h4>Get started</h4><div class="cmd"><code>${esc(app.installCommand)}</code><button type="button" class="copy" data-copy="${esc(app.installCommand)}">${icon('copy')}<span>Copy</span></button></div></section>` : ''}
       ${app.embedCode ? `<section><h4>${esc(app.embedTitle || 'More')}</h4><div class="embed-box">${opts.preview ? `<div class="embed-ph">${icon('code')}Custom embed shows here on the website</div>` : app.embedCode}</div></section>` : ''}

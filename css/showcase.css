@@ -212,6 +212,7 @@
 .s-ov b { font-size: 13.5px; line-height: 1.35; font-weight: 650; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .s-ov small { font: 500 11px var(--mono); color: rgba(255,255,255,.7); }
 .d-video .yt-lite { border: 1px solid var(--line); }
+.d-vid { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; border: 1px solid var(--line); background: #000; }
 
 /* ---------- Embeds ---------- */
 .embed-box { border-radius: 14px; overflow: hidden; }

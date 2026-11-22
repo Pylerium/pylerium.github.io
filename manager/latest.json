@@ -1,8 +1,8 @@
 {
-  "version": "1.2.0",
-  "file": "PyleriumManager-1.2.0.zip",
-  "size": 373369,
-  "sha256": "5f58a76a1835ae0b291301406ea93811a6dff4b91a35a658acc19e8908f90a98",
+  "version": "1.2.1",
+  "file": "PyleriumManager-1.2.1.zip",
+  "size": 373709,
+  "sha256": "c59ce83749cd5106799493c91916f8eb42f69f2fd83253a67ab2a9e8213633b7",
   "date": "2026-11-22",
-  "notes": ""
+  "notes": "Self-hosted app videos (upload an mp4 with your app's media), Stripe Managed Payments support (tax codes are set for you), and paid apps no longer show as changed after every publish."
 }
