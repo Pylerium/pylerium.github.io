@@ -72,7 +72,7 @@
     "status": "beta",
     "version": "",
     "platform": "Windows · Python 3.10+",
-    "featured": false,
+    "featured": true,
     "accent": "studio",
     "glyph": "sparkles",
     "iconImage": "",
