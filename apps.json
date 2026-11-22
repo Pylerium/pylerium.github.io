@@ -5,12 +5,12 @@
     "tagline": "Every image, video & file on a page. One gallery. One click.",
     "description": "pagePackage is a Chrome extension that finds everything a page contains, shows it in a gallery you can filter and preview, and saves what you pick: one by one, all at once, converted, or as a single ZIP.",
     "category": "extension",
-    "status": "soon",
+    "status": "live",
     "version": "v2.6.2",
     "platform": "Chrome & Chromium browsers",
     "price": "Free + Pro + Lifetime",
     "requirements": "A Browser",
-    "badge": "IN REVIEW",
+    "badge": "NEW",
     "featured": true,
     "accent": "violet",
     "glyph": "package",
@@ -31,8 +31,8 @@
       "OffscreenCanvas",
       "MediaRecorder"
     ],
-    "primaryLabel": "Learn more",
-    "primaryUrl": "pagepackage/",
+    "primaryLabel": "Add to Chrome",
+    "primaryUrl": "https://chromewebstore.google.com/detail/jodgbhofhjljgoahpijiloankokdldbj",
     "pageUrl": "pagepackage/",
     "repoUrl": "",
     "docsUrl": "",
@@ -47,8 +47,13 @@
       "Scans every open tab into one gallery, watches pages for new files and keeps a searchable library"
     ],
     "embedTitle": "Demo",
-    "embedCode": "<iframe src=\"https://www.youtube.com/embed/3qc_If8pRko\" title=\"Coming to all extension stores.\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+    "embedCode": "<iframe src=\"https://www.youtube.com/embed/3qc_If8pRko\" title=\"pagePackage demo\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
     "changelog": [
+      {
+        "ver": "v2.6.2",
+        "date": "Nov 2026",
+        "note": "Now available on the Chrome Web Store."
+      },
       {
         "ver": "v2.6.2",
         "date": "Nov 2026",
@@ -56,7 +61,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-21"
+    "updatedAt": "2026-11-22"
   },
   {
     "id": "pylerium-studio",
