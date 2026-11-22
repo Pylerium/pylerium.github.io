@@ -1,8 +1,8 @@
 {
-  "version": "1.0.0",
-  "file": "PyleriumManager-1.0.0.zip",
-  "size": 289283,
-  "sha256": "95ffc0ecb11f1e92befdf312c258c66e8e3cf7345bdea339841067b2322ab072",
+  "version": "1.1.0",
+  "file": "PyleriumManager-1.1.0.zip",
+  "size": 369240,
+  "sha256": "c45650766ad12d44ae9e37313d3c0d630fc449ffc6fb08dad11c81c3a64d88c4",
   "date": "2026-11-22",
-  "notes": ""
+  "notes": "Licence keys for the apps you sell (with ready-made key checks for Python, JavaScript, C# and C/C++), a Tax tab with Stripe Tax and threshold tracking, auto-sync of versions, release notes and prices, and New app straight from Paid downloads."
 }
