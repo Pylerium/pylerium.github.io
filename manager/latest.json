@@ -1,8 +1,8 @@
 {
-  "version": "1.1.0",
-  "file": "PyleriumManager-1.1.0.zip",
-  "size": 369270,
-  "sha256": "e1f5805cff9492a707b1f1104e9b8fd7b33b3c024f80f7b38614bb49408dcf53",
+  "version": "1.1.1",
+  "file": "PyleriumManager-1.1.1.zip",
+  "size": 371125,
+  "sha256": "ef51365dd2896447cd18edcb2f38f6aa63417c8828ed2101a109869f377b9563",
   "date": "2026-11-22",
-  "notes": "Licence keys for the apps you sell (with ready-made key checks for Python, JavaScript, C# and C/C++), a Tax tab with Stripe Tax and threshold tracking, auto-sync of versions, release notes and prices, and New app straight from Paid downloads."
+  "notes": "One Store tab for everything you sell: Apps for sale, Products & prices, Licences and Tax, all linked together. Apps on your site with no way to download are flagged with a one-click Sell. C/C++ licence kit fix."
 }
