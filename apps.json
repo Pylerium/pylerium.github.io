@@ -118,7 +118,7 @@
     "description": "HexDrive360 is a Windows toolkit for connecting to an Xbox 360 development console or RGH console over XBDM and inspecting or editing its live memory. It includes memory scanning, game offsets, XEX inspection and scripting tools. Built for curious modders and preservation-minded users.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.0.2",
+    "version": "v1.1.0",
     "platform": "Windows 10+ (x64)",
     "featured": false,
     "accent": "emerald",
@@ -134,10 +134,9 @@
       "XBDM",
       "JRPC2"
     ],
-    "primaryLabel": "Download",
-    "primaryUrl": "https://github.com/Pylerium/HexDrive360/releases/latest",
+    "primaryLabel": "",
+    "primaryUrl": "",
     "pageUrl": "",
-    "repoUrl": "https://github.com/Pylerium/HexDrive360",
     "docsUrl": "",
     "videoUrl": "",
     "installCommand": "",
@@ -149,12 +148,17 @@
     ],
     "changelog": [
       {
+        "ver": "v1.1.0",
+        "date": "Nov 2026",
+        "note": "Licence keys: HexDrive360 now activates with the key from your purchase email (it starts with PYL1-). The key is checked offline and remembered on this PC."
+      },
+      {
         "ver": "v1.0.2",
         "date": "Nov 2026",
         "note": "Latest release for Windows x64."
       }
     ],
-    "updatedAt": "2026-11-18"
+    "updatedAt": "2026-11-22"
   },
   {
     "id": "pyleriumtv",
