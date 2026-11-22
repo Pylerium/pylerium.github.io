@@ -6,7 +6,7 @@
     "description": "pagePackage is a Chrome extension that finds everything a page contains, shows it in a gallery you can filter and preview, and saves what you pick: one by one, all at once, converted, or as a single ZIP.",
     "category": "extension",
     "status": "live",
-    "version": "v2.6.2",
+    "version": "v2.6.3",
     "platform": "Chrome & Chromium browsers",
     "price": "Free + Pro + Lifetime",
     "requirements": "A Browser",
