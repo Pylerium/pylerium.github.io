@@ -211,9 +211,12 @@ dialog.short-dlg::backdrop { background: rgba(3,4,8,.85); backdrop-filter: blur(
 .comm-stat { padding: 26px; border-radius: 22px; background: rgba(13,16,28,.9); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .comm-stat b { font-size: 44px; line-height: 1; font-weight: 800; }
 .comm-stat b .i { width: 40px; height: 40px; color: #F9A8D4; }
-.comm-stat span { color: var(--muted); }
+.comm-stat strong { font-size: 17px; font-weight: 700; color: var(--text, #F1F5F9); margin-top: 6px; }
+.comm-stat span { color: var(--muted); line-height: 1.55; }
 .wall { padding: 22px; border-radius: 22px; background: rgba(13,16,28,.9); border: 1px solid var(--line); }
-.wall h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 15px; color: #FDE68A; }
+.wall h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 4px; font-size: 15px; color: #FDE68A; }
+.wall h4 em { margin-left: auto; font-style: normal; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; color: #FDE68A; background: rgba(245,158,11,.12); border: 1px solid rgba(251,191,36,.25); }
+.wall p { margin: 0 0 14px; font-size: 13.5px; color: var(--muted); }
 .wall-names { display: flex; flex-wrap: wrap; gap: 8px; }
 .wall-names span { padding: 5px 11px; border-radius: 999px; font-size: 13px; font-weight: 600; color: #FEF3C7; background: rgba(245,158,11,.12); border: 1px solid rgba(251,191,36,.25); }
 @media (max-width: 860px) { .comm { grid-template-columns: 1fr; } .comm-card { padding: 24px; } }
