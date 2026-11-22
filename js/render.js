@@ -234,12 +234,12 @@ export function cardHTML(app, opts = {}) {
   const badge = badgeOf(app, opts.now);
   return `<article class="pcard${opts.wide ? ' wide' : ''}${app.featured ? ' is-featured' : ''}${app.community ? ' is-community' : ''}" data-id="${esc(app.id)}" data-cat="${esc(app.category)}" data-status="${esc(app.status)}" style="${accentStyle(app)}">
   <a class="pcard-hit" href="${link}" data-app="${esc(app.id)}" aria-label="${esc(app.name)} details"></a>
-  <div class="pcard-media">${coverHTML(app, opts)}<div class="pills">${statusPill(app)}${app.community ? `<span class="cpill">${icon('users')}Community</span>` : ''}</div><div class="pills r">${badge ? `<span class="npill">${esc(badge)}</span>` : ''}${app.featured ? `<span class="fpill">${icon('star')}Featured</span>` : ''}</div></div>
+  <div class="pcard-media">${coverHTML(app, opts)}<div class="pills">${statusPill(app)}${app.community ? `<span class="cpill">${icon('users')}Community</span>` : ''}</div><div class="pills r">${app.paid && app.price ? `<span class="ppill">${icon('tag')}${esc(app.price)}</span>` : ''}${badge ? `<span class="npill">${esc(badge)}</span>` : ''}${app.featured ? `<span class="fpill">${icon('star')}Featured</span>` : ''}</div></div>
   ${opts.wide ? '<div class="pcard-side">' : ''}<div class="pcard-body">
     <div class="pcard-head">${appIcon(app, opts)}<div class="pcard-title"><h3>${esc(app.name || 'Untitled app')}</h3><div class="meta">${icon(cat.icon)}<span>${esc(cat.label)}</span>${app.version ? `<span class="dot">·</span><span class="ver">${esc(app.version)}</span>` : ''}</div></div></div>
     ${byline(app, base)}
     <p class="tagline">${esc(app.tagline)}</p>
-    ${opts.wide && app.description ? `<p class="desc">${esc(app.description)}</p>` : ''}
+    ${opts.wide && app.description ? `<p class="desc">${esc(clip(mdPlain(app.description), 280))}</p>` : ''}
     ${app.metricLabel || app.metricValue ? `<div class="metric"><span>${esc(app.metricLabel)}</span><b>${esc(app.metricValue)}</b></div>` : ''}
     ${tags.length ? `<div class="tags">${tags.map(t => `<span>${esc(t)}</span>`).join('')}${more > 0 ? `<span class="more">+${more}</span>` : ''}</div>` : ''}
   </div>
@@ -291,7 +291,7 @@ export function detailHTML(app, opts = {}) {
   ${shots.length ? `<div class="d-gallery"><div class="d-stage"><img src="${esc(media(shots[0], mb))}" alt="${esc(app.name)} screenshot"></div>${shots.length > 1 ? `<div class="d-thumbs">${shots.map((s, i) => `<button type="button" class="${i ? '' : 'on'}" data-src="${esc(media(s, mb))}" aria-label="Screenshot ${i + 1}"><img src="${esc(media(s, mb))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}</div>` : `<div class="d-gallery">${coverHTML(app, opts)}</div>`}
   <div class="d-grid">
     <div class="d-main">
-      ${app.description ? `<section><h4>Overview</h4><p class="d-desc">${esc(app.description)}</p></section>` : ''}
+      ${app.description ? `<section><h4>Overview</h4><div class="d-desc md">${md(app.description, base)}</div></section>` : ''}
       ${yt ? `<section><h4>Video</h4><div class="d-video">${ytEmbedHTML(yt, app.name)}</div></section>` : ''}
       ${(app.features || []).length ? `<section><h4>Highlights</h4><ul class="d-feats">${app.features.map(f => `<li>${icon('check')}<span>${esc(f)}</span></li>`).join('')}</ul></section>` : ''}
       ${app.installCommand ? `<section><h4>Get started</h4><div class="cmd"><code>${esc(app.installCommand)}</code><button type="button" class="copy" data-copy="${esc(app.installCommand)}">${icon('copy')}<span>Copy</span></button></div></section>` : ''}
@@ -311,7 +311,7 @@ export function detailHTML(app, opts = {}) {
       ${(app.changelog || []).length ? `<h4>Release notes</h4><ol class="log">${app.changelog.map(c => `<li><div><b>${esc(c.ver)}</b><span>${esc(c.date)}</span></div><p>${esc(c.note)}</p></li>`).join('')}</ol>` : ''}
     </aside>
   </div>
-  ${links.length ? `<footer class="d-foot">${links.join('')}</footer>` : ''}
+  ${links.length ? `<footer class="d-foot">${links.join('')}${app.paid ? `<p class="d-paid">${icon('lock')}<span>Secure checkout by Stripe. Your download is ready the moment you pay, and the link is emailed to you.</span></p>` : ''}</footer>` : ''}
 </div>`;
 }
 
@@ -334,3 +334,97 @@ export function publicApp(app) {
   if (o.author) o.author = { name: o.author.name || '', url: o.author.url || '' };
   return o;
 }
+
+// ---------- Markdown (app descriptions) ----------
+// A small, safe renderer: everything is escaped first, links go through safeUrl, and no raw HTML is ever passed on.
+// Supports headings, paragraphs (single line breaks kept), **bold**, *italic*, ~~strike~~, `code`, fenced code, links,
+// autolinks, images, bullet/numbered/task lists (nested by indent), quotes, rules and tables.
+const MD_BLOCK = /^(\s{0,3}#{1,6}\s|\s*```|\s{0,3}>|\s*([-*+]|\d{1,3}[.)])\s+|\s{0,3}([-*_])(\s*\3){2,}\s*$)/;
+function mdInline(s, base) {
+  const keep = [];
+  const put = h => `\u0000${keep.push(h) - 1}\u0000`;
+  s = String(s).replace(/`([^`\n]+)`/g, (m, c) => put(`<code>${esc(c)}</code>`));
+  s = s.replace(/!\[([^\]\n]*)\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g, (m, alt, u) => { const h = href(u, base); return h && /^(https?:|\/|\.|[\w-]+\/)/i.test(h) ? put(`<img src="${esc(h)}" alt="${esc(alt)}" loading="lazy">`) : esc(alt); });
+  s = s.replace(/\[([^\]\n]+)\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g, (m, t, u) => { const h = href(u, base); return h ? put(`<a href="${esc(h)}"${ext(h)}>${mdInline(t, base)}</a>`) : esc(t); });
+  s = s.replace(/(^|[\s(])(https?:\/\/[^\s<>()]+[^\s<>().,;:!?'"])/g, (m, pre, u) => pre + put(`<a href="${esc(u)}"${ext(u)}>${esc(u)}</a>`));
+  s = esc(s)
+    .replace(/\*\*(?=\S)([\s\S]*?\S)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[^\w])__(?=\S)([\s\S]*?\S)__(?!\w)/g, '$1<strong>$2</strong>')
+    .replace(/(^|[^*\w])\*(?=[^\s*])([^*\n]*?[^\s*])\*(?!\*)/g, '$1<em>$2</em>')
+    .replace(/(^|[^\w])_(?=\S)([^_\n]*?\S)_(?!\w)/g, '$1<em>$2</em>')
+    .replace(/~~(?=\S)([\s\S]*?\S)~~/g, '<del>$1</del>');
+  return s.replace(/\u0000(\d+)\u0000/g, (m, i) => keep[+i]);
+}
+const mdCells = l => l.trim().replace(/^\||\|$/g, '').split(/(?<!\\)\|/).map(c => c.trim().replace(/\\\|/g, '|'));
+export function md(src, base = '') {
+  const L = String(src || '').replace(/\r\n?/g, '\n').replace(/\t/g, '    ').split('\n');
+  const out = [];
+  let i = 0;
+  const indent = l => l.match(/^ */)[0].length;
+  function list(min) {
+    const first = L[i].match(/^(\s*)([-*+]|\d{1,3}[.)])\s+/);
+    const ordered = /\d/.test(first[2]), start = ordered ? parseInt(first[2], 10) : 1, ind = first[1].length;
+    const items = [];
+    while (i < L.length) {
+      const m = L[i].match(/^(\s*)([-*+]|\d{1,3}[.)])\s+(.*)$/);
+      if (!m || m[1].length < min || m[1].length > ind + 1 || /\d/.test(m[2]) !== ordered) break;
+      if (m[1].length < ind) break;
+      let text = m[3]; i++;
+      while (i < L.length && L[i].trim() && !/^\s*([-*+]|\d{1,3}[.)])\s+/.test(L[i]) && !MD_BLOCK.test(L[i]) && indent(L[i]) > ind) text += '\n' + L[i].trim(), i++;
+      let sub = '';
+      while (i < L.length && /^\s*([-*+]|\d{1,3}[.)])\s+/.test(L[i]) && indent(L[i]) > ind + 1) sub += list(ind + 2);
+      const task = text.match(/^\[([ xX])\]\s+(.*)$/s);
+      items.push(task ? `<li class="task"><span class="tick${task[1] === ' ' ? '' : ' on'}" aria-hidden="true"></span>${mdInline(task[2], base).replace(/\n/g, '<br>')}${sub}</li>`
+        : `<li>${mdInline(text, base).replace(/\n/g, '<br>')}${sub}</li>`);
+      while (i < L.length && !L[i].trim() && i + 1 < L.length && /^\s*([-*+]|\d{1,3}[.)])\s+/.test(L[i + 1]) && indent(L[i + 1]) >= ind) i++;
+    }
+    return ordered ? `<ol${start !== 1 ? ` start="${start}"` : ''}>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`;
+  }
+  while (i < L.length) {
+    const l = L[i];
+    if (!l.trim()) { i++; continue; }
+    let m;
+    if ((m = l.match(/^\s*```\s*([\w+-]*)/))) {
+      const code = []; i++;
+      while (i < L.length && !/^\s*```\s*$/.test(L[i])) code.push(L[i++]);
+      i++;
+      out.push(`<pre><code>${esc(code.join('\n'))}</code></pre>`);
+      continue;
+    }
+    if ((m = l.match(/^\s{0,3}(#{1,6})\s+(.*?)\s*#*\s*$/))) { const n = Math.min(6, m[1].length + 2); out.push(`<h${n}>${mdInline(m[2], base)}</h${n}>`); i++; continue; }
+    if (/^\s{0,3}([-*_])(\s*\1){2,}\s*$/.test(l)) { out.push('<hr>'); i++; continue; }
+    if (/^\s{0,3}>/.test(l)) {
+      const q = [];
+      while (i < L.length && /^\s{0,3}>/.test(L[i])) q.push(L[i++].replace(/^\s{0,3}>\s?/, ''));
+      out.push(`<blockquote>${md(q.join('\n'), base)}</blockquote>`);
+      continue;
+    }
+    if (l.includes('|') && i + 1 < L.length && /^\s*\|?\s*:?-{2,}:?\s*(\|\s*:?-{2,}:?\s*)*\|?\s*$/.test(L[i + 1])) {
+      const head = mdCells(l), align = mdCells(L[i + 1]).map(c => (/^:-+:$/.test(c) ? 'center' : /-:$/.test(c) ? 'right' : ''));
+      i += 2;
+      const rows = [];
+      while (i < L.length && L[i].includes('|') && L[i].trim()) rows.push(mdCells(L[i++]));
+      const cell = (tag, c, k) => `<${tag}${align[k] ? ` style="text-align:${align[k]}"` : ''}>${mdInline(c, base)}</${tag}>`;
+      out.push(`<div class="md-table"><table><thead><tr>${head.map((c, k) => cell('th', c, k)).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${head.map((_, k) => cell('td', r[k] || '', k)).join('')}</tr>`).join('')}</tbody></table></div>`);
+      continue;
+    }
+    if (/^\s*([-*+]|\d{1,3}[.)])\s+/.test(l)) { out.push(list(0)); continue; }
+    const p = [];
+    while (i < L.length && L[i].trim() && !(p.length && MD_BLOCK.test(L[i])) && !(L[i].includes('|') && i + 1 < L.length && /^\s*\|?\s*:?-{2,}/.test(L[i + 1]))) p.push(L[i++].trim());
+    if (!p.length) { p.push(L[i++].trim()); }
+    out.push(`<p>${p.map(x => mdInline(x, base)).join('<br>')}</p>`);
+  }
+  return out.join('\n');
+}
+// Plain text for excerpts, meta descriptions and search snippets.
+export function mdPlain(src) {
+  return String(src || '').replace(/\r\n?/g, '\n')
+    .replace(/```[\s\S]*?(```|$)/g, ' ')
+    .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^\s{0,3}#{1,6}\s+/gm, '').replace(/^\s{0,3}>\s?/gm, '').replace(/^\s*([-*+]|\d{1,3}[.)])\s+(\[[ xX]\]\s+)?/gm, '')
+    .replace(/^\s*\|?\s*:?-{2,}.*$/gm, '').replace(/\|/g, ' ')
+    .replace(/(\*\*|__|~~|`)/g, '').replace(/(^|[\s(])[*_](\S[^*_\n]*?)[*_](?=[\s).,;:!?]|$)/g, '$1$2')
+    .replace(/^\s{0,3}([-*_])(\s*\1){2,}\s*$/gm, '')
+    .replace(/\s+/g, ' ').trim();
+}
+export const clip = (s, n) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s);

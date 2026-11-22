@@ -1,6 +1,6 @@
 // Pylerium Studio public site: filters, app dialogs, YouTube players, Shorts, sharing and supporter submissions.
 // Cards and pages are pre-rendered by the hub's builder; this script only adds interaction.
-import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=8d326781eb';
+import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=f656645f14';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 setCategories(D.categories);
@@ -178,7 +178,7 @@ function showForm(code) {
         <label class="fld"><span>One-line tagline *</span><input name="tagline" maxlength="110" required></label>
       </div>
     </div>
-    <label class="fld"><span>Description</span><textarea name="description" rows="4" maxlength="900" placeholder="What it does and who it's for"></textarea></label>
+    <label class="fld"><span>Description <small>Markdown works: **bold**, lists, links</small></span><textarea name="description" rows="4" maxlength="900" placeholder="What it does and who it's for"></textarea></label>
     <div class="f2">
       <label class="fld"><span>Category *</span><select name="category">${cats.map(c => `<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('')}</select></label>
       <label class="fld"><span>Platform</span><input name="platform" maxlength="60" placeholder="e.g. Windows, GTA V, Chrome"></label>

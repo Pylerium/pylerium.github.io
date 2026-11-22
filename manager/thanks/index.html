@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thank you · Pylerium Manager</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#07080E">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/showcase.css">
+<link rel="stylesheet" href="../../css/studio.css">
+<style>
+  .ty { max-width: 640px; margin: 70px auto 90px; padding: 38px 34px; border-radius: 26px; border: 1px solid var(--line); background: linear-gradient(170deg, rgba(20,24,41,.92), rgba(10,12,20,.94)); box-shadow: 0 30px 80px -30px rgba(0,0,0,.7); box-sizing: border-box; }
+  .ty .ok { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 17px; color: #5EEAD4; background: rgba(45,212,191,.12); border: 1px solid rgba(45,212,191,.35); }
+  .ty .ok .i { width: 28px; height: 28px; }
+  .ty h1 { margin: 18px 0 8px; font-size: clamp(26px, 4vw, 34px); letter-spacing: -.03em; }
+  .ty > p { color: var(--muted); margin: 0 0 22px; line-height: 1.6; }
+  .ty ol { margin: 0 0 26px; padding-left: 22px; display: flex; flex-direction: column; gap: 12px; line-height: 1.6; }
+  .ty ol li::marker { color: var(--teal); font-weight: 700; }
+  .ty ol b { color: var(--text); }
+  .ty .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ty small { display: block; margin-top: 18px; color: var(--muted); font-size: 13px; }
+  .ty small a { color: inherit; }
+</style>
+</head>
+<body class="app-page">
+<div class="ambient" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="gridlines"></span></div>
+<header class="nav"><div class="wrap"><a class="brand" href="../"><img class="mark" src="../assets/icon.svg" alt="" width="34" height="34"><span>Pylerium Manager<small>by Pylerium Studio</small></span></a></div></header>
+<main class="wrap">
+  <section class="ty">
+    <span class="ok"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+    <h1>Thank you for buying Pylerium Manager!</h1>
+    <p>Your payment went through. Here’s how to get going:</p>
+    <ol>
+      <li><b>Check your inbox.</b> Your licence key (it starts with <code>PM1-</code>) arrives within a few minutes. Paddle also sends your receipt separately.</li>
+      <li><b>Download Pylerium Manager</b> below if you haven’t already, unzip it and double-click <b>Pylerium Manager</b>.</li>
+      <li>Paste the key into <b>Settings → Licence</b> (or the first setup step) and press <b>Activate</b>.</li>
+    </ol>
+    <div class="row"><a class="btn primary" href="../download/" data-dl>Download Pylerium Manager</a><a class="btn ghost" href="../">Back to the product page</a></div>
+    <small>No email after 15 minutes? Check your spam folder, then write to <a href="mailto:danqhu3@gmail.com?subject=Pylerium%20Manager%20licence">danqhu3@gmail.com</a> with the email you paid with and we’ll send it straight away.</small>
+  </section>
+</main>
+<script>
+fetch('../latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).then(v => { if (v?.file) document.querySelectorAll('[data-dl]').forEach(a => { a.href = `../download/${v.file}`; a.setAttribute('download', ''); }); }).catch(() => {});
+</script>
+</body>
+</html>

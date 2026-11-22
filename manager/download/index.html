@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Downloading Pylerium Manager…</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/showcase.css">
+<link rel="stylesheet" href="../../css/studio.css">
+</head>
+<body class="app-page">
+<main class="wrap" style="text-align:center;padding:120px 0">
+  <h1 style="letter-spacing:-.03em">Your download is starting…</h1>
+  <p style="color:var(--muted)" id="msg">If nothing happens, <a id="dl" href="../">go back to the product page</a>.</p>
+</main>
+<script>
+// Always serves the newest build listed in ../latest.json (written by vendor/package.mjs).
+fetch('../latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : Promise.reject())).then(v => {
+  const a = document.getElementById('dl'); a.href = v.file; a.textContent = `download Pylerium Manager ${v.version} here`;
+  location.href = v.file;
+}).catch(() => { document.getElementById('msg').textContent = 'The download isn’t available right now. Please try again soon.'; });
+</script>
+</body>
+</html>

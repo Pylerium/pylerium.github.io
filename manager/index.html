@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pylerium Manager · Your app studio’s website, run from your desktop</title>
+<meta name="description" content="Pylerium Manager builds a showcase website for your apps, publishes it free on GitHub Pages and runs the business side: Stripe sales, paid downloads, supporter codes, emails and Discord alerts.">
+<meta name="theme-color" content="#07080E">
+<link rel="canonical" href="https://pylerium.github.io/manager/">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Pylerium Studio">
+<meta property="og:title" content="Pylerium Manager: your app studio’s website, run from your desktop">
+<meta property="og:description" content="A showcase site for your apps on free GitHub hosting, plus Stripe sales, paid downloads, supporter codes, emails and Discord alerts. 14-day free trial.">
+<meta property="og:url" content="https://pylerium.github.io/manager/">
+<meta property="og:image" content="https://pylerium.github.io/manager/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../css/showcase.css">
+<link rel="stylesheet" href="../css/studio.css">
+<style>
+  .pm-hero { text-align: center; padding: 70px 0 30px; }
+  .pm-hero .app-mark { width: 76px; height: 76px; border-radius: 22px; box-shadow: 0 20px 50px -18px rgba(139,92,246,.8); }
+  .pm-hero h1 { margin: 22px auto 18px; max-width: 900px; font-size: clamp(36px, 6vw, 66px); line-height: 1.04; letter-spacing: -.045em; font-weight: 800; }
+  .pm-hero .lead { margin: 0 auto; max-width: 680px; font-size: clamp(16px, 2vw, 19px); color: var(--muted); line-height: 1.6; }
+  .pm-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .pm-fine { margin-top: 14px; color: var(--muted); font-size: 13.5px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .pm-fine span { display: inline-flex; gap: 6px; align-items: center; }
+  .pm-fine .i { width: 15px; height: 15px; color: var(--teal); }
+  .pm-shot { margin: 46px auto 0; max-width: 1180px; border-radius: 22px; overflow: hidden; border: 1px solid var(--line2); box-shadow: 0 60px 120px -50px rgba(0,0,0,.9), 0 0 0 1px rgba(139,92,246,.12); background: #0B0D16; }
+  .pm-shot .bar { display: flex; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.02); }
+  .pm-shot .bar i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,.12); }
+  .pm-shot img { display: block; width: 100%; height: auto; }
+  .pm-sec { padding: 90px 0 10px; }
+  .pm-feats { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 16px; }
+  .pm-feat { padding: 22px; border-radius: 20px; border: 1px solid var(--line); background: linear-gradient(170deg, rgba(20,24,41,.85), rgba(11,13,22,.9)); }
+  .pm-feat .ico { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; color: #fff; background: linear-gradient(135deg, var(--c1), var(--c2)); box-shadow: 0 12px 26px -12px var(--c1); }
+  .pm-feat .ico .i { width: 21px; height: 21px; }
+  .pm-feat h3 { margin: 16px 0 6px; font-size: 17px; letter-spacing: -.01em; }
+  .pm-feat p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+  .pm-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
+  .pm-step { padding: 24px; border-radius: 20px; border: 1px solid var(--line); background: rgba(13,16,28,.85); }
+  .pm-step::before { counter-increment: s; content: counter(s); display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; font: 700 14px var(--mono); color: #fff; background: rgba(139,92,246,.28); border: 1px solid rgba(139,92,246,.6); }
+  .pm-step h3 { margin: 14px 0 6px; font-size: 17px; }
+  .pm-step p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+  .pm-split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center; }
+  .pm-split ul { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+  .pm-split li { display: flex; gap: 10px; color: var(--muted); }
+  .pm-split li .i { flex: none; width: 18px; height: 18px; color: var(--teal); margin-top: 3px; }
+  .pm-split li b { color: var(--text); font-weight: 600; }
+  .pm-split .pm-shot { margin: 0; }
+  .pm-price { max-width: 520px; margin: 0 auto; text-align: center; padding: 36px 34px; border-radius: 26px; border: 1px solid rgba(139,92,246,.4); background: radial-gradient(120% 90% at 50% 0%, rgba(139,92,246,.18), rgba(11,13,22,.92) 60%); box-shadow: 0 40px 90px -40px rgba(139,92,246,.6); }
+  .pm-price .plan { font: 700 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--teal); }
+  .pm-price .amt { margin: 12px 0 4px; font-size: 54px; font-weight: 800; letter-spacing: -.04em; min-height: 66px; }
+  .pm-price .amt small { font-size: 16px; color: var(--muted); font-weight: 600; letter-spacing: 0; }
+  .pm-price .note { color: var(--muted); margin: 0 0 22px; }
+  .pm-price ul { list-style: none; margin: 0 auto 26px; padding: 0; display: inline-flex; flex-direction: column; gap: 9px; text-align: left; }
+  .pm-price li { display: flex; gap: 9px; }
+  .pm-price li .i { flex: none; width: 18px; height: 18px; color: var(--teal); margin-top: 3px; }
+  .pm-price .btn { width: 100%; justify-content: center; }
+  .pm-price .stack { display: flex; flex-direction: column; gap: 10px; }
+  .pm-price .fine { margin-top: 16px; font-size: 12.5px; color: var(--muted); }
+  .pm-price .fine a { color: inherit; }
+  .pm-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+  .pm-faq details { border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; background: rgba(13,16,28,.7); }
+  .pm-faq summary { cursor: pointer; font-weight: 700; }
+  .pm-faq p { margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
+  .pm-req { text-align: center; color: var(--muted); font-size: 13.5px; margin-top: 14px; }
+  .kicker { font: 700 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+  .pm-split h2 { line-height: 1.12; }
+  .center-head { text-align: center; margin-bottom: 34px; }
+  .center-head h2 { margin: 6px 0 8px; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.03em; }
+  .center-head p { margin: 0 auto; max-width: 620px; color: var(--muted); }
+  button.btn { cursor: pointer; border: 0; font: inherit; font-weight: 700; }
+  .btn[aria-disabled="true"] { opacity: .55; pointer-events: none; }
+  @media (max-width: 860px) { .pm-steps, .pm-split { grid-template-columns: 1fr; } .pm-hero { padding-top: 44px; } }
+</style>
+<script src="config.js"></script>
+</head>
+<body class="app-page">
+<div class="ambient" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="gridlines"></span></div>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img class="mark" src="assets/icon.svg" alt="" width="34" height="34"><span>Pylerium Manager<small>by Pylerium Studio</small></span></a>
+    <button class="menu-btn" type="button" aria-label="Menu"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav class="nav-links">
+      <a href="#features">Features</a><a href="#how">How it works</a><a href="#buy">Pricing</a><a href="#faq">FAQ</a>
+      <a class="gh" href="../">Pylerium Studio</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="pm-hero wrap">
+    <img class="app-mark" src="assets/icon-256.png" alt="Pylerium Manager" width="76" height="76">
+    <h1>Your app studio’s website, <span class="grad-text">run from your desktop.</span></h1>
+    <p class="lead">Pylerium Manager builds a beautiful showcase site for your apps, publishes it free on GitHub Pages and runs the business side for you: Stripe sales, paid downloads, supporter perks, emails and Discord alerts.</p>
+    <div class="pm-ctas">
+      <a class="btn primary" href="download/" data-dl><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Start the free trial</a>
+      <a class="btn ghost" href="#buy">See pricing</a>
+    </div>
+    <div class="pm-fine"><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14 days free, no card needed</span><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Windows, macOS and Linux</span><span><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Free hosting on GitHub</span></div>
+    <div class="pm-shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/screen-apps.webp" alt="Pylerium Manager’s Apps view: your catalogue, drafts and what’s waiting to publish" width="1440" height="900"></div>
+  </section>
+
+  <section class="pm-sec wrap" id="features">
+    <div class="center-head"><div class="kicker">Everything in one app</div><h2>Built for people who ship apps</h2><p>Mods, extensions, desktop tools, Android TV apps: give them a home that looks professional and sells while you build.</p></div>
+    <div class="pm-feats">
+      <div class="pm-feat" style="--c1:#8B5CF6;--c2:#6366F1"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h3>Your own website</h3><p>yourname.github.io, hosted free by GitHub. Publishing is one button. No servers, no git, no hosting bills.</p></div>
+      <div class="pm-feat" style="--c1:#38BDF8;--c2:#2DD4BF"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg></span><h3>A real app showcase</h3><p>Cards, screenshots, videos, release notes and a shareable page for every app, with search and categories built in.</p></div>
+      <div class="pm-feat" style="--c1:#2DD4BF;--c2:#10B981"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Paid downloads</h3><p>Sell an app in one form. Files stay in a private GitHub repo; buyers pay with Stripe and download instantly from their own link.</p></div>
+      <div class="pm-feat" style="--c1:#F59E0B;--c2:#F97316"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><h3>Store &amp; pricing</h3><p>Create products and change prices from the app. Stripe, your site and every buy button stay in sync.</p></div>
+      <div class="pm-feat" style="--c1:#FBBF24;--c2:#F59E0B"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 7 4 4 5-7 5 7 4-4-2 12H5L3 7z"/></svg></span><h3>Supporter perks</h3><p>Tips and donations unlock supporter codes, a thank-you wall and community app submissions, all automatic.</p></div>
+      <div class="pm-feat" style="--c1:#F43F5E;--c2:#EC4899"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9z"/></svg></span><h3>Videos &amp; embeds</h3><p>Your YouTube videos and Shorts sync onto the site automatically. Add Twitch, Discord or any embed you like.</p></div>
+      <div class="pm-feat" style="--c1:#6366F1;--c2:#8B5CF6"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><h3>Discord alerts</h3><p>A private channel for every sale and code, and a public one that announces releases and videos to your community.</p></div>
+      <div class="pm-feat" style="--c1:#0EA5E9;--c2:#38BDF8"><span class="ico"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>Emails that send themselves</h3><p>Thank-you notes, supporter codes and download links go out from your own Gmail the moment someone pays.</p></div>
+    </div>
+  </section>
+
+  <section class="pm-sec wrap" id="how">
+    <div class="center-head"><div class="kicker">Live in minutes</div><h2>Three steps to your studio site</h2></div>
+    <div class="pm-steps">
+      <div class="pm-step"><h3>Download and open it</h3><p>Unzip and double-click. It sets itself up, adds a desktop shortcut and opens in your browser. Nothing else to install.</p></div>
+      <div class="pm-step"><h3>Sign in with GitHub</h3><p>The setup creates your site and turns on free hosting for you. No GitHub account yet? Making one takes a minute.</p></div>
+      <div class="pm-step"><h3>Add your apps, press Publish</h3><p>Fill in a card, drop in screenshots and publish. Your site updates in about a minute, every time.</p></div>
+    </div>
+  </section>
+
+  <section class="pm-sec wrap">
+    <div class="pm-split">
+      <div>
+        <div class="kicker">Sales on autopilot</div>
+        <h2 style="font-size:clamp(26px,3.4vw,38px);letter-spacing:-.03em;margin:6px 0 0">Get paid without the busywork</h2>
+        <ul>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Stripe built in.</b> Payment links, prices and products, managed from one screen.</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Private files, instant delivery.</b> Paid builds live in private repos and reach buyers through a delivery service on your own free Cloudflare account.</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Refunds handled.</b> Refunded or disputed purchases lose their download and perks automatically.</span></li>
+          <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Live dashboard.</b> Sales, emails, codes and site health, updating as they happen.</span></li>
+        </ul>
+      </div>
+      <div class="pm-shot"><div class="bar"><i></i><i></i><i></i></div><img src="assets/screen-store.webp" alt="The Store view: prices and payment links synced with Stripe" width="1440" height="900" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="pm-sec wrap" id="buy">
+    <div class="center-head"><div class="kicker">Pricing</div><h2>Try it free. Buy once.</h2><p>Every feature is unlocked during the 14-day trial. When you’re happy, a licence keeps it running for good.</p></div>
+    <div class="pm-price">
+      <div class="plan" id="plan">Lifetime licence</div>
+      <div class="amt" id="amt"><small>Loading price…</small></div>
+      <p class="note" id="planNote">Pay once. Includes every 1.x update.</p>
+      <ul>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Every feature, no limits on apps or sales</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Use it on all of your own computers</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Licence key emailed within minutes</li>
+        <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>14-day money-back guarantee</li>
+      </ul>
+      <div class="stack">
+        <button class="btn primary" type="button" id="buyBtn" aria-disabled="true">Buy a licence</button>
+        <a class="btn ghost" href="download/" data-dl>Start the free trial first</a>
+      </div>
+      <p class="fine" id="buyFine">Checkout by Paddle, our reseller. They handle payment, invoices and sales tax. <a href="../refunds.html">Refunds</a> · <a href="../privacy.html">Privacy</a></p>
+    </div>
+    <p class="pm-req" id="req">Runs on Windows 10 or 11, macOS and Linux. Needs a free GitHub account. Stripe, Cloudflare, Discord and Gmail are optional.</p>
+  </section>
+
+  <section class="pm-sec wrap" id="faq">
+    <div class="center-head"><div class="kicker">Questions</div><h2>Good to know</h2></div>
+    <div class="pm-faq">
+      <details><summary>Do I need to know how to code?</summary><p>No. You fill in forms and press Publish. Pylerium Manager writes the website, handles GitHub and keeps everything in sync.</p></details>
+      <details><summary>Where does my data live?</summary><p>On your computer. Your keys and settings never leave it, except for what you choose to publish (your website, to your own GitHub account) and the services you connect yourself, like Stripe, Discord, Gmail and, for paid downloads, your own Cloudflare account.</p></details>
+      <details><summary>Does hosting cost anything?</summary><p>No. GitHub Pages hosts your site for free and Cloudflare’s free plan covers paid-download delivery. Stripe only charges its usual fee when you make a sale.</p></details>
+      <details><summary>Can I use my own domain?</summary><p>Yes. GitHub Pages supports custom domains; point yours at your github.io site and it keeps working with Pylerium Manager.</p></details>
+      <details><summary>What happens when the trial ends?</summary><p>Your website stays online. You just can’t publish changes until you add a licence key, and everything you made is still there when you do.</p></details>
+      <details><summary>How do updates work?</summary><p>Download the new version and replace the folder. Your apps, settings and keys are stored separately, so nothing is lost. Lifetime licences include every 1.x update.</p></details>
+      <details><summary>Can I get a refund?</summary><p>Yes, within 14 days of purchase, no questions asked. Email us and we’ll sort it out.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-brand"><a class="brand" href="./"><img class="mark" src="assets/icon.svg" alt="" width="30" height="30"><span>Pylerium Manager</span></a><span class="copy-note">© <span id="yr">2026</span> Pylerium Studio</span></div>
+    <nav><a href="../">Pylerium Studio</a><a href="../privacy.html">Privacy</a><a href="../refunds.html">Refunds</a><a href="mailto:danqhu3@gmail.com">Contact</a></nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const C = window.PM_SHOP || {};
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('plan').textContent = C.plan || 'Lifetime licence';
+  document.getElementById('planNote').textContent = C.planNote || '';
+  const menu = document.querySelector('.menu-btn'), nav = document.querySelector('.nav-links');
+  menu?.addEventListener('click', () => nav.classList.toggle('open'));
+  nav?.addEventListener('click', e => { if (e.target.closest('a')) nav.classList.remove('open'); });
+
+  // The free trial download: the newest build listed in latest.json (written by vendor/package.mjs).
+  fetch('latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).then(v => {
+    if (!v?.file) return;
+    document.querySelectorAll('[data-dl]').forEach(a => { a.href = `download/${v.file}`; a.setAttribute('download', ''); a.title = `Pylerium Manager ${v.version} · ${(v.size / 1048576).toFixed(1)} MB`; });
+  }).catch(() => {});
+
+  const amt = document.getElementById('amt'), buy = document.getElementById('buyBtn');
+  const soon = () => { amt.innerHTML = '<small>Licences go on sale very soon</small>'; buy.textContent = 'Coming soon'; buy.setAttribute('aria-disabled', 'true'); };
+  if (!C.paddleToken || !C.priceId) return soon();
+  const s = document.createElement('script');
+  s.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
+  s.onload = async () => {
+    try {
+      if (C.sandbox) Paddle.Environment.set('sandbox');
+      Paddle.Initialize({ token: C.paddleToken });
+      const p = await Paddle.PricePreview({ items: [{ priceId: C.priceId, quantity: 1 }] });
+      const li = p?.data?.details?.lineItems?.[0];
+      amt.textContent = li?.formattedTotals?.total || li?.formattedTotals?.subtotal || '';
+      if (!amt.textContent) amt.innerHTML = '<small>See the price at checkout</small>';
+    } catch { amt.innerHTML = '<small>See the price at checkout</small>'; }
+    buy.removeAttribute('aria-disabled');
+    buy.textContent = 'Buy a licence';
+    buy.addEventListener('click', () => Paddle.Checkout.open({
+      items: [{ priceId: C.priceId, quantity: 1 }],
+      settings: { displayMode: 'overlay', theme: 'dark', successUrl: new URL('thanks/', location.href).href }
+    }));
+    if (location.hash === '#buy' && new URLSearchParams(location.search).has('checkout')) buy.click();
+  };
+  s.onerror = soon;
+  document.head.append(s);
+})();
+</script>
+</body>
+</html>
