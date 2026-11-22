@@ -305,7 +305,7 @@
     "price": "",
     "requirements": "",
     "badge": "",
-    "featured": false,
+    "featured": true,
     "accent": "rose",
     "glyph": "moon",
     "iconImage": "",
