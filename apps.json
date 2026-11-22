@@ -8,6 +8,9 @@
     "status": "soon",
     "version": "v2.6.2",
     "platform": "Chrome & Chromium browsers",
+    "price": "Free + Pro + Lifetime",
+    "requirements": "A Browser",
+    "badge": "IN REVIEW",
     "featured": true,
     "accent": "violet",
     "glyph": "package",
@@ -33,7 +36,7 @@
     "pageUrl": "pagepackage/",
     "repoUrl": "",
     "docsUrl": "",
-    "videoUrl": "",
+    "videoUrl": "https://youtu.be/ub7V8bXUQK8",
     "installCommand": "",
     "features": [
       "Finds images, video, audio, documents, fonts, design files, 3D models and streams, including lazy-loaded galleries",
@@ -43,6 +46,8 @@
       "Views and strips camera, colour profile and GPS metadata before you share",
       "Scans every open tab into one gallery, watches pages for new files and keeps a searchable library"
     ],
+    "embedTitle": "Demo",
+    "embedCode": "<iframe src=\"https://www.youtube.com/embed/3qc_If8pRko\" title=\"Coming to all extension stores.\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
     "changelog": [
       {
         "ver": "v2.6.2",
@@ -50,6 +55,7 @@
         "note": "Free plan with monthly deep scans, stream captures and conversions. Pro adds unlimited use, site presets, the library and power naming."
       }
     ],
+    "community": false,
     "updatedAt": "2026-11-21"
   },
   {
