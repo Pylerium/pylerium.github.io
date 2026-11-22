@@ -190,7 +190,7 @@
     "status": "live",
     "version": "v1.1.0",
     "platform": "Windows 10+ (x64)",
-    "featured": false,
+    "featured": true,
     "accent": "emerald",
     "glyph": "cpu",
     "iconImage": "",
