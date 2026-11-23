@@ -1,8 +1,8 @@
 {
   "version": "1.4.0",
   "file": "PyleriumManager-1.4.0.zip",
-  "size": 439393,
-  "sha256": "5f2882010ff705f9041aa34eb7dd2ba41639c213785afa6ca1630e8a9998245f",
+  "size": 439411,
+  "sha256": "7f790c1f9af8bc7856fdb47e2276fe3c5035189270a45ab575ca740126aa65f5",
   "date": "2026-11-23",
   "notes": "Connectors, polished: a Website feed that puts your latest X, Mastodon, DEV, Telegram and LinkedIn posts on your home page with Follow buttons; a new composer with live previews and one-click AI rewrites; an Ollama writer that knows your studio and every app (voice, per-app notes, per-platform style, length, emoji and hashtag controls); automation with per-app filters, per-platform templates and previews; hashtags, sign-offs and UTM tags per platform; rich Discord cards. Also: featured covers are never cropped, and Product Hunt cards for embeds."
 }
