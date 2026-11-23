@@ -1,8 +1,8 @@
 {
-  "version": "1.3.0",
-  "file": "PyleriumManager-1.3.0.zip",
-  "size": 414600,
-  "sha256": "1ca963d6a416f30b20ed4be12a337872305dde4a4cb5641e32e42773fed22075",
+  "version": "1.4.0",
+  "file": "PyleriumManager-1.4.0.zip",
+  "size": 439393,
+  "sha256": "5f2882010ff705f9041aa34eb7dd2ba41639c213785afa6ca1630e8a9998245f",
   "date": "2026-11-23",
-  "notes": "New Connectors tab: post to X (OAuth 2.0 sign-in that renews itself), LinkedIn, Mastodon, Telegram and DEV Community, upload to itch.io and the Chrome Web Store (API v2), AI-drafted posts from your own Ollama model, and automation with a review queue."
+  "notes": "Connectors, polished: a Website feed that puts your latest X, Mastodon, DEV, Telegram and LinkedIn posts on your home page with Follow buttons; a new composer with live previews and one-click AI rewrites; an Ollama writer that knows your studio and every app (voice, per-app notes, per-platform style, length, emoji and hashtag controls); automation with per-app filters, per-platform templates and previews; hashtags, sign-offs and UTM tags per platform; rich Discord cards. Also: featured covers are never cropped, and Product Hunt cards for embeds."
 }

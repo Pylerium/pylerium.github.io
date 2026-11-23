@@ -185,12 +185,57 @@ dialog.short-dlg::backdrop { background: rgba(3,4,8,.85); backdrop-filter: blur(
 @media (max-width: 640px) { .short-dlg .dlg-close { right: 8px; top: 8px; } }
 
 /* ---------- Embeds ---------- */
-#embeds { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-#embeds .sec-head, .embed-block.w-full { grid-column: 1 / -1; }
+#embeds .embeds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.embed-block.w-full { grid-column: 1 / -1; }
+.embed-box { border-radius: 14px; overflow: hidden; display: grid; justify-items: center; }
+.embed-box > * { max-width: 100%; }
+.embed-box iframe { display: block; width: 100%; border: 0; border-radius: 14px; background: #05060A; }
 .embed-block { padding: 22px; border-radius: var(--r); background: linear-gradient(180deg, rgba(20,24,41,.8), rgba(13,16,28,.9)); border: 1px solid var(--line); min-width: 0; }
 .embed-block h3 { margin: 0 0 4px; font-size: 19px; }
 .embed-block > p { margin: 0 0 14px; color: var(--muted); }
-@media (max-width: 760px) { #embeds { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { #embeds .embeds { grid-template-columns: 1fr; } }
+.embed-block.is-card { padding: 0; background: none; border: 0; }
+.embed-block.is-card > h3, .embed-block.is-card > p { padding: 0 4px; }
+/* Card embeds (Product Hunt and links): drawn in the site's style instead of a third-party widget */
+.ecard { --pv: #8B5CF6; position: relative; display: flex; align-items: center; gap: 20px; padding: 22px 24px; border-radius: var(--r); text-decoration: none; color: var(--text); overflow: hidden;
+  background: radial-gradient(120% 140% at 0% 0%, color-mix(in srgb, var(--pv) 22%, transparent), transparent 55%), linear-gradient(180deg, rgba(20,24,41,.85), rgba(13,16,28,.92));
+  border: 1px solid color-mix(in srgb, var(--pv) 30%, var(--line)); transition: transform .3s var(--ease), border-color .3s, box-shadow .3s; }
+.ecard:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--pv) 60%, transparent); box-shadow: 0 24px 60px -30px color-mix(in srgb, var(--pv) 70%, transparent); }
+.ecard.pv-producthunt { --pv: #FF6154; }
+.ec-ico { flex: none; width: 72px; height: 72px; border-radius: 18px; object-fit: cover; box-shadow: 0 12px 30px -12px rgba(0,0,0,.7); border: 1px solid rgba(255,255,255,.08); }
+.ec-ico.gen { display: grid; place-items: center; background: color-mix(in srgb, var(--pv) 18%, #0B0E18); color: var(--pv); } .ec-ico.gen .i { width: 34px; height: 34px; }
+.ec-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; flex: 1; }
+.ec-kicker { display: inline-flex; align-items: center; gap: 6px; font: 700 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: color-mix(in srgb, var(--pv) 80%, white); }
+.ec-kicker .i { width: 15px; height: 15px; }
+.ec-body b { font-size: 21px; letter-spacing: -.01em; }
+.ec-text { color: var(--soft); font-size: 15px; line-height: 1.5; }
+.ec-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; font-weight: 700; font-size: 14px; color: #fff; background: var(--pv); box-shadow: 0 10px 28px -12px var(--pv); }
+.ec-btn .i { width: 16px; height: 16px; transition: transform .25s var(--ease); } .ecard:hover .ec-btn .i { transform: translateX(3px); }
+@media (max-width: 640px) { .ecard { flex-wrap: wrap; } .ec-ico { width: 56px; height: 56px; } .ec-btn { width: 100%; justify-content: center; } }
+
+/* ---------- Latest posts (social feed from Connectors) ---------- */
+#news .follow { display: flex; flex-wrap: wrap; gap: 8px; }
+#news .follow .i { width: 16px; height: 16px; }
+.feed { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 1000px) { .feed { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .feed { grid-template-columns: 1fr; } }
+.fcard { --pc: #8B5CF6; display: flex; flex-direction: column; gap: 12px; padding: 18px; border-radius: var(--r); color: var(--text); text-decoration: none; min-width: 0;
+  background: linear-gradient(180deg, rgba(20,24,41,.82), rgba(13,16,28,.92)); border: 1px solid var(--line); transition: transform .3s var(--ease), border-color .3s; }
+.fcard:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--pc) 55%, transparent); }
+.fcard.p-x { --pc: #E7E9EA; } .fcard.p-mastodon { --pc: #8C8DFF; } .fcard.p-devto { --pc: #A5B4FC; } .fcard.p-telegram { --pc: #2AABEE; } .fcard.p-linkedin { --pc: #0A66C2; }
+.fc-top { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.fc-net { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; color: var(--pc); background: color-mix(in srgb, var(--pc) 14%, transparent); border: 1px solid color-mix(in srgb, var(--pc) 28%, transparent); }
+.fc-net .i { width: 17px; height: 17px; }
+.fc-top time { margin-left: auto; color: var(--muted); font: 500 12px var(--mono); }
+.fc-img { border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; background: #05060A; border: 1px solid var(--line); }
+.fc-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.fcard h3 { margin: 0; font-size: 16.5px; line-height: 1.35; }
+.fcard p { margin: 0; color: var(--soft); font-size: 14.5px; line-height: 1.55; white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.fc-foot { margin-top: auto; display: flex; align-items: center; gap: 12px; padding-top: 4px; color: var(--muted); font: 600 12px var(--mono); }
+.fc-foot span { display: inline-flex; align-items: center; gap: 5px; } .fc-foot .i { width: 14px; height: 14px; }
+.fc-foot .sp { flex: 1; }
+.fc-foot em { font-style: normal; display: inline-flex; align-items: center; gap: 5px; color: color-mix(in srgb, var(--pc) 75%, white); }
+.fcard:hover .fc-foot em .i { transform: translateX(3px); } .fc-foot em .i { transition: transform .25s var(--ease); }
 
 /* ---------- Community ---------- */
 .comm { display: grid; grid-template-columns: 1.5fr 1fr; gap: 22px; align-items: start; }

@@ -48,6 +48,11 @@ export const SOCIALS = {
   linkedin:  { label: 'LinkedIn',  icon: 'linkedin',  match: /linkedin\.com/i },
   patreon:   { label: 'Patreon',   icon: 'patreon',   match: /patreon\.com/i },
   kofi:      { label: 'Ko-fi',     icon: 'coffee',    match: /ko-fi\.com/i },
+  mastodon:  { label: 'Mastodon',  icon: 'mastodon',  match: /mastodon\.|mstdn\.|fosstodon\./i },
+  telegram:  { label: 'Telegram',  icon: 'telegram',  match: /(^|\/\/)(t\.me|telegram\.me)\//i },
+  devto:     { label: 'DEV',       icon: 'devto',     match: /(^|\/\/)dev\.to\//i },
+  itch:      { label: 'itch.io',   icon: 'itch',      match: /itch\.io/i },
+  producthunt: { label: 'Product Hunt', icon: 'producthunt', match: /producthunt\.com/i },
   email:     { label: 'Email',     icon: 'mail',      match: /^mailto:/i },
   website:   { label: 'Website',   icon: 'globe',     match: /./ }
 };
@@ -160,7 +165,9 @@ const P = {
   reddit: '<circle cx="12" cy="14" r="7"/><path d="m12 7 1-4 4 1"/><circle cx="18" cy="4" r="1"/><path d="M9 16.5c1.5 1 4.5 1 6 0M9.5 12.5h.01M14.5 12.5h.01"/>',
   bluesky: '<path d="M12 11C10 7 6.5 4 4 4c-1.5 0-2 1-2 2.5S3 12 6 12c-3 1-3 4-1 5.5S10 17 12 13c2 4 5 6 7 4.5s2-4.5-1-5.5c3 0 4-4 4-5.5S21.5 4 20 4c-2.5 0-6 3-8 7z"/>',
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
-  patreon: '<circle cx="15" cy="9.5" r="6.5"/><path d="M3 3v18"/>'
+  patreon: '<circle cx="15" cy="9.5" r="6.5"/><path d="M3 3v18"/>',
+  producthunt: '<circle cx="12" cy="12" r="9.5"/><path d="M10 17V7h3.2a2.9 2.9 0 0 1 0 5.8H10"/>',
+  rss: '<path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"/><circle cx="6" cy="18" r="1.4"/>'
 };
 
 // Glyphs an app or category can use as its icon (subset of the icon set, in picker order).
@@ -228,7 +235,7 @@ function byline(app, base) {
 }
 
 export function coverHTML(app, opts = {}) {
-  if (app.cover) return `<div class="cover"><img src="${esc(media(app.cover, opts.mediaBase || ''))}" alt="${esc(app.name)} screenshot" loading="lazy"></div>`;
+  if (app.cover) { const src = esc(media(app.cover, opts.mediaBase || '')); return `<div class="cover fit"><img class="cv-bg" src="${src}" alt="" aria-hidden="true" loading="lazy"><img class="cv-img" src="${src}" alt="${esc(app.name)} screenshot" loading="lazy"></div>`; }
   return `<div class="cover gen"><span class="gen-grid"></span><span class="gen-glyph">${icon(app.glyph || 'code')}</span><span class="gen-name">${esc(app.name)}</span></div>`;
 }
 
