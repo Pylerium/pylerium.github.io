@@ -1,8 +1,8 @@
 {
-  "version": "1.2.1",
-  "file": "PyleriumManager-1.2.1.zip",
-  "size": 373709,
-  "sha256": "c59ce83749cd5106799493c91916f8eb42f69f2fd83253a67ab2a9e8213633b7",
-  "date": "2026-11-22",
-  "notes": "Self-hosted app videos (upload an mp4 with your app's media), Stripe Managed Payments support (tax codes are set for you), and paid apps no longer show as changed after every publish."
+  "version": "1.3.0",
+  "file": "PyleriumManager-1.3.0.zip",
+  "size": 414600,
+  "sha256": "1ca963d6a416f30b20ed4be12a337872305dde4a4cb5641e32e42773fed22075",
+  "date": "2026-11-23",
+  "notes": "New Connectors tab: post to X (OAuth 2.0 sign-in that renews itself), LinkedIn, Mastodon, Telegram and DEV Community, upload to itch.io and the Chrome Web Store (API v2), AI-drafted posts from your own Ollama model, and automation with a review queue."
 }
