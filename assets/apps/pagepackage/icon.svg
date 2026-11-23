@@ -1,42 +1,163 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- pagePackage icon v2: everything on a page (photos, video, documents) packed into one parcel, then downloaded. -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#5f5bff"/>
       <stop offset="0.55" stop-color="#7a4dff"/>
       <stop offset="1" stop-color="#b13cf5"/>
     </linearGradient>
-    <radialGradient id="shine" cx="0.28" cy="0.12" r="0.85">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"/>
-      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+    <radialGradient id="shine" cx="0.26" cy="0.1" r="0.9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.34"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+    <radialGradient id="glow" cx="0.5" cy="0.62" r="0.42">
+      <stop offset="0" stop-color="#f3d7ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f3d7ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="0.25" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <!-- parcel faces -->
+    <linearGradient id="faceL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ece7ff"/>
+      <stop offset="1" stop-color="#d3c8ff"/>
+    </linearGradient>
+    <linearGradient id="faceR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c3b4ff"/>
+      <stop offset="1" stop-color="#a593ff"/>
+    </linearGradient>
+    <linearGradient id="inside" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a1d9e"/>
+      <stop offset="1" stop-color="#5b33d6"/>
+    </linearGradient>
+    <linearGradient id="flapBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9a8ff"/>
+      <stop offset="1" stop-color="#9d88fb"/>
+    </linearGradient>
+    <linearGradient id="flapFrontL" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#f1edff"/>
+      <stop offset="1" stop-color="#e7e1ff"/>
     </linearGradient>
-    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e6e0ff"/>
-      <stop offset="1" stop-color="#d4caff"/>
+    <linearGradient id="flapFrontR" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9d0ff"/>
+      <stop offset="1" stop-color="#bfb0ff"/>
     </linearGradient>
-    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#c6b8ff"/>
-      <stop offset="1" stop-color="#ad9cff"/>
+    <!-- card thumbnails -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fd3ff"/>
+      <stop offset="1" stop-color="#b9a4ff"/>
+    </linearGradient>
+    <linearGradient id="hillA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6c4cf0"/>
+      <stop offset="1" stop-color="#4b2fc7"/>
+    </linearGradient>
+    <linearGradient id="hillB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a7dff"/>
+      <stop offset="1" stop-color="#7457ee"/>
+    </linearGradient>
+    <linearGradient id="video" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff7ac6"/>
+      <stop offset="1" stop-color="#a24bff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1eeff"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2ee6c8"/>
+      <stop offset="1" stop-color="#14b8a6"/>
     </linearGradient>
     <filter id="drop" x="-30%" y="-30%" width="160%" height="170%">
-      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#25106b" flood-opacity="0.45"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#1e0b63" flood-opacity="0.45"/>
     </filter>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#200a66" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="tile"><rect width="512" height="512" rx="118"/></clipPath>
   </defs>
+
+  <!-- tile -->
   <rect width="512" height="512" rx="118" fill="url(#bg)"/>
-  <rect width="512" height="512" rx="118" fill="url(#shine)"/>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="url(#shine)"/>
+    <rect width="512" height="512" fill="url(#glow)"/>
+    <!-- faint page grid: the web page being scanned -->
+    <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="2">
+      <path d="M0 96 H512 M0 192 H512 M96 0 V512 M416 0 V512"/>
+    </g>
+    <!-- sparkles -->
+    <g fill="#ffffff">
+      <path d="M92 150 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6 z" opacity="0.85"/>
+      <path d="M424 118 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4 z" opacity="0.7"/>
+      <circle cx="414" cy="214" r="5" opacity="0.55"/>
+      <circle cx="112" cy="246" r="4" opacity="0.45"/>
+    </g>
+  </g>
+  <rect x="3" y="3" width="506" height="506" rx="115" fill="none" stroke="url(#rim)" stroke-width="6"/>
+
   <g filter="url(#drop)" stroke-linejoin="round">
-    <!-- parcel -->
-    <path d="M256 226 L370 286 L256 346 L142 286 Z" fill="url(#top)" stroke="url(#top)" stroke-width="16"/>
-    <path d="M142 286 L256 346 L256 470 L142 410 Z" fill="url(#left)" stroke="url(#left)" stroke-width="16"/>
-    <path d="M256 346 L370 286 L370 410 L256 470 Z" fill="url(#right)" stroke="url(#right)" stroke-width="16"/>
-    <!-- packing tape across the lid and down the front -->
-    <path d="M199 256 L313 316" stroke="#d9d0ff" stroke-width="26" stroke-linecap="butt"/>
-    <path d="M313 316 L313 440" stroke="#9c89ff" stroke-width="26" stroke-linecap="butt"/>
-    <!-- download arrow dropping into the parcel -->
-    <path d="M256 50 L256 150" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
-    <path d="M198 120 L256 178 L314 120" fill="none" stroke="#ffffff" stroke-width="44" stroke-linecap="round"/>
+    <!-- back flaps, opened up and out -->
+    <path d="M146 318 L256 263 L232 214 L112 274 Z" fill="url(#flapBack)" stroke="url(#flapBack)" stroke-width="8"/>
+    <path d="M256 263 L366 318 L400 274 L280 214 Z" fill="url(#flapBack)" stroke="url(#flapBack)" stroke-width="8"/>
+    <!-- inside of the open parcel -->
+    <path d="M146 318 L256 263 L366 318 L256 373 Z" fill="url(#inside)" stroke="url(#inside)" stroke-width="8"/>
+  </g>
+
+  <!-- what the page held, rising out of the parcel -->
+  <!-- photo -->
+  <g transform="rotate(-17 196 300)" filter="url(#cardShadow)">
+    <rect x="128" y="146" width="124" height="158" rx="18" fill="url(#card)"/>
+    <rect x="140" y="158" width="100" height="84" rx="10" fill="url(#sky)"/>
+    <circle cx="214" cy="181" r="11" fill="#ffd46b"/>
+    <path d="M140 230 L172 196 L196 220 L212 206 L240 236 L240 232 Q240 242 230 242 L150 242 Q140 242 140 232 Z" fill="url(#hillA)"/>
+    <path d="M140 242 L140 228 L166 210 L194 238 L194 242 Z" fill="url(#hillB)" opacity="0.9"/>
+    <rect x="140" y="256" width="70" height="9" rx="4.5" fill="#cfc4ff"/>
+    <rect x="140" y="274" width="46" height="9" rx="4.5" fill="#e3dcff"/>
+  </g>
+  <!-- document -->
+  <g transform="rotate(17 316 300)" filter="url(#cardShadow)">
+    <path d="M260 164 Q260 146 278 146 L352 146 L384 178 L384 286 Q384 304 366 304 L278 304 Q260 304 260 286 Z" fill="url(#card)"/>
+    <path d="M352 146 L352 166 Q352 178 364 178 L384 178 Z" fill="#d6ccff"/>
+    <rect x="276" y="196" width="92" height="9" rx="4.5" fill="#b8a8ff"/>
+    <rect x="276" y="216" width="80" height="9" rx="4.5" fill="#d3c9ff"/>
+    <rect x="276" y="236" width="88" height="9" rx="4.5" fill="#d3c9ff"/>
+    <rect x="276" y="256" width="58" height="9" rx="4.5" fill="#d3c9ff"/>
+    <rect x="276" y="160" width="40" height="18" rx="6" fill="#7a4dff"/>
+    <text x="296" y="174" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">PDF</text>
+  </g>
+  <!-- video, in front -->
+  <g filter="url(#cardShadow)">
+    <rect x="190" y="132" width="132" height="176" rx="20" fill="url(#card)"/>
+    <rect x="202" y="144" width="108" height="92" rx="12" fill="url(#video)"/>
+    <circle cx="256" cy="190" r="26" fill="#ffffff" fill-opacity="0.95"/>
+    <path d="M248 176 L272 190 L248 204 Z" fill="#a24bff"/>
+    <rect x="202" y="250" width="108" height="8" rx="4" fill="#e3dcff"/>
+    <rect x="202" y="250" width="62" height="8" rx="4" fill="#ff7ac6"/>
+    <rect x="202" y="270" width="80" height="9" rx="4.5" fill="#cfc4ff"/>
+  </g>
+
+  <g filter="url(#drop)" stroke-linejoin="round">
+    <!-- parcel body -->
+    <path d="M146 318 L256 373 L256 478 L146 423 Z" fill="url(#faceL)" stroke="url(#faceL)" stroke-width="8"/>
+    <path d="M256 373 L366 318 L366 423 L256 478 Z" fill="url(#faceR)" stroke="url(#faceR)" stroke-width="8"/>
+    <!-- front flaps folded down and out -->
+    <path d="M146 318 L256 373 L222 404 L110 350 Z" fill="url(#flapFrontL)" stroke="url(#flapFrontL)" stroke-width="8"/>
+    <path d="M256 373 L366 318 L402 350 L290 404 Z" fill="url(#flapFrontR)" stroke="url(#flapFrontR)" stroke-width="8"/>
+    <!-- shipping label -->
+    <g transform="matrix(1 0.5 0 1 0 0)">
+      <rect x="166" y="272" width="60" height="40" rx="6" fill="#ffffff" opacity="0.92"/>
+      <rect x="175" y="282" width="32" height="6" rx="3" fill="#b8a8ff"/>
+      <rect x="175" y="296" width="42" height="6" rx="3" fill="#d6ccff"/>
+    </g>
+  </g>
+
+  <!-- download badge -->
+  <g filter="url(#drop)">
+    <circle cx="388" cy="404" r="52" fill="url(#badge)"/>
+    <circle cx="388" cy="404" r="52" fill="none" stroke="#ffffff" stroke-width="7" stroke-opacity="0.9"/>
+    <path d="M388 376 L388 424 M368 406 L388 426 L408 406" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
