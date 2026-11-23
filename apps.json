@@ -6,7 +6,7 @@
     "description": "Pylerium Manager builds a beautiful showcase site for your apps, publishes it free on GitHub Pages, and runs the business side for you.\n\n- **Your website**: app cards, pages, screenshots, release notes and videos, in your brand\n- **Store**: sell apps with private downloads through Stripe, with new versions reaching past buyers automatically\n- **Licence keys**: every buyer gets a signed key; drop-in key checks for Python, JavaScript, C# and C/C++\n- **Tax**: Stripe Tax at checkout, sales by country and a heads-up before you need to register\n- **Connectors**: post to X, LinkedIn, Mastodon, Telegram and DEV, push builds to itch.io and the Chrome Web Store, with AI-drafted posts from your own Ollama model\n- **Autopilot**: Discord alerts, buyer emails, a live dashboard and auto-sync of versions and prices\n\nEvery feature is free for 14 days, no card needed. Then A$19.99 a month; cancel any time.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.6.0",
+    "version": "v1.7.0",
     "platform": "Windows, macOS & Linux",
     "price": "14 days free, then A$19.99/mo",
     "requirements": "A free GitHub account. Stripe, Cloudflare, Discord and Gmail are optional.",
@@ -52,6 +52,11 @@
     "embedTitle": "",
     "embedCode": "",
     "changelog": [
+      {
+        "ver": "v1.7.0",
+        "date": "Nov 2026",
+        "note": "Posts that sound like you, not a bot. Everything the AI writer and your automations generate is now cleaned of the usual AI tells before it goes out: em dashes, \"Here is your post\" openers, \"I hope this helps\" sign-offs, [link] placeholders, filler intros and stray bold markers, without changing what the post says. Plus Chrome Web Store auto-sync: your extensions are found from your catalog and their live store version, date and status update on your site by themselves."
+      },
       {
         "ver": "v1.6.0",
         "date": "Nov 2026",
