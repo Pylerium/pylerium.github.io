@@ -6,7 +6,7 @@
     "description": "Pylerium Manager builds a beautiful showcase site for your apps, publishes it free on GitHub Pages, and runs the business side for you.\n\n- **Your website**: app cards, pages, screenshots, release notes and videos, in your brand\n- **Store**: sell apps with private downloads through Stripe, with new versions reaching past buyers automatically\n- **Licence keys**: every buyer gets a signed key; drop-in key checks for Python, JavaScript, C# and C/C++\n- **Tax**: Stripe Tax at checkout, sales by country and a heads-up before you need to register\n- **Connectors**: post to X, LinkedIn, Mastodon, Telegram and DEV, push builds to itch.io and the Chrome Web Store, with AI-drafted posts from your own Ollama model\n- **Autopilot**: Discord alerts, buyer emails, a live dashboard and auto-sync of versions and prices\n\nEvery feature is free for 14 days, no card needed. Then A$19.99 a month; cancel any time.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.4.0",
+    "version": "v1.5.0",
     "platform": "Windows, macOS & Linux",
     "price": "14 days free, then A$19.99/mo",
     "requirements": "A free GitHub account. Stripe, Cloudflare, Discord and Gmail are optional.",
@@ -45,11 +45,17 @@
       "Licence keys with drop-in checks for Python, JavaScript, C# and C/C++",
       "Stripe Tax, sales by country and tax reports",
       "Discord alerts, buyer emails and a live dashboard",
-      "Connectors: auto-post releases to X, LinkedIn, Mastodon, Telegram, DEV and Discord with AI drafts from your own Ollama model, show your latest posts on your site, and upload to itch.io and the Chrome Web Store"
+      "Connectors: auto-post releases to X, LinkedIn, Mastodon, Telegram, DEV and Discord with AI drafts from your own Ollama model, show your latest posts on your site, and upload to itch.io and the Chrome Web Store",
+      "Promo Studio: promo images for every store and social network, promo videos, and a built-in video editor"
     ],
     "embedTitle": "",
     "embedCode": "",
     "changelog": [
+      {
+        "ver": "v1.5.0",
+        "date": "Nov 2026",
+        "note": "Promo Studio and the Edit Studio: promo images for every store and social network made from your apps’ own screenshots (generated automatically as you add them), promo videos with music, and a full video editor for your promos. Plus beautiful customer emails with one-tap copy buttons."
+      },
       {
         "ver": "v1.4.0",
         "date": "Nov 2026",
@@ -142,7 +148,8 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-22"
+    "updatedAt": "2026-11-22",
+    "socialImage": "pagepackage/social-mwsu73rl.png"
   },
   {
     "id": "pylerium-studio",

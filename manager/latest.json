@@ -1,8 +1,8 @@
 {
-  "version": "1.4.0",
-  "file": "PyleriumManager-1.4.0.zip",
-  "size": 439411,
-  "sha256": "7f790c1f9af8bc7856fdb47e2276fe3c5035189270a45ab575ca740126aa65f5",
+  "version": "1.5.0",
+  "file": "PyleriumManager-1.5.0.zip",
+  "size": 568517,
+  "sha256": "2e7474da1ff3e0fbe17481f34e3da2c3af9aa7d17008f9b8a074f9506e1869c6",
   "date": "2026-11-23",
-  "notes": "Connectors, polished: a Website feed that puts your latest X, Mastodon, DEV, Telegram and LinkedIn posts on your home page with Follow buttons; a new composer with live previews and one-click AI rewrites; an Ollama writer that knows your studio and every app (voice, per-app notes, per-platform style, length, emoji and hashtag controls); automation with per-app filters, per-platform templates and previews; hashtags, sign-offs and UTM tags per platform; rich Discord cards. Also: featured covers are never cropped, and Product Hunt cards for embeds."
+  "notes": "Promo Studio and the Edit Studio. Promo Studio makes promo images for every store and social network (website cover, link previews, Instagram, Stories and Shorts, YouTube thumbnails, Chrome Web Store, itch.io, Product Hunt, Steam) from your apps' own screenshots, with five templates and a live preview that is exactly what's saved. Kits are made automatically when you add screenshots. Promo videos (16:9 and vertical) with music. The Edit Studio is a full video editor for your promos: timeline, cuts, captions, picture-in-picture, grids, zoom keyframes, transitions and sound. Also: beautiful customer emails with copy buttons."
 }
