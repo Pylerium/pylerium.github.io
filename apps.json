@@ -99,7 +99,7 @@
     "description": "pagePackage is a Chrome extension that finds everything a page contains, shows it in a gallery you can filter and preview, and saves what you pick: one by one, all at once, converted, or as a single ZIP.",
     "category": "extension",
     "status": "live",
-    "version": "v2.6.3",
+    "version": "v2.7.0",
     "platform": "Chrome & Chromium browsers",
     "price": "Free + Pro + Lifetime",
     "requirements": "A Browser",
@@ -143,6 +143,11 @@
     "embedCode": "<iframe src=\"https://www.youtube.com/embed/3qc_If8pRko\" title=\"pagePackage demo\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
     "changelog": [
       {
+        "ver": "v2.7.0",
+        "date": "Nov 2026",
+        "note": "Version 2.7.0 is live on the Chrome Web Store: update from chrome://extensions or wait for Chrome to update it."
+      },
+      {
         "ver": "v2.6.2",
         "date": "Nov 2026",
         "note": "Now available on the Chrome Web Store."
@@ -154,7 +159,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-22",
+    "updatedAt": "2026-11-23",
     "socialImage": "pagepackage/social-mwsu73rl.png"
   },
   {
