@@ -1,8 +1,8 @@
 {
-  "version": "1.7.0",
-  "file": "PyleriumManager-1.7.0-Windows.zip",
-  "size": 37278290,
-  "sha256": "5e3bae46e640875614bd7b766ddd59ddd3dd40d8d84e590ae9dcda29d02e540a",
-  "date": "2026-11-24",
-  "notes": "Windows standalone build"
+  "version": "1.7.1",
+  "file": "PyleriumManager-1.7.1-Windows.zip",
+  "size": 36151745,
+  "sha256": "d9606936833236bbe6f8958d1bdce232be9751381b88e574adf0ea1388958f1e",
+  "date": "2026-11-25",
+  "notes": "Windows standalone build. Fixes the website going blank when the phone bottom bar is turned on."
 }
