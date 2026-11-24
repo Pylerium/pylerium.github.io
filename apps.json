@@ -7,7 +7,7 @@
     "category": "desktop",
     "status": "live",
     "version": "v1.7.0",
-    "platform": "Windows, macOS & Linux",
+    "platform": "Windows",
     "price": "14 days free, then A$19.99/mo",
     "requirements": "A free GitHub account. Stripe, Cloudflare, Discord and Gmail are optional.",
     "badge": "New",
