@@ -178,9 +178,12 @@
     "tagline": "A local developer workbench to build, run, inspect and showcase your projects.",
     "description": "Pylerium Studio combines Python execution, a Devcord project explorer, opt-in plugins, model tools, a 3D Scene Studio and a video editor in one workspace. Import a folder or ZIP, explore and edit code, run Python scripts, Flask apps or HTML pages with a live preview, and turn your work into showcases and YouTube Shorts.",
     "category": "desktop",
-    "status": "beta",
-    "version": "",
-    "platform": "Windows · Python 3.10+",
+    "status": "live",
+    "version": "v1.0.0",
+    "platform": "Windows 10/11 · 64-bit",
+    "price": "Free",
+    "requirements": "Windows 10 or 11, 64-bit. No Python install needed.",
+    "badge": "New",
     "featured": true,
     "accent": "studio",
     "glyph": "sparkles",
@@ -190,19 +193,20 @@
       "pylerium-studio/devcord-workspace.png"
     ],
     "metricLabel": "Price",
-    "metricValue": "Free public beta",
+    "metricValue": "Free",
     "techStack": [
       "Python",
       "Flask",
       "Playwright",
       "ffmpeg"
     ],
-    "primaryLabel": "",
-    "primaryUrl": "",
+    "primaryLabel": "Download free",
+    "primaryUrl": "https://github.com/Pylerium/PyleriumStudio-Releases/releases/latest",
     "pageUrl": "",
+    "repoUrl": "https://github.com/Pylerium/PyleriumStudio-Releases",
     "docsUrl": "",
     "videoUrl": "https://youtu.be/C1qgjdpgQ6c",
-    "installCommand": "git clone https://github.com/Pylerium/ReleasePyleriumat100subs.git",
+    "installCommand": "Extract the zip, then run PyleriumPylerium.exe",
     "features": [
       "Workshop and Devcord: import folders, ZIPs or files, then explore code, dependencies and media",
       "Run Python scripts, packages, Flask apps and standalone HTML pages with a live preview",
@@ -210,14 +214,23 @@
       "Built-in video editor for showcases and YouTube Shorts",
       "Optional phone access over your local network with a QR code"
     ],
+    "embedTitle": "",
+    "embedCode": "",
     "changelog": [
+      {
+        "ver": "v1.0.0",
+        "date": "Nov 2026",
+        "note": "The first full release, free for Windows. One download with no Python install needed: Workshop and Devcord, Python, Flask and HTML runners with live preview, Scene Studio, the video editor for showcases and Shorts, phone preview over your network, and 15 starter plugins plus Jumpback, Ultimate Terminal, Prompt Hub, API Hub and GitHub Engine."
+      },
       {
         "ver": "Beta",
         "date": "Oct 2026",
         "note": "Released free and open source to celebrate 100 YouTube subscribers."
       }
     ],
-    "updatedAt": "2026-10-21"
+    "community": false,
+    "updatedAt": "2026-11-25",
+    "socialImage": "pylerium-studio/social-mwv04rsk.png"
   },
   {
     "id": "hexdrive360",
