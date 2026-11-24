@@ -1,8 +1,8 @@
 {
   "version": "1.7.0",
-  "file": "PyleriumManager-1.7.0.zip",
-  "size": 611283,
-  "sha256": "edbbf6982b50f8d48272299aa44bbb78e42ced4a931b02328d69699e4ba187f0",
-  "date": "2026-11-23",
-  "notes": ""
+  "file": "PyleriumManager-1.7.0-Windows.zip",
+  "size": 37278290,
+  "sha256": "5e3bae46e640875614bd7b766ddd59ddd3dd40d8d84e590ae9dcda29d02e540a",
+  "date": "2026-11-24",
+  "notes": "Windows standalone build"
 }
