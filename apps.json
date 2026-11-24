@@ -564,51 +564,5 @@
     "changelog": [],
     "community": false,
     "updatedAt": "2026-10-24"
-  },
-  {
-    "id": "makerpanels",
-    "name": "MakerPanels+",
-    "tagline": "Character, car and weapon creators for GTA V, driven from a web panel on your phone or in the browser.",
-    "description": "MakerPanels+ adds in-game creators for characters, cars, weapons and billboards to GTA V story mode. Each one opens a polished web panel you can use from your PC or phone over your local network, with a live view of the game.",
-    "category": "mods",
-    "status": "dev",
-    "version": "v0.1.0",
-    "platform": "GTA V (PC)",
-    "price": "Free",
-    "requirements": "GTA V, ScriptHookV, ScriptHookVDotNet 3, OpenIV.asi",
-    "badge": "",
-    "featured": false,
-    "accent": "violet",
-    "glyph": "wrench",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
-    "metricLabel": "Control",
-    "metricValue": "From your phone",
-    "techStack": [
-      "C#",
-      "SHVDN3",
-      "React",
-      "Vite"
-    ],
-    "primaryLabel": "",
-    "primaryUrl": "",
-    "pageUrl": "",
-    "repoUrl": "",
-    "docsUrl": "",
-    "videoUrl": "",
-    "installCommand": "",
-    "features": [
-      "Character, car, weapon and billboard creators",
-      "Web panels that work on your phone over Wi-Fi",
-      "Live game view streamed into the panel",
-      "Real in-game textures through TextureForge"
-    ],
-    "embedTitle": "",
-    "embedCode": "",
-    "changelog": [],
-    "community": false,
-    "createdAt": "2026-11-21",
-    "updatedAt": "2026-11-20"
   }
 ]
