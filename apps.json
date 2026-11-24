@@ -187,24 +187,32 @@
     "featured": true,
     "accent": "studio",
     "glyph": "sparkles",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
+    "iconImage": "pylerium-studio/icon.svg",
+    "cover": "pylerium-studio/banner-1920x1080.webp",
+    "screenshots": [
+      "pylerium-studio/feature-preview.webp",
+      "pylerium-studio/feature-devcord.webp",
+      "pylerium-studio/feature-scene-studio.webp",
+      "pylerium-studio/feature-console.webp",
+      "pylerium-studio/feature-lobby.webp",
+      "pylerium-studio/feature-plugins.webp",
+      "pylerium-studio/feature-tv.webp"
+    ],
     "metricLabel": "Price",
     "metricValue": "Free",
     "techStack": [
       "Python",
       "Flask",
-      "Playwright",
-      "ffmpeg"
+      "ffmpeg",
+      "Open-Source"
     ],
-    "primaryLabel": "Download free",
+    "primaryLabel": "Download",
     "primaryUrl": "https://github.com/Pylerium/PyleriumStudio-Releases/releases/latest",
-    "pageUrl": "",
+    "pageUrl": "pylerium-studio/",
     "repoUrl": "https://github.com/Pylerium/PyleriumStudio-Releases",
     "docsUrl": "",
-    "videoUrl": "https://youtu.be/C1qgjdpgQ6c",
-    "installCommand": "Extract the zip, then run PyleriumPylerium.exe",
+    "videoUrl": "pylerium-studio/promo.mp4",
+    "installCommand": "Extract the zip, then open the Pylerium folder and run Pylerium.exe",
     "features": [
       "Workshop and Devcord: import folders, ZIPs or files, then explore code, dependencies and media",
       "Run Python scripts, packages, Flask apps and standalone HTML pages with a live preview",
@@ -227,7 +235,8 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25"
+    "updatedAt": "2026-11-25",
+    "socialImage": "pylerium-studio/social-mwv15364.png"
   },
   {
     "id": "hexdrive360",
