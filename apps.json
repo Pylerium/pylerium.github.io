@@ -298,7 +298,7 @@
     "description": "pyleriumTV turns the movies and shows on your attached drives and local storage into personal TV channels, with a live programme guide. Tune in and you join a programme at its wall-clock position, just like real TV.",
     "category": "tv",
     "status": "live",
-    "version": "",
+    "version": "v0.8.0",
     "platform": "Android TV · Google TV",
     "featured": false,
     "accent": "ember",
@@ -326,8 +326,14 @@
       "Plays XviD/AVI, AC3, E-AC3, DTS and 10-bit x265 that Android's own player can't",
       "Encrypted, verified transfers from the paired Pylerium desktop studio"
     ],
-    "changelog": [],
-    "updatedAt": "2026-11-01"
+    "changelog": [
+      {
+        "ver": "v0.8.0",
+        "date": "Nov 2026",
+        "note": "Release v0.8.0."
+      }
+    ],
+    "updatedAt": "2026-11-24"
   },
   {
     "id": "pylerium-player",
@@ -336,7 +342,7 @@
     "description": "Pylerium Player builds a library from your USB drive or local storage, sorts it into movies and TV shows, and plays everything with resume, track selection and automatic next episode, all driven by the TV remote.",
     "category": "tv",
     "status": "live",
-    "version": "",
+    "version": "v1.0.0",
     "platform": "Android TV · Google TV",
     "featured": false,
     "accent": "ember",
@@ -364,8 +370,14 @@
       "Resume, accelerating seek, audio and subtitle tracks, and auto next episode",
       "Hardware decoding where the TV supports it"
     ],
-    "changelog": [],
-    "updatedAt": "2026-11-01"
+    "changelog": [
+      {
+        "ver": "v1.0.0",
+        "date": "Nov 2026",
+        "note": "Release v1.0.0."
+      }
+    ],
+    "updatedAt": "2026-11-24"
   },
   {
     "id": "pylerium-purge",
@@ -374,7 +386,7 @@
     "description": "Pylerium Purge replaces the ad-filled stock home screen with a quiet app grid, input shortcuts, Wi-Fi status and a one-row quick launch bar. No ads, no recommendations, no network access.",
     "category": "tv",
     "status": "live",
-    "version": "",
+    "version": "v1.2.0",
     "platform": "Android TV · Google TV",
     "featured": false,
     "accent": "ember",
@@ -401,8 +413,14 @@
       "Optional dimmed wallpaper",
       "Set it as your default launcher, and restore the stock one any time"
     ],
-    "changelog": [],
-    "updatedAt": "2026-11-01"
+    "changelog": [
+      {
+        "ver": "v1.2.0",
+        "date": "Nov 2026",
+        "note": "Release v1.2.0."
+      }
+    ],
+    "updatedAt": "2026-11-24"
   },
   {
     "id": "speak",
