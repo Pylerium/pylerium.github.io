@@ -206,9 +206,9 @@
       "ffmpeg",
       "Open-Source"
     ],
-    "primaryLabel": "Download",
-    "primaryUrl": "https://github.com/Pylerium/PyleriumStudio-Releases/releases/latest",
-    "pageUrl": "pylerium-studio/",
+    "primaryLabel": "Download free",
+    "primaryUrl": "https://pylerium.github.io/studio/",
+    "pageUrl": "https://pylerium.github.io/studio/",
     "repoUrl": "https://github.com/Pylerium/PyleriumStudio-Releases",
     "docsUrl": "",
     "videoUrl": "pylerium-studio/promo.mp4",
@@ -235,7 +235,8 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-24"
+    "updatedAt": "2026-11-24",
+    "socialImage": "pylerium-studio/social-mwv2o8o9.png"
   },
   {
     "id": "hexdrive360",
