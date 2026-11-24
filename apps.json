@@ -300,12 +300,20 @@
     "status": "live",
     "version": "v0.8.0",
     "platform": "Android TV · Google TV",
+    "price": "Free",
+    "requirements": "Android TV or Google TV, Android 8.0 or newer.",
+    "badge": "New",
     "featured": false,
     "accent": "ember",
     "glyph": "tv",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
+    "iconImage": "pyleriumtv/icon.svg",
+    "cover": "pyleriumtv/banner-1920x1080.webp",
+    "screenshots": [
+      "pyleriumtv/feature-guide.webp",
+      "pyleriumtv/feature-guide-lower.webp",
+      "pyleriumtv/feature-playing-osd.webp",
+      "pyleriumtv/feature-edit.webp"
+    ],
     "metricLabel": "Playback",
     "metricValue": "libVLC engine",
     "techStack": [
@@ -313,27 +321,31 @@
       "Android TV",
       "libVLC"
     ],
-    "primaryLabel": "Get the source",
-    "primaryUrl": "https://github.com/Pylerium/pyleriumTV",
+    "primaryLabel": "Download free",
+    "primaryUrl": "https://github.com/Pylerium/pyleriumTV/releases/latest",
     "pageUrl": "",
     "repoUrl": "https://github.com/Pylerium/pyleriumTV",
     "docsUrl": "",
-    "videoUrl": "",
-    "installCommand": "git clone https://github.com/Pylerium/pyleriumTV.git",
+    "videoUrl": "pyleriumtv/promo.mp4",
+    "installCommand": "Install pyleriumTV-v0.8.0.apk with Downloader on your TV, or: adb install pyleriumTV-v0.8.0.apk",
     "features": [
       "Remote-first programme guide with a live time marker, now/next details and progress bars",
       "Channels from whole folders or hand-picked files; USB drives are detected automatically",
       "Plays XviD/AVI, AC3, E-AC3, DTS and 10-bit x265 that Android's own player can't",
       "Encrypted, verified transfers from the paired Pylerium desktop studio"
     ],
+    "embedTitle": "",
+    "embedCode": "",
     "changelog": [
       {
         "ver": "v0.8.0",
         "date": "Nov 2026",
-        "note": "Release v0.8.0."
+        "note": "First signed release, free for Android TV and Google TV. Live channels and a programme guide built from the videos on your drives, channel editing from the remote, cable-style surfing and Pylerium Studio pairing. New app icon and TV banner."
       }
     ],
-    "updatedAt": "2026-11-24"
+    "community": false,
+    "updatedAt": "2026-11-25",
+    "socialImage": "pyleriumtv/social-mwv4787o.png"
   },
   {
     "id": "pylerium-player",
@@ -344,12 +356,20 @@
     "status": "live",
     "version": "v1.0.0",
     "platform": "Android TV · Google TV",
+    "price": "Free",
+    "requirements": "Android TV or Google TV, Android 8.0 or newer.",
+    "badge": "New",
     "featured": false,
     "accent": "ember",
     "glyph": "play",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
+    "iconImage": "pylerium-player/icon.svg",
+    "cover": "pylerium-player/banner-1920x1080.webp",
+    "screenshots": [
+      "pylerium-player/feature-home.webp",
+      "pylerium-player/feature-movies.webp",
+      "pylerium-player/feature-show.webp",
+      "pylerium-player/feature-playing.webp"
+    ],
     "metricLabel": "Library",
     "metricValue": "Automatic movies & shows",
     "techStack": [
@@ -357,27 +377,30 @@
       "Android TV",
       "libVLC"
     ],
-    "primaryLabel": "Get the source",
-    "primaryUrl": "https://github.com/Pylerium/PyleriumPlayer",
+    "primaryLabel": "Download free",
+    "primaryUrl": "https://github.com/Pylerium/PyleriumPlayer/releases/latest",
     "pageUrl": "",
     "repoUrl": "https://github.com/Pylerium/PyleriumPlayer",
     "docsUrl": "",
-    "videoUrl": "",
-    "installCommand": "git clone https://github.com/Pylerium/PyleriumPlayer.git",
+    "videoUrl": "pylerium-player/promo.mp4",
+    "installCommand": "Install PyleriumPlayer-v1.0.0.apk with Downloader on your TV, or: adb install PyleriumPlayer-v1.0.0.apk",
     "features": [
       "Automatic library that recognises S01E02, 1x02 and Season folder layouts",
       "Continue Watching, Movies and TV Shows rows with progress and watched badges",
       "Resume, accelerating seek, audio and subtitle tracks, and auto next episode",
       "Hardware decoding where the TV supports it"
     ],
+    "embedTitle": "",
+    "embedCode": "",
     "changelog": [
       {
         "ver": "v1.0.0",
         "date": "Nov 2026",
-        "note": "Release v1.0.0."
+        "note": "First signed release, free for Android TV and Google TV. Movies and shows sorted from your file names, continue watching, next episode, and libVLC playback with audio and subtitle tracks. New app icon and TV banner."
       }
     ],
-    "updatedAt": "2026-11-24"
+    "community": false,
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "pylerium-purge",
@@ -388,39 +411,48 @@
     "status": "live",
     "version": "v1.2.0",
     "platform": "Android TV · Google TV",
+    "price": "Free",
+    "requirements": "Android TV or Google TV, Android 8.0 or newer.",
+    "badge": "New",
     "featured": false,
     "accent": "ember",
     "glyph": "home",
-    "iconImage": "",
-    "cover": "",
-    "screenshots": [],
+    "iconImage": "pylerium-purge/icon.svg",
+    "cover": "pylerium-purge/banner-1920x1080.webp",
+    "screenshots": [
+      "pylerium-purge/feature-home.webp",
+      "pylerium-purge/feature-inputs.webp"
+    ],
     "metricLabel": "Ads",
     "metricValue": "None, ever",
     "techStack": [
       "Java",
       "Android TV"
     ],
-    "primaryLabel": "Get the source",
-    "primaryUrl": "https://github.com/Pylerium/PyleriumPurge",
+    "primaryLabel": "Download free",
+    "primaryUrl": "https://github.com/Pylerium/PyleriumPurge/releases/latest",
     "pageUrl": "",
     "repoUrl": "https://github.com/Pylerium/PyleriumPurge",
     "docsUrl": "",
-    "videoUrl": "",
-    "installCommand": "git clone https://github.com/Pylerium/PyleriumPurge.git",
+    "videoUrl": "pylerium-purge/promo.mp4",
+    "installCommand": "Install PyleriumPurge-v1.2.0.apk with Downloader on your TV, or: adb install PyleriumPurge-v1.2.0.apk",
     "features": [
       "Remote-first home screen: quick launch row, full app library and TV inputs",
       "Animated boot logo and skeleton loading states",
       "Optional dimmed wallpaper",
       "Set it as your default launcher, and restore the stock one any time"
     ],
+    "embedTitle": "",
+    "embedCode": "",
     "changelog": [
       {
         "ver": "v1.2.0",
         "date": "Nov 2026",
-        "note": "Release v1.2.0."
+        "note": "First signed release, free for Android TV and Google TV. An ad-free home screen with a clock, inputs, Wi-Fi status, a quick-launch row and your full app library. New app icon and TV banner."
       }
     ],
-    "updatedAt": "2026-11-24"
+    "community": false,
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "speak",
