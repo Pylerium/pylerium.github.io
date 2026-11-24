@@ -34,11 +34,11 @@
     ],
     "primaryLabel": "Start your free trial",
     "primaryUrl": "https://pylerium.github.io/manager/",
-    "pageUrl": "",
+    "pageUrl": "https://pylerium.github.io/manager",
     "repoUrl": "",
     "docsUrl": "",
     "videoUrl": "pylerium-manager/overview-tutorial.mp4",
-    "installCommand": "",
+    "installCommand": "run Pylerium Manager.cmd",
     "features": [
       "A showcase website for your apps, hosted free on GitHub Pages",
       "Sell apps with private downloads and Stripe checkout",
