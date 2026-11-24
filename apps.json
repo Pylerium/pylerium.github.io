@@ -345,7 +345,7 @@
     ],
     "community": false,
     "updatedAt": "2026-11-25",
-    "socialImage": "pyleriumtv/social-mwv4787o.png"
+    "socialImage": "pyleriumtv/social-mwv4joc5.png"
   },
   {
     "id": "pylerium-player",
@@ -400,7 +400,8 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25"
+    "updatedAt": "2026-11-25",
+    "socialImage": "pylerium-player/social-mwv4jogz.png"
   },
   {
     "id": "pylerium-purge",
@@ -452,7 +453,8 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25"
+    "updatedAt": "2026-11-25",
+    "socialImage": "pylerium-purge/social-mwv4jolx.png"
   },
   {
     "id": "speak",
