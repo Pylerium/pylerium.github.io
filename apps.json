@@ -188,10 +188,8 @@
     "accent": "studio",
     "glyph": "sparkles",
     "iconImage": "",
-    "cover": "pylerium-studio/lobby.png",
-    "screenshots": [
-      "pylerium-studio/devcord-workspace.png"
-    ],
+    "cover": "",
+    "screenshots": [],
     "metricLabel": "Price",
     "metricValue": "Free",
     "techStack": [
@@ -229,8 +227,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25",
-    "socialImage": "pylerium-studio/social-mwv04rsk.png"
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "hexdrive360",
