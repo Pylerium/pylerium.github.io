@@ -197,10 +197,9 @@
       "Playwright",
       "ffmpeg"
     ],
-    "primaryLabel": "Get the source",
-    "primaryUrl": "https://github.com/Pylerium/ReleasePyleriumat100subs",
+    "primaryLabel": "",
+    "primaryUrl": "",
     "pageUrl": "",
-    "repoUrl": "https://github.com/Pylerium/ReleasePyleriumat100subs",
     "docsUrl": "",
     "videoUrl": "https://youtu.be/C1qgjdpgQ6c",
     "installCommand": "git clone https://github.com/Pylerium/ReleasePyleriumat100subs.git",
