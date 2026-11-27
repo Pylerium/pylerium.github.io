@@ -3,7 +3,7 @@
     "id": "pylerium-manager",
     "name": "Pylerium Manager",
     "tagline": "Your app studio’s website, store and sales, run from your desktop.",
-    "description": "Pylerium Manager builds a beautiful showcase site for your apps, publishes it free on GitHub Pages, and runs the business side for you.\n\n- **Your website**: app cards, pages, screenshots, release notes and videos, in your brand\n- **Store**: sell apps with private downloads through Stripe, with new versions reaching past buyers automatically\n- **Licence keys**: every buyer gets a signed key; drop-in key checks for Python, JavaScript, C# and C/C++\n- **Tax**: Stripe Tax at checkout, sales by country and a heads-up before you need to register\n- **Connectors**: post to X, LinkedIn, Mastodon, Telegram and DEV, push builds to itch.io and the Chrome Web Store, with AI-drafted posts from your own Ollama model\n- **Autopilot**: Discord alerts, buyer emails, a live dashboard and auto-sync of versions and prices\n\nEvery feature is free for 14 days, no card needed. Then A$19.99 a month; cancel any time.",
+    "description": "Pylerium Manager builds a beautiful showcase site for your apps, publishes it free on GitHub Pages, and runs the business side for you.\n\n- **Your website**: app cards, pages, screenshots, release notes and videos, in your brand\n- **Store**: sell apps with private downloads through Stripe, with new versions reaching past buyers automatically\n- **Licence keys**: every buyer gets a signed key; drop-in key checks for Python, JavaScript, C# and C/C++\n- **Tax**: Stripe Tax at checkout, sales by country and a heads-up before you need to register\n- **Connectors**: post to X, LinkedIn, Mastodon, Telegram and DEV, push builds to itch.io and the Chrome Web Store, with AI-drafted posts from your own Ollama model\n- **Autopilot**: Discord alerts, buyer emails, a live dashboard and auto-sync of versions and prices\n\nEvery feature is free for 14 days, no card needed. Then A$19.99 a month; cancel any time.\n\n### Storefront Comparison for Indie Developers\n\n| Feature | Pylerium Manager | itch.io | Gumroad | Lemon Squeezy |\n| :--- | :--- | :--- | :--- | :--- |\n| **Hosting & Ownership** | **100% yours** (GitHub Pages + Cloudflare Workers) | Hosted on itch.io subdomain | Hosted on Gumroad storefront | Hosted on Lemon Squeezy storefront |\n| **Platform Fee** | **0%** (standard Stripe processing + ~0.5% Stripe Tax if enabled) | **0%–100%** (developer-set revenue share, default 10%) | **10% flat** + payment processing | **5% + 50¢** per transaction |\n| **Monthly Cost** | **$0/mo** after one-off licence (14-day free trial) | Free | Free | Free |\n| **Global Tax / VAT / GST** | **Built-in Stripe Tax** (auto GST/VAT at checkout, threshold warnings, country tracking & CSV reports) | Handled for most regions (unless direct payout) | **Merchant of Record** (handles global VAT/GST & remittance) | **Merchant of Record** (handles global VAT/GST & remittance) |\n| **Built-in Discovery** | **None** (you bring your own traffic) | **High** (active indie game & tool marketplace) | **Moderate** (Gumroad Discover marketplace) | **Low** (primarily direct-link checkout) |\n| **Desktop Release Workflow** | **Built-in** (manage cards, notes, videos & builds locally) | Web dashboard or `butler` CLI | Web dashboard only | Web dashboard only |",
     "category": "desktop",
     "status": "live",
     "version": "v1.7.1",
@@ -100,8 +100,7 @@
     ],
     "community": false,
     "createdAt": "2026-11-22",
-    "updatedAt": "2026-11-25",
-    "socialImage": "pylerium-manager/social-mwymvc67.png"
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "pagepackage",
