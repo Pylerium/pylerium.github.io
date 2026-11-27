@@ -457,6 +457,63 @@
     "socialImage": "pylerium-purge/social-mwv4jolx.png"
   },
   {
+    "id": "hypnagogia",
+    "name": "Hypnagogia",
+    "tagline": "Audio-reactive phosphene canvas, binaural synth and dream companion.",
+    "description": "A companion platform. You design a living plush companion in the **Atelier**, and every other\nfeature is a *module* that uses that companion profile: conversation, voice, dreamscapes, and\nwhatever gets added next. Text-to-speech is one capability, provided by\n[speak](https://pylerium.github.io/#app/speak) (coming soon) (Kokoro on MediaPipe, GPU).\n```\n./start.ps1      # build if needed, start the bridge, open http://localhost:8765\n./dev.ps1        # bridge + Vite hot-reload on http://localhost:5173\n```",
+    "category": "web",
+    "status": "beta",
+    "version": "v0.1.0",
+    "platform": "Web",
+    "price": "Free-Beta",
+    "requirements": "",
+    "badge": "NEW",
+    "featured": false,
+    "accent": "rose",
+    "glyph": "moon",
+    "iconImage": "hypnagogia/hypnagogia-app-icon-256.png",
+    "cover": "hypnagogia/hypnagogia-social-1200x630.png",
+    "screenshots": [
+      "hypnagogia/hypnagogia-banner-1920x1080-2.png",
+      "hypnagogia/hypnagogia-feature-atelier.png",
+      "hypnagogia/hypnagogia-feature-companions.png",
+      "hypnagogia/hypnagogia-feature-dreamscape.png",
+      "hypnagogia/hypnagogia-feature-local.png",
+      "hypnagogia/hypnagogia-feature-talk.png",
+      "hypnagogia/hypnagogia-feature-voice.png",
+      "hypnagogia/hypnagogia-square-1080.png"
+    ],
+    "metricLabel": "AI",
+    "metricValue": "companion",
+    "techStack": [
+      "Web Audio API",
+      "Canvas"
+    ],
+    "primaryLabel": "Download",
+    "primaryUrl": "https://github.com/Pylerium/Hypnagogia/releases/latest",
+    "pageUrl": "hypnagogia/",
+    "repoUrl": "https://github.com/Pylerium/Hypnagogia",
+    "docsUrl": "",
+    "videoUrl": "",
+    "installCommand": "run start.ps1",
+    "features": [
+      "A companion platform. You design a living plush companion in the **Atelier**, and every other",
+      "feature is a *module* that uses that companion profile: conversation, voice, dreamscapes, and",
+      "whatever gets added next. Text-to-speech is one capability, provided by (Kokoro on MediaPipe, GPU)."
+    ],
+    "embedTitle": "",
+    "embedCode": "",
+    "changelog": [
+      {
+        "ver": "v0.1.0",
+        "date": "Nov 2026",
+        "note": "Hypnagogia for Windows 0.1.0"
+      }
+    ],
+    "community": false,
+    "updatedAt": "2026-11-27"
+  },
+  {
     "id": "platypusbrowser",
     "name": "PlatypusBrowser",
     "tagline": "QA telemetry and environment virtualization suite for deterministic testing.",
