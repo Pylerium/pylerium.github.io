@@ -179,7 +179,7 @@
     "description": "Pylerium Studio combines Python execution, a Devcord project explorer, opt-in plugins, model tools, a 3D Scene Studio and a video editor in one workspace. Import a folder or ZIP, explore and edit code, run Python scripts, Flask apps or HTML pages with a live preview, and turn your work into showcases and YouTube Shorts.",
     "category": "desktop",
     "status": "live",
-    "version": "v0.1.0",
+    "version": "v1.0.0",
     "platform": "Windows 10/11 · 64-bit",
     "price": "Free",
     "requirements": "Windows 10 or 11, 64-bit. No Python install needed.",
@@ -223,6 +223,11 @@
     "embedTitle": "",
     "embedCode": "",
     "changelog": [
+      {
+        "ver": "v1.0.0",
+        "date": "Nov 2026",
+        "note": "The first full release of Pylerium Studio, free for Windows. Highlights · Workshop and Devcord: import folders, ZIPs or files, then explore code, dependencies and media."
+      },
       {
         "ver": "v0.1.0",
         "date": "Nov 2026",
@@ -279,10 +284,15 @@
       {
         "ver": "v1.1.0",
         "date": "Nov 2026",
+        "note": "ON SALE!"
+      },
+      {
+        "ver": "v0.2.0",
+        "date": "Nov 2026",
         "note": "Licence keys: HexDrive360 now activates with the key from your purchase email (it starts with PYL1-). The key is checked offline and remembered on this PC."
       },
       {
-        "ver": "v1.0.2",
+        "ver": "v0.1.0",
         "date": "Nov 2026",
         "note": "Latest release for Windows x64."
       }
@@ -353,7 +363,7 @@
     "description": "Pylerium Player builds a library from your USB drive or local storage, sorts it into movies and TV shows, and plays everything with resume, track selection and automatic next episode, all driven by the TV remote.",
     "category": "tv",
     "status": "live",
-    "version": "v0.1.0",
+    "version": "v1.0.0",
     "platform": "Android TV · Google TV",
     "price": "Free",
     "requirements": "Android TV or Google TV, Android 8.0 or newer.",
@@ -393,13 +403,18 @@
     "embedCode": "",
     "changelog": [
       {
+        "ver": "v1.0.0",
+        "date": "Nov 2026",
+        "note": "Release v1.0.0."
+      },
+      {
         "ver": "v0.1.0",
         "date": "Nov 2026",
         "note": "First signed release, free for Android TV and Google TV. Movies and shows sorted from your file names, continue watching, next episode, and libVLC playback with audio and subtitle tracks. New app icon and TV banner."
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25"
+    "updatedAt": "2026-11-24"
   },
   {
     "id": "pylerium-purge",
