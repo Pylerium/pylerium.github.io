@@ -490,7 +490,7 @@
     "price": "Free",
     "requirements": "",
     "badge": "HOT",
-    "featured": false,
+    "featured": true,
     "accent": "sky",
     "glyph": "mic",
     "iconImage": "speak/pylerium-dialogue-1024-1.png",
