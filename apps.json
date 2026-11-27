@@ -344,6 +344,7 @@
     "repoUrl": "https://github.com/Pylerium/pyleriumTV",
     "docsUrl": "",
     "videoUrl": "pyleriumtv/promo.mp4",
+    "showSource": false,
     "installCommand": "Install pyleriumTV-v0.8.0.apk with Downloader on your TV, or: adb install pyleriumTV-v0.8.0.apk",
     "features": [
       "Remote-first programme guide with a live time marker, now/next details and progress bars",
@@ -399,6 +400,7 @@
     "repoUrl": "https://github.com/Pylerium/PyleriumPlayer",
     "docsUrl": "",
     "videoUrl": "pylerium-player/promo.mp4",
+    "showSource": false,
     "installCommand": "Install PyleriumPlayer-v1.0.0.apk with Downloader on your TV, or: adb install PyleriumPlayer-v1.0.0.apk",
     "features": [
       "Automatic library that recognises S01E02, 1x02 and Season folder layouts",
@@ -456,6 +458,7 @@
     "repoUrl": "https://github.com/Pylerium/PyleriumPurge",
     "docsUrl": "",
     "videoUrl": "pylerium-purge/promo.mp4",
+    "showSource": false,
     "installCommand": "Install PyleriumPurge-v1.2.0.apk with Downloader on your TV, or: adb install PyleriumPurge-v1.2.0.apk",
     "features": [
       "Remote-first home screen: quick launch row, full app library and TV inputs",
@@ -618,6 +621,7 @@
     "repoUrl": "https://github.com/Pylerium/PlatypusBrowser",
     "docsUrl": "",
     "videoUrl": "",
+    "showSource": false,
     "installCommand": "https://github.com/Pylerium/PlatypusBrowser.git",
     "features": [],
     "embedTitle": "Change your telemetry!",
