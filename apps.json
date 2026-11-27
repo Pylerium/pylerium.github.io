@@ -462,12 +462,12 @@
     "tagline": "Natural, private text-to-speech that runs on your computer.",
     "description": "Speak turns text into natural speech locally, with GPU acceleration where available. Nothing is sent to the cloud.",
     "category": "desktop",
-    "status": "soon",
+    "status": "live",
     "version": "v1.0.0",
     "platform": "Windows",
-    "price": "",
+    "price": "Free",
     "requirements": "",
-    "badge": "",
+    "badge": "HOT",
     "featured": false,
     "accent": "sky",
     "glyph": "mic",
@@ -493,7 +493,9 @@
     "docsUrl": "",
     "videoUrl": "",
     "installCommand": "Set-ExecutionPolicy -Scope Process Bypass .\\setup.ps1 .\\start.ps1",
-    "features": [],
+    "features": [
+      "Somewhat naturally sounding tts locally FREE"
+    ],
     "embedTitle": "",
     "embedCode": "",
     "changelog": [
