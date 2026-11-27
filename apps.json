@@ -235,8 +235,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-24",
-    "socialImage": "pylerium-studio/social-mwv4kox0.png"
+    "updatedAt": "2026-11-24"
   },
   {
     "id": "hexdrive360",
@@ -247,6 +246,9 @@
     "status": "live",
     "version": "v1.1.0",
     "platform": "Windows 10+ (x64)",
+    "price": "A$3.99",
+    "requirements": "",
+    "badge": "",
     "featured": true,
     "accent": "emerald",
     "glyph": "cpu",
@@ -276,6 +278,8 @@
       "Game offsets, XEX inspection and scripting tools",
       "Self-contained release: no separate .NET install needed"
     ],
+    "embedTitle": "",
+    "embedCode": "",
     "changelog": [
       {
         "ver": "v1.1.0",
@@ -288,8 +292,8 @@
         "note": "Latest release for Windows x64."
       }
     ],
+    "community": false,
     "updatedAt": "2026-11-22",
-    "price": "A$3.99",
     "paid": true
   },
   {
@@ -400,8 +404,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25",
-    "socialImage": "pylerium-player/social-mwv4jogz.png"
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "pylerium-purge",
@@ -453,8 +456,7 @@
       }
     ],
     "community": false,
-    "updatedAt": "2026-11-25",
-    "socialImage": "pylerium-purge/social-mwv4jolx.png"
+    "updatedAt": "2026-11-25"
   },
   {
     "id": "speak",
