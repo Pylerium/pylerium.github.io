@@ -212,6 +212,7 @@
     "repoUrl": "https://github.com/Pylerium/PyleriumStudio-Releases",
     "docsUrl": "",
     "videoUrl": "pylerium-studio/promo.mp4",
+    "showSource": false,
     "installCommand": "Extract the zip, then open the Pylerium folder and run Pylerium.exe",
     "features": [
       "Workshop and Devcord: import folders, ZIPs or files, then explore code, dependencies and media",

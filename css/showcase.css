@@ -94,12 +94,23 @@
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { padding: 3px 8px; border-radius: 7px; font: 500 11px var(--mono); color: var(--soft); background: rgba(255,255,255,.04); border: 1px solid var(--line); }
 .tags .more { color: var(--dim); }
-.pcard-foot { display: flex; align-items: center; gap: 8px; padding: 16px 20px 18px; }
+/* Footer: one 34px control height for every item; the main button gives up width first, then the row wraps. */
+.pcard-foot { --ctl: 34px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 16px 20px 18px; min-width: 0; container-type: inline-size; }
 .pcard-foot > a, .pcard-foot > span { position: relative; z-index: 2; }
-.pcard-foot .sp { flex: 1; }
-.pcard-downloads { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font: 600 11px/1.2 var(--mono); white-space: nowrap; }
+.pcard-foot .sp { flex: 1 1 0; min-width: 0; }
+.pcard-foot .btn-acc { height: var(--ctl); padding: 0 14px; min-width: 0; max-width: 100%; flex: 0 1 auto; }
+.pcard-foot .btn-acc .lbl { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.pcard-foot .btn-acc .i, .pcard-foot .ibtn, .pcard-foot .details { flex: none; }
+.pcard-foot .ibtn { width: var(--ctl); height: var(--ctl); }
+.pcard-foot .details { height: var(--ctl); padding: 0 4px 0 8px; }
+.pcard-downloads { flex: none; display: inline-flex; align-items: center; gap: 5px; height: var(--ctl, 34px); padding: 0 10px; border-radius: 10px;
+  border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--muted); font: 600 11px/1 var(--mono); white-space: nowrap; }
+.pcard-downloads .i { font-size: 13px; color: color-mix(in srgb, var(--a1) 70%, white); }
 .pcard-downloads b { color: var(--text); font-size: 12px; font-variant-numeric: tabular-nums; }
 .pcard-downloads[hidden] { display: none; }
+/* Narrow cards: keep the number, drop the word. */
+@container (max-width: 330px) { .pcard-downloads .u { display: none; } }
+@media (max-width: 420px) { .pcard-downloads .u { display: none; } .pcard-foot { padding: 14px 16px 16px; } }
 .btn-acc { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 11px; font-weight: 700; font-size: 13px; text-decoration: none;
   color: #071015; background: linear-gradient(120deg, var(--a1), var(--a2)); box-shadow: 0 8px 22px -10px var(--a1); transition: filter .2s, transform .2s; white-space: nowrap; }
 .btn-acc:hover { filter: brightness(1.12); transform: translateY(-1px); }

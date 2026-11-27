@@ -1,6 +1,6 @@
 // Pylerium Studio public site: filters, app dialogs, YouTube players, Shorts, sharing and supporter submissions.
 // Cards and pages are pre-rendered by the hub's builder; this script only adds interaction.
-import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=d0f9da674b';
+import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=7a4f6b8030';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 setCategories(D.categories);
@@ -50,50 +50,71 @@ $('#clear')?.addEventListener('click', () => { q = ''; $('#q').value = ''; setCa
 $$('[data-cat-jump]').forEach(b => b.addEventListener('click', () => { setCat(b.dataset.catJump); $('#apps').scrollIntoView({ behavior: 'smooth' }); }));
 
 // Public release totals on app cards. Counts come from GitHub's public releases API; no Hub credentials leave the server.
-const COUNT_TTL = 15 * 60 * 1000;
-const countKey = repo => `pylerium.release-count.v1:${repo}`;
-function cachedCount(repo) {
-  try { const v = JSON.parse(localStorage.getItem(countKey(repo)) || 'null'); return Number.isFinite(v?.count) ? v : null; } catch { return null; }
-}
+// Unauthenticated GitHub allows 60 requests an hour per visitor, so: cached values show at once, each repo refreshes
+// at most every 15 minutes, a rate-limit answer pauses all refreshes until GitHub's reset time, and work starts when idle.
+const COUNT = { ttl: 15 * 60 * 1000, timeout: 10000, workers: 3, managerRepo: 'pylerium/pylerium.github.io' };
+const countKey = repo => `pylerium.release-count.v1:${repo.toLowerCase()}`;
+const PAUSE_KEY = 'pylerium.release-count.v1:@paused-until';
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage full or blocked: counts still show */ } }
+};
+const cachedCount = repo => { const v = store.get(countKey(repo)); return Number.isFinite(v?.count) ? v : null; };
+const countFormat = new Intl.NumberFormat();
 function showCount(repo, count) {
-  $$(`[data-download-repo="${CSS.escape(repo)}"]`).forEach(el => {
-    const value = $('b', el); if (value) value.textContent = Number(count).toLocaleString();
+  for (const el of $$('[data-download-repo]')) {
+    if (el.dataset.downloadRepo.toLowerCase() !== repo.toLowerCase()) continue;
+    const value = $('b', el); if (value) value.textContent = countFormat.format(count);
+    el.setAttribute('aria-label', `${countFormat.format(count)} downloads`);
     el.hidden = false;
-  });
+  }
 }
+class RateLimited extends Error { constructor(until) { super('GitHub rate limit'); this.until = until; } }
 async function releaseCount(repo) {
-  const releases = [];
+  const path = repo.split('/').map(encodeURIComponent).join('/');
+  const onlyManagerZips = repo.toLowerCase() === COUNT.managerRepo;
+  let total = 0;
   for (let page = 1; page <= 100; page++) {
-    const path = repo.split('/').map(encodeURIComponent).join('/');
-    const res = await fetch(`https://api.github.com/repos/${path}/releases?per_page=100&page=${page}`, { headers: { Accept: 'application/vnd.github+json' } });
+    const ac = new AbortController(), t = setTimeout(() => ac.abort(), COUNT.timeout);
+    let res;
+    try { res = await fetch(`https://api.github.com/repos/${path}/releases?per_page=100&page=${page}`, { headers: { Accept: 'application/vnd.github+json' }, signal: ac.signal }); }
+    finally { clearTimeout(t); }
+    if ((res.status === 403 || res.status === 429) && res.headers.get('x-ratelimit-remaining') === '0') {
+      throw new RateLimited((+res.headers.get('x-ratelimit-reset') || 0) * 1000 || Date.now() + 15 * 60 * 1000);
+    }
     if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
     const batch = await res.json(); if (!Array.isArray(batch)) break;
-    releases.push(...batch); if (batch.length < 100) break;
+    for (const release of batch) for (const asset of release.assets || []) {
+      if (!onlyManagerZips || /^PyleriumManager-.*\.zip$/i.test(asset.name || '')) total += Number(asset.download_count) || 0;
+    }
+    if (batch.length < 100) break;
   }
-  return releases.reduce((sum, release) => sum + (release.assets || [])
-    .filter(asset => repo !== 'Pylerium/pylerium.github.io' || /^PyleriumManager-.*\.zip$/i.test(asset.name || ''))
-    .reduce((n, asset) => n + (Number(asset.download_count) || 0), 0), 0);
+  return total;
 }
 async function updatePublicDownloadCounts() {
-  const repos = [...new Set($$('[data-download-repo]').map(el => el.dataset.downloadRepo))];
+  const repos = [...new Map($$('[data-download-repo]').map(el => [el.dataset.downloadRepo.toLowerCase(), el.dataset.downloadRepo])).values()];
   const pending = [];
   for (const repo of repos) {
     const cache = cachedCount(repo);
     if (cache) showCount(repo, cache.count);
-    if (!cache || Date.now() - cache.at >= COUNT_TTL) pending.push(repo);
+    if (!cache || Date.now() - cache.at >= COUNT.ttl) pending.push(repo);
   }
-  let next = 0;
-  await Promise.all(Array.from({ length: Math.min(3, pending.length) }, async () => {
-    while (next < pending.length) {
+  if (!pending.length || Date.now() < (+store.get(PAUSE_KEY) || 0)) return;
+  let next = 0, stopped = false;
+  await Promise.all(Array.from({ length: Math.min(COUNT.workers, pending.length) }, async () => {
+    while (!stopped && next < pending.length) {
       const repo = pending[next++];
       try {
-        const count = await releaseCount(repo), value = { count, at: Date.now() };
-        localStorage.setItem(countKey(repo), JSON.stringify(value)); showCount(repo, count);
-      } catch { /* keep the last displayed value if GitHub is temporarily unavailable */ }
+        const count = await releaseCount(repo);
+        store.set(countKey(repo), { count, at: Date.now() }); showCount(repo, count);
+      } catch (e) {
+        if (e instanceof RateLimited) { stopped = true; store.set(PAUSE_KEY, e.until); }
+        /* otherwise keep the last displayed value while GitHub is unavailable */
+      }
     }
   }));
 }
-updatePublicDownloadCounts();
+if ($('[data-download-repo]')) (window.requestIdleCallback || (fn => setTimeout(fn, 400)))(() => updatePublicDownloadCounts(), { timeout: 2500 });
 
 // ---------- YouTube lite players ----------
 function playYT(btn) {

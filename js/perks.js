@@ -1,7 +1,7 @@
 // Perks on the public site: "My perks" (opens a supporter's perks with their personal code) and lucky drops on downloads.
 // Every holder's perks are published encrypted with a key derived from their own code (PBKDF2 → AES-GCM),
 // so the page source never contains a link, key or message in readable form.
-import { icon, esc, md, perkKind, accentOf } from './render.js?v=d0f9da674b';
+import { icon, esc, md, perkKind, accentOf } from './render.js?v=7a4f6b8030';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 const P = D.perks;
