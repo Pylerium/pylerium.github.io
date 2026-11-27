@@ -244,6 +244,8 @@ export function cardHTML(app, opts = {}) {
   const base = opts.base || '';
   const cat = categoryOf(app.category);
   const pl = primaryLink(app, base);
+  const knownDownloadRepos = { 'pylerium-manager': 'Pylerium/pylerium.github.io', speak: 'Pylerium/Pylerium-Dialogue', hypnagogia: 'Pylerium/Hypnagogia' };
+  const downloadRepo = String(app.repoUrl || '').match(/github\.com\/([\w.-]+\/[\w.-]+?)(?:\.git)?(?:[/#?].*)?$/i)?.[1] || knownDownloadRepos[app.id];
   const tags = (app.techStack || []).slice(0, 4);
   const more = (app.techStack || []).length - tags.length;
   const link = opts.preview ? '#' : `${base}apps/${encodeURIComponent(app.id)}/`;
@@ -262,7 +264,8 @@ export function cardHTML(app, opts = {}) {
   <div class="pcard-foot">
     ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
     <span class="sp"></span>
-    ${app.repoUrl && (!pl || pl.raw !== app.repoUrl) ? `<a class="ibtn" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
+    ${app.showSource !== false && app.repoUrl && (!pl || pl.raw !== app.repoUrl) ? `<a class="ibtn" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
+    ${downloadRepo ? `<span class="pcard-downloads" data-download-repo="${esc(downloadRepo)}" hidden><b></b><span>downloads</span></span>` : ''}
     <a class="details" href="${link}" data-app="${esc(app.id)}">Details${icon('chevron')}</a>
   </div>${opts.wide ? '</div>' : ''}
 </article>`;

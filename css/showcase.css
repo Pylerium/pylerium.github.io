@@ -97,6 +97,9 @@
 .pcard-foot { display: flex; align-items: center; gap: 8px; padding: 16px 20px 18px; }
 .pcard-foot > a, .pcard-foot > span { position: relative; z-index: 2; }
 .pcard-foot .sp { flex: 1; }
+.pcard-downloads { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font: 600 11px/1.2 var(--mono); white-space: nowrap; }
+.pcard-downloads b { color: var(--text); font-size: 12px; font-variant-numeric: tabular-nums; }
+.pcard-downloads[hidden] { display: none; }
 .btn-acc { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 11px; font-weight: 700; font-size: 13px; text-decoration: none;
   color: #071015; background: linear-gradient(120deg, var(--a1), var(--a2)); box-shadow: 0 8px 22px -10px var(--a1); transition: filter .2s, transform .2s; white-space: nowrap; }
 .btn-acc:hover { filter: brightness(1.12); transform: translateY(-1px); }

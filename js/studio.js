@@ -1,6 +1,6 @@
 // Pylerium Studio public site: filters, app dialogs, YouTube players, Shorts, sharing and supporter submissions.
 // Cards and pages are pre-rendered by the hub's builder; this script only adds interaction.
-import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=3e048d832d';
+import { detailHTML, icon, esc, setCategories, categories } from './render.js?v=d0f9da674b';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 setCategories(D.categories);
@@ -48,6 +48,52 @@ $$('.tab').forEach(t => t.addEventListener('click', () => setCat(t.dataset.cat))
 $('#q')?.addEventListener('input', e => { q = e.target.value.trim().toLowerCase(); apply(); });
 $('#clear')?.addEventListener('click', () => { q = ''; $('#q').value = ''; setCat('all'); });
 $$('[data-cat-jump]').forEach(b => b.addEventListener('click', () => { setCat(b.dataset.catJump); $('#apps').scrollIntoView({ behavior: 'smooth' }); }));
+
+// Public release totals on app cards. Counts come from GitHub's public releases API; no Hub credentials leave the server.
+const COUNT_TTL = 15 * 60 * 1000;
+const countKey = repo => `pylerium.release-count.v1:${repo}`;
+function cachedCount(repo) {
+  try { const v = JSON.parse(localStorage.getItem(countKey(repo)) || 'null'); return Number.isFinite(v?.count) ? v : null; } catch { return null; }
+}
+function showCount(repo, count) {
+  $$(`[data-download-repo="${CSS.escape(repo)}"]`).forEach(el => {
+    const value = $('b', el); if (value) value.textContent = Number(count).toLocaleString();
+    el.hidden = false;
+  });
+}
+async function releaseCount(repo) {
+  const releases = [];
+  for (let page = 1; page <= 100; page++) {
+    const path = repo.split('/').map(encodeURIComponent).join('/');
+    const res = await fetch(`https://api.github.com/repos/${path}/releases?per_page=100&page=${page}`, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
+    const batch = await res.json(); if (!Array.isArray(batch)) break;
+    releases.push(...batch); if (batch.length < 100) break;
+  }
+  return releases.reduce((sum, release) => sum + (release.assets || [])
+    .filter(asset => repo !== 'Pylerium/pylerium.github.io' || /^PyleriumManager-.*\.zip$/i.test(asset.name || ''))
+    .reduce((n, asset) => n + (Number(asset.download_count) || 0), 0), 0);
+}
+async function updatePublicDownloadCounts() {
+  const repos = [...new Set($$('[data-download-repo]').map(el => el.dataset.downloadRepo))];
+  const pending = [];
+  for (const repo of repos) {
+    const cache = cachedCount(repo);
+    if (cache) showCount(repo, cache.count);
+    if (!cache || Date.now() - cache.at >= COUNT_TTL) pending.push(repo);
+  }
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(3, pending.length) }, async () => {
+    while (next < pending.length) {
+      const repo = pending[next++];
+      try {
+        const count = await releaseCount(repo), value = { count, at: Date.now() };
+        localStorage.setItem(countKey(repo), JSON.stringify(value)); showCount(repo, count);
+      } catch { /* keep the last displayed value if GitHub is temporarily unavailable */ }
+    }
+  }));
+}
+updatePublicDownloadCounts();
 
 // ---------- YouTube lite players ----------
 function playYT(btn) {
