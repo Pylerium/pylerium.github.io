@@ -179,7 +179,7 @@
     "description": "Pylerium Studio combines Python execution, a Devcord project explorer, opt-in plugins, model tools, a 3D Scene Studio and a video editor in one workspace. Import a folder or ZIP, explore and edit code, run Python scripts, Flask apps or HTML pages with a live preview, and turn your work into showcases and YouTube Shorts.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.0.0",
+    "version": "v0.2.0",
     "platform": "Windows 10/11 · 64-bit",
     "price": "Free",
     "requirements": "Windows 10 or 11, 64-bit. No Python install needed.",
@@ -224,7 +224,7 @@
     "embedCode": "",
     "changelog": [
       {
-        "ver": "v1.0.0",
+        "ver": "v0.2.0",
         "date": "Nov 2026",
         "note": "The first full release of Pylerium Studio, free for Windows. Highlights · Workshop and Devcord: import folders, ZIPs or files, then explore code, dependencies and media."
       },
