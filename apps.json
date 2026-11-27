@@ -277,6 +277,7 @@
     "pageUrl": "",
     "docsUrl": "",
     "videoUrl": "hexdrive360/promo.mp4",
+    "showSource": false,
     "installCommand": "",
     "features": [
       "Connects to an Xbox 360 with XBDM enabled over your network",

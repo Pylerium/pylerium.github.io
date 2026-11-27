@@ -62,100 +62,100 @@ export function detectSocial(url) {
 }
 
 const P = {
-  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
-  plus: '<path d="M12 5v14M5 12h14"/>',
-  external: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
-  github: '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
-  globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
-  monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>',
-  terminal: '<path d="m4 17 6-6-6-6"/><path d="M12 19h8"/>',
-  sparkles: '<path d="M12 3l1.9 5.8L20 10.7l-6.1 1.9L12 18.5l-1.9-5.9L4 10.7l6.1-1.9z"/><path d="M19 3v4M17 5h4M5 17v4M3 19h4"/>',
-  layers: '<path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/>',
-  check: '<path d="M20 6 9 17l-5-5"/>',
-  copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
-  edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
-  trash: '<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
-  x: '<path d="M18 6 6 18M6 6l12 12"/>',
-  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
-  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/>',
-  star: '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/>',
-  grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
-  list: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
-  arrow: '<path d="M7 17 17 7M7 7h10v10"/>',
-  package: '<path d="M16.5 9.4 7.5 4.2"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/>',
-  code: '<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
-  eye: '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
-  eyeoff: '<path d="M9.9 4.24A9 9 0 0 1 12 4c6.5 0 10 8 10 8a18 18 0 0 1-2.16 3.19M6.6 6.6A18 18 0 0 0 2 12s3.5 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="m2 2 20 20"/><path d="M14.1 14.1a3 3 0 1 1-4.2-4.2"/>',
-  tv: '<rect x="2" y="7" width="20" height="15" rx="2"/><path d="m17 2-5 5-5-5"/>',
-  chrome: '<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M21.17 8H12M3.95 6.06 8.54 14M10.88 21.94 15.46 14"/>',
-  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-  chevron: '<path d="m9 18 6-6-6-6"/>',
-  chevleft: '<path d="m15 18-6-6 6-6"/>',
-  up: '<path d="m18 15-6-6-6 6"/>',
-  down: '<path d="m6 9 6 6 6-6"/>',
-  refresh: '<path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/>',
-  rocket: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
-  folder: '<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"/>',
-  image: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/>',
-  cpu: '<rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/>',
-  play: '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
-  playfill: '<path d="M7 4.5v15l13-7.5z" fill="currentColor"/>',
-  home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
-  mic: '<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/>',
-  moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/>',
-  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
-  video: '<path d="m22 8-6 4 6 4V8z"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
-  lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
-  unlock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/>',
-  zap: '<path d="M13 2 3 14h9l-1 8 10-12h-9z"/>',
-  book: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/>',
-  send: '<path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/>',
-  menu: '<path d="M4 6h16M4 12h16M4 18h16"/>',
-  compass: '<circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/>',
-  sliders: '<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
-  heart: '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/>',
-  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
-  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
-  save: '<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/>',
-  gamepad: '<rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/>',
-  wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/>',
-  car: '<path d="M5 17H3v-5l2-5h14l2 5v5h-2"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5M3 12h18"/>',
-  music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
-  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
-  gift: '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
-  inbox: '<path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>',
-  megaphone: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 8a5 5 0 0 1 0 8M18 5a9 9 0 0 1 0 14"/>',
-  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/>',
-  film: '<rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/>',
-  phone: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
-  puzzle: '<path d="M19.4 14.6a2 2 0 1 0 0-3.2V7a1 1 0 0 0-1-1h-4.4a2 2 0 1 0-3.2 0H6a1 1 0 0 0-1 1v4.4a2 2 0 1 1 0 3.2V19a1 1 0 0 0 1 1h4.4a2 2 0 1 1 3.2 0h4.8a1 1 0 0 0 1-1z"/>',
-  crown: '<path d="m2 6 4 10h12l4-10-6 5-4-7-4 7z"/><path d="M6 20h12"/>',
+  search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.4 15.4 4.6 4.6"/><path d="M7.6 9.4a3.2 3.2 0 0 1 2-2"/>',
+  plus: '<path d="M12 4.5v15M4.5 12h15"/>',
+  external: '<path d="M13 4h7v7"/><path d="m20 4-8.5 8.5"/><path d="M17 14.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3.5"/>',
+  github: '<path d="M9.5 20.5v-2.6c-3.4.7-4.1-1.5-4.4-2.3M14.5 20.5v-3a2.6 2.6 0 0 0-.8-2c2.7-.3 5.3-1.3 5.3-5.7a4.4 4.4 0 0 0-1.2-3.1 4 4 0 0 0-.1-3s-1-.3-3.2 1.2a11 11 0 0 0-5.8 0C6.5 2.4 5.5 2.7 5.5 2.7a4 4 0 0 0-.1 3 4.4 4.4 0 0 0-1.2 3.1c0 4.4 2.6 5.4 5.3 5.7a2.6 2.6 0 0 0-.8 2"/>',
+  globe: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M5 7.5h14M5 16.5h14"/><path d="M12 3.5c-2.4 2.4-3.6 5.2-3.6 8.5s1.2 6.1 3.6 8.5c2.4-2.4 3.6-5.2 3.6-8.5S14.4 5.9 12 3.5Z"/>',
+  monitor: '<rect x="3" y="4" width="18" height="12.5" rx="2.5"/><path d="M9 20h6M12 16.5V20M6.5 13h3"/>',
+  terminal: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7.5 9.5 3 2.5-3 2.5M12.5 15h4"/>',
+  sparkles: '<path d="M10 3.5c.6 3.6 2.4 5.4 6 6-3.6.6-5.4 2.4-6 6-.6-3.6-2.4-5.4-6-6 3.6-.6 5.4-2.4 6-6Z"/><path d="M17.5 14.5c.3 1.6 1.1 2.4 2.7 2.7-1.6.3-2.4 1.1-2.7 2.7-.3-1.6-1.1-2.4-2.7-2.7 1.6-.3 2.4-1.1 2.7-2.7Z"/>',
+  layers: '<path d="M12 3.8 20 8l-8 4.2L4 8Z"/><path d="m4.6 12.4 7.4 3.9 7.4-3.9"/><path d="m4.6 16.3 7.4 3.9 7.4-3.9"/>',
+  check: '<path d="m4.5 12.5 4.5 4.5 10.5-10.5"/>',
+  copy: '<rect x="8.5" y="8.5" width="12" height="12" rx="2.5"/><path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"/>',
+  edit: '<path d="m14.5 5.5 4 4"/><path d="M4 20l1-4.5L16 4.5a1.4 1.4 0 0 1 2 0l1.5 1.5a1.4 1.4 0 0 1 0 2L8.5 19Z"/>',
+  trash: '<path d="M4 6.5h16M9.5 6.5v-2h5v2"/><path d="m6 6.5.9 12.2a2 2 0 0 0 2 1.8h6.2a2 2 0 0 0 2-1.8L18 6.5"/><path d="M10 10.5v6M14 10.5v6"/>',
+  x: '<path d="m6 6 12 12M18 6 6 18"/>',
+  download: '<path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 15.5V18a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 18v-2.5"/>',
+  upload: '<path d="M12 15V4"/><path d="M7.5 8.5 12 4l4.5 4.5"/><path d="M4 15.5V18a2.5 2.5 0 0 0 2.5 2.5h11A2.5 2.5 0 0 0 20 18v-2.5"/>',
+  star: '<path d="m12 4 2.12 5.59 5.96.28-4.66 3.74L17 19.38l-5-3.28-5 3.28 1.58-5.77-4.66-3.74 5.96-.28Z"/>',
+  grid: '<rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="3.5"/>',
+  list: '<path d="M9 6.5h11M9 12h11M9 17.5h7"/><circle cx="4.75" cy="6.5" r=".9"/><circle cx="4.75" cy="12" r=".9"/><circle cx="4.75" cy="17.5" r=".9"/>',
+  arrow: '<path d="M7 17 17 7M9 7h8v8"/>',
+  package: '<path d="M12 3.5 19.5 7.5v9L12 20.5l-7.5-4v-9Z"/><path d="M4.5 7.5 12 11.5l7.5-4M12 11.5v9M8.2 5.5l7.5 4"/>',
+  code: '<path d="M8.5 7.5 4 12l4.5 4.5M15.5 7.5 20 12l-4.5 4.5"/><path d="m13.5 5-3 14"/>',
+  eye: '<path d="M2.5 12C4.6 7.8 8 5.5 12 5.5s7.4 2.3 9.5 6.5c-2.1 4.2-5.5 6.5-9.5 6.5S4.6 16.2 2.5 12Z"/><circle cx="12" cy="12" r="3"/>',
+  eyeoff: '<path d="M6.3 7.2C4.7 8.4 3.4 10 2.5 12c2.1 4.2 5.5 6.5 9.5 6.5 1.8 0 3.4-.5 4.9-1.3M10 5.7c.6-.1 1.3-.2 2-.2 4 0 7.4 2.3 9.5 6.5-.6 1.2-1.3 2.2-2.1 3.1"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2M4 4l16 16"/>',
+  tv: '<rect x="3" y="6.5" width="18" height="13" rx="3"/><path d="m8.5 3 3.5 3.5L15.5 3"/>',
+  chrome: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 8.8h8M9.2 13.6l-4-6.9M14.8 13.6l-4 6.9"/>',
+  shield: '<path d="M12 3.5 19 6v5.5c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6Z"/><path d="m9 12 2 2 4-4"/>',
+  chevron: '<path d="m9.5 6 6 6-6 6"/>',
+  chevleft: '<path d="m14.5 6-6 6 6 6"/>',
+  up: '<path d="m6 14.5 6-6 6 6"/>',
+  down: '<path d="m6 9.5 6 6 6-6"/>',
+  refresh: '<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4v4.5H15"/>',
+  rocket: '<path d="M12.5 15.5 8.5 11.5C10.4 6.6 14 4 19.5 4.5 20 10 17.4 13.6 12.5 15.5Z"/><path d="M8.5 11.5H5L7.5 8h4M12.5 15.5V19l3.5-2.5v-4M6.5 17.5c-1 .4-1.8 1.3-2 3 1.7-.2 2.6-1 3-2"/><circle cx="15" cy="9" r="1.4"/>',
+  folder: '<path d="M3.5 7A2.5 2.5 0 0 1 6 4.5h3.2l2 2.5H18a2.5 2.5 0 0 1 2.5 2.5V17a2.5 2.5 0 0 1-2.5 2.5H6A2.5 2.5 0 0 1 3.5 17Z"/><path d="M3.5 10h17"/>',
+  image: '<rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="m3.5 16 4.5-4.5 3.5 3.5 2.5-2.5 6.5 6"/><circle cx="15.5" cy="9" r="1.6"/>',
+  cpu: '<rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9.5 10.5h5v3h-5ZM9.5 3v3M14.5 3v3M9.5 18v3M14.5 18v3M3 9.5h3M3 14.5h3M18 9.5h3M18 14.5h3"/>',
+  play: '<circle cx="12" cy="12" r="8.5"/><path d="M10.2 8.6v6.8l5.4-3.4Z"/>',
+  playfill: '<path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2Z" fill="currentColor"/>',
+  home: '<path d="M4 10.2 12 4l8 6.2V18a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 18Z"/><path d="M9.5 20.5v-5a2.5 2.5 0 0 1 5 0v5"/>',
+  mic: '<rect x="9" y="3.5" width="6" height="10.5" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5v3M9 20.5h6"/>',
+  moon: '<path d="M19.5 14.5A8 8 0 1 1 9.5 4.5a6.5 6.5 0 0 0 10 10Z"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3.8 7 7 5.4a2 2 0 0 0 2.4 0l7-5.4"/>',
+  video: '<rect x="3" y="6" width="12.5" height="12" rx="3"/><path d="M15.5 10.5 21 7.5v9l-5.5-3"/>',
+  lock: '<rect x="4.5" y="10.5" width="15" height="10" rx="3"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 14.5v2"/>',
+  unlock: '<rect x="4.5" y="10.5" width="15" height="10" rx="3"/><path d="M8 10.5V8a4 4 0 0 1 7.7-1.5M12 14.5v2"/>',
+  zap: '<path d="M13.5 3 5.5 13.5h6L10.5 21l8-10.5h-6Z"/>',
+  book: '<path d="M12 6.5C10.3 5.2 8 4.5 4 4.5v13c4 0 6.3.7 8 2 1.7-1.3 4-2 8-2v-13c-4 0-6.3.7-8 2Z"/><path d="M12 6.5v13"/>',
+  send: '<path d="M20.5 3.5 3.5 10.2l6.8 2.9 2.9 6.9Z"/><path d="m10.3 13.1 4.2-4.2"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h10"/>',
+  compass: '<circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2.2 4.8-4.8 2.2 2.2-4.8Z"/>',
+  sliders: '<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+  heart: '<path d="M12 19.5S4 14.8 4 9.2A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 8 2.2c0 5.6-8 10.3-8 10.3Z"/>',
+  link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3A4 4 0 0 0 13 5.3l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  calendar: '<rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M7.5 14h2M11 14h2M14.5 14h2M7.5 17h2"/>',
+  save: '<path d="M5.5 3.5h10l5 5v10a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z"/><path d="M8 3.5V8h6.5V3.5"/><rect x="7.5" y="13" width="9" height="7.5" rx="1.5"/>',
+  gamepad: '<path d="M7.5 6.5h9a4.5 4.5 0 0 1 4.4 3.6l1 5a2.6 2.6 0 0 1-4.5 2.2L15.5 15h-7l-1.9 2.3a2.6 2.6 0 0 1-4.5-2.2l1-5a4.5 4.5 0 0 1 4.4-3.6Z"/><path d="M8 9.5v3M6.5 11h3"/><circle cx="15.5" cy="10.2" r=".6"/><circle cx="17" cy="12.2" r=".6"/>',
+  wrench: '<path d="M14.5 4.2a4.5 4.5 0 0 0-4.6 5.9l-5.7 5.7a1.9 1.9 0 0 0 2.7 2.7l5.7-5.7a4.5 4.5 0 0 0 5.9-4.6l-2.6 2.6-2.6-.6-.6-2.6Z"/>',
+  car: '<path d="M5 16.5H3.5V13l2-5a2 2 0 0 1 1.9-1.3h9.2a2 2 0 0 1 1.9 1.3l2 5v3.5H19M9.5 16.5h5M3.5 12.5h17"/><circle cx="7.25" cy="16.75" r="2"/><circle cx="16.75" cy="16.75" r="2"/>',
+  music: '<path d="M9 17.5V6l10.5-2.5v11.5M9 9.5 19.5 7"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="17" cy="15" r="2.5"/>',
+  users: '<circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5a6 6 0 0 1 12 0M15.5 5.3a3.5 3.5 0 0 1 0 6.4M17.5 14a5.5 5.5 0 0 1 3.5 5.5"/>',
+  gift: '<rect x="4" y="9" width="16" height="11.5" rx="2.5"/><path d="M12 9v11.5M4 13.5h16M12 9c-1-3-2.5-4.5-4-4.5a2.25 2.25 0 0 0 0 4.5M12 9c1-3 2.5-4.5 4-4.5a2.25 2.25 0 0 1 0 4.5"/>',
+  inbox: '<path d="M3.5 13.5 6 6a2 2 0 0 1 1.9-1.5h8.2A2 2 0 0 1 18 6l2.5 7.5V18a2.5 2.5 0 0 1-2.5 2.5H6A2.5 2.5 0 0 1 3.5 18Z"/><path d="M3.5 13.5H8L9.5 16h5l1.5-2.5h4.5"/>',
+  megaphone: '<path d="M4 10v4a1.5 1.5 0 0 0 1.5 1.5H7l9 4.5V4L7 8.5H5.5A1.5 1.5 0 0 0 4 10Z"/><path d="M8 15.5 9.5 20H12M19.5 10v4"/>',
+  key: '<circle cx="8" cy="15.5" r="4.5"/><path d="m11.2 12.3 8.3-8.3M16.5 7 19 9.5M14 9.5l2 2"/>',
+  film: '<rect x="3.5" y="3.5" width="17" height="17" rx="3"/><path d="M8 3.5v17M16 3.5v17M3.5 8.5H8M3.5 15.5H8M16 8.5h4.5M16 15.5h4.5"/>',
+  phone: '<rect x="6.5" y="3" width="11" height="18" rx="3"/><path d="M10.5 18h3"/>',
+  puzzle: '<path d="M4.5 9.5a1 1 0 0 1 1-1h3a2.5 2.5 0 1 1 5 0h3a1 1 0 0 1 1 1v3a2.5 2.5 0 1 1 0 5v2a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1Z"/>',
+  crown: '<path d="M4 8.5 7.5 12 12 5.5l4.5 6.5L20 8.5 18.5 17h-13Z"/><path d="M6 20h12"/>',
   can: '<path d="M9 2h6"/><path d="M8.5 2 7 4.5V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4.5L15.5 2"/><path d="M7 7h10M7 18.5h10"/><path d="m12.8 9.2-2.3 3.4h3.1l-2.3 3.4"/>',
-  tag: '<path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
-  activity: '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
-  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-  chart: '<path d="M3 3v18h18"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
-  alert: '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/>',
-  store: '<path d="M3 9 4.5 4h15L21 9"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/>',
-  card: '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/>',
-  power: '<path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/>',
-  coffee: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/>',
-  share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
-  hash: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
-  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
-  palette: '<circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/><path d="M12 2a10 10 0 0 0 0 20c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.04-.23-.29-.38-.63-.38-1.02A1.5 1.5 0 0 1 14.25 17H16a6 6 0 0 0 6-6c0-5-4.5-9-10-9z"/>',
-  bot: '<rect x="3" y="8" width="18" height="12" rx="3"/><path d="M12 8V4M8 4h8"/><circle cx="8.5" cy="14" r="1.2"/><circle cx="15.5" cy="14" r="1.2"/>',
-  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  tag: '<path d="M3.5 4.7v6.2a2 2 0 0 0 .6 1.4l7.6 7.6a2 2 0 0 0 2.8 0l5.4-5.4a2 2 0 0 0 0-2.8l-7.6-7.6a2 2 0 0 0-1.4-.6H4.7a1.2 1.2 0 0 0-1.2 1.2Z"/><circle cx="8" cy="8" r="1.5"/>',
+  activity: '<path d="M3 12h3.5L9 6l4 13 3-8.5 1.5 1.5H21"/>',
+  clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3.2 2"/>',
+  chart: '<path d="M4 4v14.5A1.5 1.5 0 0 0 5.5 20H20M8.5 15.5v-3M12.5 15.5V8M16.5 15.5v-5"/>',
+  alert: '<path d="M10.3 4.6 3.2 17a2 2 0 0 0 1.7 3h14.2a2 2 0 0 0 1.7-3L13.7 4.6a2 2 0 0 0-3.4 0Z"/><path d="M12 9.5v4"/><circle cx="12" cy="16.8" r=".4"/>',
+  store: '<path d="M4 9.5 5.5 4.5h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0M5.5 12.5v6a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-6M10 20.5v-4h4v4"/>',
+  card: '<rect x="3" y="5.5" width="18" height="13" rx="3"/><path d="M3 10h18M7 14.5h3.5"/>',
+  power: '<path d="M12 3.5v7"/><path d="M7.2 6.3a7.5 7.5 0 1 0 9.6 0"/>',
+  coffee: '<path d="M4.5 9h11v5.5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5Z"/><path d="M15.5 10.5H17a2.5 2.5 0 0 1 0 5h-1.8M8 3.5c-.7.9-.7 1.6 0 2.5M11.5 3.5c-.7.9-.7 1.6 0 2.5"/>',
+  share: '<circle cx="17.5" cy="6" r="2.5"/><circle cx="6.5" cy="12" r="2.5"/><circle cx="17.5" cy="18" r="2.5"/><path d="m8.7 10.8 6.6-3.6M8.7 13.2l6.6 3.6"/>',
+  hash: '<path d="m9.5 4-2 16M16.5 4l-2 16M4.5 9h15M3.5 15h15"/>',
+  bell: '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15Z"/><path d="M10 20.5h4"/>',
+  palette: '<path d="M12 3.5a8.5 8.5 0 0 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.1-.9-1.6-.9-2.6 0-1.1.8-1.7 1.9-1.7H17a3.5 3.5 0 0 0 3.5-3.5c0-4.2-3.8-7.5-8.5-7.5Z"/><circle cx="8" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/>',
+  bot: '<rect x="4" y="8" width="16" height="11.5" rx="3.5"/><path d="M12 8V4.6M9 13v1.5M15 13v1.5M2.5 12.5v3M21.5 12.5v3"/><circle cx="12" cy="3.8" r=".8"/>',
+  info: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".4"/>',
   // brand marks (simplified line versions)
-  youtube: '<path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>',
-  plug: '<path d="M12 22v-5"/><path d="M9 8V2M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/>',
+  youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7Z"/>',
+  plug: '<path d="M9 3.5v4M15 3.5v4"/><path d="M6.5 7.5h11V11a5.5 5.5 0 0 1-11 0Z"/><path d="M12 16.5v4"/>',
   stripe: '<rect x="2" y="4" width="20" height="16" rx="4"/><path d="M14.5 9.2c-.6-.5-1.5-.8-2.5-.8-1.4 0-2.4.7-2.4 1.7 0 2.4 5 1.4 5 3.9 0 1.1-1.1 1.8-2.6 1.8-1.1 0-2.2-.4-2.9-1"/>',
   cloudflare: '<path d="M17.5 18H6a4 4 0 0 1-.6-7.96A6 6 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z"/><path d="M9 14h7"/>',
   itch: '<path d="M3 9 5 4h14l2 5"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/><path d="M10 15h.01M14 15h.01M11 17.5h2"/>',
   mastodon: '<path d="M21 13.5c-.3 1.6-2.6 3.3-5.3 3.6-1.4.2-2.8.3-4.3.2-2.4-.1-4.3-.6-4.3-.6v.7c.3 2.4 2.3 2.5 4.2 2.6 1.9 0 3.6-.5 3.6-.5l.1 1.7s-1.3.7-3.7.8c-1.3.1-2.9 0-4.8-.5C2.5 20.5 2.3 16.5 2.2 12.5V8.9c0-4.2 2.7-5.4 2.7-5.4C6.3 2.8 8.7 2.5 11.2 2.5h.1c2.5 0 4.9.3 6.3 1 0 0 2.7 1.2 2.7 5.4 0 0 0 3.1-.4 4.6z"/><path d="M8.5 12V8.6c0-1 .7-1.8 1.7-1.8s1.8.8 1.8 1.8V11M12 11V8.6c0-1 .8-1.8 1.8-1.8s1.7.8 1.7 1.8V12"/>',
   telegram: '<path d="M21.5 3.5 2.8 10.7c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.6c.3.8 1.2 1 1.8.4l2.6-2.5 4.7 3.5c.7.5 1.6.1 1.8-.7L22.9 4.9c.2-.9-.6-1.7-1.4-1.4z"/><path d="m7.5 14 9.5-6.5-6.8 8"/>',
   ollama: '<path d="M8 5.5V3.6c0-.9.8-1.4 1.4-.8l1 1.2M16 5.5V3.6c0-.9-.8-1.4-1.4-.8l-1 1.2"/><path d="M6.5 11.5C6.5 8 9 5.5 12 5.5s5.5 2.5 5.5 6v3.5c1 .8 1.5 2 1.5 3.3 0 1.5-.7 2.7-1.7 3.2H6.7C5.7 21 5 19.8 5 18.3c0-1.3.5-2.5 1.5-3.3z"/><path d="M10 12.5h.01M14 12.5h.01"/><path d="M10.7 15.5c.7.6 1.9.6 2.6 0"/>',
-  sparkle: '<path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/><path d="M19 3v4M17 5h4"/>',
+  sparkle: '<path d="M12 3.5c.8 4.6 3 6.8 7.5 7.5-4.5.7-6.7 2.9-7.5 7.5-.8-4.6-3-6.8-7.5-7.5 4.5-.7 6.7-2.9 7.5-7.5Z"/>',
   devto: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M6.5 9v6h1.2a1.8 1.8 0 0 0 1.8-1.8v-2.4A1.8 1.8 0 0 0 7.7 9z"/><path d="M14 9h-2.2v6H14M11.8 12h1.6"/><path d="M15.6 9l1.4 6 1.4-6"/>',
   xlogo: '<path d="M4 4h4.5L20 20h-4.5z"/><path d="M20 4l-6.6 7.2M4 20l6.6-7.2"/>',
   discord: '<path d="M8.5 17.5 7.5 19C5 18.5 3.3 17.4 2.5 16.5c0-4.5 1.3-8.5 3-11 1.4-.7 2.8-1 4-1.2l.6 1.3a14 14 0 0 1 3.8 0l.6-1.3c1.2.2 2.6.5 4 1.2 1.7 2.5 3 6.5 3 11-.8.9-2.5 2-5 2.5l-1-1.5"/><path d="M7.5 15.5c3 1.5 6 1.5 9 0"/><circle cx="9" cy="12" r="1.2"/><circle cx="15" cy="12" r="1.2"/>',
@@ -167,7 +167,12 @@ const P = {
   linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>',
   patreon: '<circle cx="15" cy="9.5" r="6.5"/><path d="M3 3v18"/>',
   producthunt: '<circle cx="12" cy="12" r="9.5"/><path d="M10 17V7h3.2a2.9 2.9 0 0 1 0 5.8H10"/>',
-  rss: '<path d="M5 11a8 8 0 0 1 8 8M5 5a14 14 0 0 1 14 14"/><circle cx="6" cy="18" r="1.4"/>'
+  rss: '<path d="M4.5 10.5a9 9 0 0 1 9 9M4.5 4.5a15 15 0 0 1 15 15"/><circle cx="5.5" cy="18.5" r="1"/>',
+  // Pylerium house glyphs (24-pt grid, 3-pt live-area padding, 1.75 stroke, round caps and joins)
+  command: '<path d="M9 9V6.5A2.5 2.5 0 1 0 6.5 9H9Zm0 0h6m-6 0v6m6-6V6.5A2.5 2.5 0 1 1 17.5 9H15Zm0 0v6m0 0h-6m6 0v2.5a2.5 2.5 0 1 0 2.5-2.5H15Zm-6 0H6.5A2.5 2.5 0 1 0 9 17.5V15Z"/>',
+  keyboard: '<rect x="2.5" y="6" width="19" height="12" rx="3"/><path d="M6.5 10h1M10 10h1M13.5 10h1M17 10h.5M6.5 13.5h.5M9.5 14h5M17 13.5h.5"/>',
+  wifi: '<path d="M3.5 9.5a12 12 0 0 1 17 0M6.5 12.7a7.8 7.8 0 0 1 11 0M9.4 15.8a3.7 3.7 0 0 1 5.2 0"/><circle cx="12" cy="18.8" r=".5"/>',
+  signout: '<path d="M14 4.5h3.5A2.5 2.5 0 0 1 20 7v10a2.5 2.5 0 0 1-2.5 2.5H14"/><path d="M4 12h10M7.5 8.5 4 12l3.5 3.5"/>'
 };
 
 // Glyphs an app or category can use as its icon (subset of the icon set, in picker order).
@@ -176,7 +181,7 @@ export const GLYPHS = ['package', 'sparkles', 'monitor', 'tv', 'play', 'home', '
   'palette', 'book', 'heart', 'users', 'crown', 'can', 'coffee', 'key', 'megaphone'];
 
 export function icon(name, cls = 'i') {
-  return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[name] || P.code}</svg>`;
+  return `<svg class="${cls}" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${P[name] || P.code}</svg>`;
 }
 
 let markN = 0;
@@ -239,12 +244,16 @@ export function coverHTML(app, opts = {}) {
   return `<div class="cover gen"><span class="gen-grid"></span><span class="gen-glyph">${icon(app.glyph || 'code')}</span><span class="gen-name">${esc(app.name)}</span></div>`;
 }
 
-// Public release repositories for apps whose catalog repoUrl is blank (or private), keyed by app id.
+// Public release repositories for apps whose catalog repoUrl is blank (or private), keyed by app id. An app's own
+// "Release repository" field (releaseRepo) wins over this list.
 const KNOWN_DOWNLOAD_REPOS = { 'pylerium-manager': 'Pylerium/pylerium.github.io', speak: 'Pylerium/Pylerium-Dialogue', hypnagogia: 'Pylerium/Hypnagogia' };
+const KNOWN_DOWNLOAD_MATCH = { 'pylerium-manager': 'PyleriumManager-*.zip' }; // the site repo also hosts other files
+const repoOf = v => String(v || '').match(/github\.com\/([\w.-]+\/[\w.-]+?)(?:\.git)?(?:[/#?].*)?$/i)?.[1] || (/^[\w.-]+\/[\w.-]+$/.test(v || '') ? v : '');
 // The GitHub "owner/name" whose release downloads a card counts, or '' when none is known.
 export function downloadRepoOf(app) {
-  return String(app.repoUrl || '').match(/github\.com\/([\w.-]+\/[\w.-]+?)(?:\.git)?(?:[/#?].*)?$/i)?.[1] || KNOWN_DOWNLOAD_REPOS[app.id] || '';
+  return repoOf(app.releaseRepo) || repoOf(app.repoUrl) || KNOWN_DOWNLOAD_REPOS[app.id] || '';
 }
+export const downloadMatchOf = app => app.releaseAssets || KNOWN_DOWNLOAD_MATCH[app.id] || '';
 // Whether the card shows its Source icon: switched on (default), a repo exists, and the main button isn't already the repo.
 export function showsSourceIcon(app, pl = primaryLink(app, '')) {
   return app.showSource !== false && !!app.repoUrl && (!pl || pl.raw !== app.repoUrl);
@@ -274,7 +283,7 @@ export function cardHTML(app, opts = {}) {
   <div class="pcard-foot">
     ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${ext(pl.url)} title="${esc(pl.label)}"><span class="lbl">${esc(pl.label)}</span>${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
     <span class="sp"></span>
-    ${downloadRepo ? `<span class="pcard-downloads" data-download-repo="${esc(downloadRepo)}" title="Downloads from GitHub releases" hidden>${icon('download')}<b></b><span class="u">downloads</span></span>` : ''}
+    ${downloadRepo ? `<span class="pcard-downloads" data-download-repo="${esc(downloadRepo)}"${downloadMatchOf(app) ? ` data-download-match="${esc(downloadMatchOf(app))}"` : ''} title="Downloads from GitHub releases" hidden>${icon('download')}<b></b><span class="u">downloads</span></span>` : ''}
     ${showsSourceIcon(app, pl) ? `<a class="ibtn" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
     <a class="details" href="${link}" data-app="${esc(app.id)}">Details${icon('chevron')}</a>
   </div>${opts.wide ? '</div>' : ''}
