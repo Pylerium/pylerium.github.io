@@ -224,7 +224,7 @@
     "embedCode": "",
     "changelog": [
       {
-        "ver": "v1.0.0",
+        "ver": "v0.1.0",
         "date": "Nov 2026",
         "note": "The first full release, free for Windows. One download with no Python install needed: Workshop and Devcord, Python, Flask and HTML runners with live preview, Scene Studio, the video editor for showcases and Shorts, phone preview over your network, and 15 starter plugins plus Jumpback, Ultimate Terminal, Prompt Hub, API Hub and GitHub Engine."
       }
