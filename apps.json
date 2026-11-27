@@ -457,6 +457,56 @@
     "socialImage": "pylerium-purge/social-mwv4jolx.png"
   },
   {
+    "id": "speak",
+    "name": "Pylerium Dialogue",
+    "tagline": "Natural, private text-to-speech that runs on your computer.",
+    "description": "Speak turns text into natural speech locally, with GPU acceleration where available. Nothing is sent to the cloud.",
+    "category": "desktop",
+    "status": "soon",
+    "version": "v1.0.0",
+    "platform": "Windows",
+    "price": "",
+    "requirements": "",
+    "badge": "",
+    "featured": false,
+    "accent": "sky",
+    "glyph": "mic",
+    "iconImage": "speak/pylerium-dialogue-1024-1.png",
+    "cover": "speak/pylerium-dialogue-banner-1920x1080.png",
+    "screenshots": [
+      "speak/pylerium-dialogue-feature-read-aloud.png",
+      "speak/pylerium-dialogue-feature-voices.png",
+      "speak/pylerium-dialogue-feature-wav.png",
+      "speak/pylerium-dialogue-social-1200x630.png",
+      "speak/pylerium-dialogue-square-1080.png",
+      "speak/pylerium-dialogue-story-1080x1920.png"
+    ],
+    "metricLabel": "Runs",
+    "metricValue": "On your device",
+    "techStack": [
+      "Python"
+    ],
+    "primaryLabel": "Download",
+    "primaryUrl": "https://github.com/Pylerium/Pylerium-Dialogue/releases/latest",
+    "pageUrl": "dialogue/",
+    "repoUrl": "",
+    "docsUrl": "",
+    "videoUrl": "",
+    "installCommand": "Set-ExecutionPolicy -Scope Process Bypass .\\setup.ps1 .\\start.ps1",
+    "features": [],
+    "embedTitle": "",
+    "embedCode": "",
+    "changelog": [
+      {
+        "ver": "v1.0.0",
+        "date": "Nov 2026",
+        "note": "Pylerium Dialogue 1.0.0"
+      }
+    ],
+    "community": false,
+    "updatedAt": "2026-11-27"
+  },
+  {
     "id": "hypnagogia",
     "name": "Hypnagogia",
     "tagline": "Audio-reactive phosphene canvas, binaural synth and dream companion.",
