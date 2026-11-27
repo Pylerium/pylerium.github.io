@@ -493,10 +493,10 @@
     "primaryLabel": "Download",
     "primaryUrl": "https://github.com/Pylerium/Hypnagogia/releases/latest",
     "pageUrl": "hypnagogia/",
-    "repoUrl": "https://github.com/Pylerium/Hypnagogia",
+    "repoUrl": "",
     "docsUrl": "",
     "videoUrl": "",
-    "installCommand": "run start.ps1",
+    "installCommand": "powershell -ExecutionPolicy Bypass -File .\\setup.ps1",
     "features": [
       "A companion platform. You design a living plush companion in the Atelier.",
       "every other feature is a module that uses that companion profile: conversation, voice, dreamscapes. and whatever gets added next. Text-to-speech is one capability.",
