@@ -179,7 +179,7 @@
     "description": "Pylerium Studio combines Python execution, a Devcord project explorer, opt-in plugins, model tools, a 3D Scene Studio and a video editor in one workspace. Import a folder or ZIP, explore and edit code, run Python scripts, Flask apps or HTML pages with a live preview, and turn your work into showcases and YouTube Shorts.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.0.0",
+    "version": "v0.1.0",
     "platform": "Windows 10/11 · 64-bit",
     "price": "Free",
     "requirements": "Windows 10 or 11, 64-bit. No Python install needed.",
@@ -227,11 +227,6 @@
         "ver": "v1.0.0",
         "date": "Nov 2026",
         "note": "The first full release, free for Windows. One download with no Python install needed: Workshop and Devcord, Python, Flask and HTML runners with live preview, Scene Studio, the video editor for showcases and Shorts, phone preview over your network, and 15 starter plugins plus Jumpback, Ultimate Terminal, Prompt Hub, API Hub and GitHub Engine."
-      },
-      {
-        "ver": "Beta",
-        "date": "Oct 2026",
-        "note": "Released free and open source to celebrate 100 YouTube subscribers."
       }
     ],
     "community": false,
