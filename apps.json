@@ -460,7 +460,7 @@
     "description": "Speak turns text into natural speech locally, with GPU acceleration where available. Nothing is sent to the cloud.",
     "category": "desktop",
     "status": "live",
-    "version": "v1.0.0",
+    "version": "v0.1.0",
     "platform": "Windows",
     "price": "Free",
     "requirements": "",
@@ -497,7 +497,7 @@
     "embedCode": "",
     "changelog": [
       {
-        "ver": "v1.0.0",
+        "ver": "v0.1.0",
         "date": "Nov 2026",
         "note": "Pylerium Dialogue 1.0.0"
       }
