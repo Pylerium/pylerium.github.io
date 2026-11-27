@@ -17,8 +17,9 @@
 <script>
 // Always serves the newest build listed in ../latest.json (written by vendor/package.mjs).
 fetch('../latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : Promise.reject())).then(v => {
-  const a = document.getElementById('dl'); a.href = v.file; a.textContent = `download Pylerium Manager ${v.version} here`;
-  location.href = v.file;
+  const url = v.downloadUrl || v.file;
+  const a = document.getElementById('dl'); a.href = url; a.textContent = `download Pylerium Manager ${v.version} here`;
+  location.href = url;
 }).catch(() => { document.getElementById('msg').textContent = 'The download isn’t available right now. Please try again soon.'; });
 </script>
 </body>

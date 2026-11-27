@@ -41,7 +41,7 @@
   </section>
 </main>
 <script>
-fetch('../latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).then(v => { if (v?.file) document.querySelectorAll('[data-dl]').forEach(a => { a.href = `../download/${v.file}`; a.setAttribute('download', ''); }); }).catch(() => {});
+fetch('../latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).then(v => { if (v?.file) document.querySelectorAll('[data-dl]').forEach(a => { a.href = v.downloadUrl || `../download/${v.file}`; a.setAttribute('download', ''); }); }).catch(() => {});
 </script>
 </body>
 </html>

@@ -199,7 +199,7 @@
   // The free trial download: the newest build listed in latest.json (written by vendor/package.mjs).
   fetch('latest.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)).then(v => {
     if (!v?.file) return;
-    document.querySelectorAll('[data-dl]').forEach(a => { a.href = `download/${v.file}`; a.setAttribute('download', ''); a.title = `Pylerium Manager ${v.version} · ${(v.size / 1048576).toFixed(1)} MB`; });
+    document.querySelectorAll('[data-dl]').forEach(a => { a.href = v.downloadUrl || `download/${v.file}`; a.setAttribute('download', ''); a.title = `Pylerium Manager ${v.version} · ${(v.size / 1048576).toFixed(1)} MB`; });
   }).catch(() => {});
 
   // Subscribe: the Stripe Payment Link (config.js, written by PyleriumManager/vendor/stripe-setup.mjs).

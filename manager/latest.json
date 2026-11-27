@@ -4,5 +4,6 @@
   "size": 36151745,
   "sha256": "d9606936833236bbe6f8958d1bdce232be9751381b88e574adf0ea1388958f1e",
   "date": "2026-11-25",
-  "notes": "Windows standalone build. Fixes the website going blank when the phone bottom bar is turned on."
+  "notes": "Windows standalone build. Fixes the website going blank when the phone bottom bar is turned on.",
+  "downloadUrl": "https://github.com/Pylerium/pylerium.github.io/releases/download/pylerium-manager-v1.7.1/PyleriumManager-1.7.1-Windows.zip"
 }
