@@ -353,7 +353,7 @@
     "description": "Pylerium Player builds a library from your USB drive or local storage, sorts it into movies and TV shows, and plays everything with resume, track selection and automatic next episode, all driven by the TV remote.",
     "category": "tv",
     "status": "live",
-    "version": "v1.0.0",
+    "version": "v0.1.0",
     "platform": "Android TV · Google TV",
     "price": "Free",
     "requirements": "Android TV or Google TV, Android 8.0 or newer.",
@@ -393,7 +393,7 @@
     "embedCode": "",
     "changelog": [
       {
-        "ver": "v1.0.0",
+        "ver": "v0.1.0",
         "date": "Nov 2026",
         "note": "First signed release, free for Android TV and Google TV. Movies and shows sorted from your file names, continue watching, next episode, and libVLC playback with audio and subtitle tracks. New app icon and TV banner."
       }
