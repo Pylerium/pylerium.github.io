@@ -2,7 +2,7 @@
 // The menu is built from what is live on the page right now: every home-page section that rendered and is visible,
 // with live counts. It rebuilds itself whenever the page changes (filters, perks loading, sections appearing), so it never
 // lists a section that isn't there. On app pages it lists the home-page sections from the build, plus this page's parts.
-import { icon, esc } from './render.js?v=ec3535df4e';
+import { icon, esc } from './render.js?v=9ced1f6b47';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 const M = D.mobile || {}, BASE = window.SITE_BASE || '', HOME = document.body.classList.contains('home');

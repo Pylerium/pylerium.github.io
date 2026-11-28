@@ -229,6 +229,7 @@ export function badgeOf(app, now = Date.now()) {
   return '';
 }
 function primaryLink(app, base) {
+  if (app.gate) return { url: `apps/${encodeURIComponent(app.id)}/#get`, label: app.gateLabel || 'Download', raw: '', gate: true };
   const raw = app.primaryUrl || app.pageUrl || app.repoUrl;
   if (!safeUrl(raw)) return null;
   return { url: href(raw, base), label: app.primaryLabel || (raw === app.repoUrl ? 'View on GitHub' : 'Learn more'), raw };
@@ -251,6 +252,7 @@ const KNOWN_DOWNLOAD_MATCH = { 'pylerium-manager': 'PyleriumManager-*.zip' }; //
 const repoOf = v => String(v || '').match(/github\.com\/([\w.-]+\/[\w.-]+?)(?:\.git)?(?:[/#?].*)?$/i)?.[1] || (/^[\w.-]+\/[\w.-]+$/.test(v || '') ? v : '');
 // The GitHub "owner/name" whose release downloads a card counts, or '' when none is known.
 export function downloadRepoOf(app) {
+  if (app.gate) return '';
   return repoOf(app.releaseRepo) || repoOf(app.repoUrl) || KNOWN_DOWNLOAD_REPOS[app.id] || '';
 }
 export const downloadMatchOf = app => app.releaseAssets || KNOWN_DOWNLOAD_MATCH[app.id] || '';
@@ -281,7 +283,7 @@ export function cardHTML(app, opts = {}) {
     ${tags.length ? `<div class="tags">${tags.map(t => `<span>${esc(t)}</span>`).join('')}${more > 0 ? `<span class="more">+${more}</span>` : ''}</div>` : ''}
   </div>
   <div class="pcard-foot">
-    ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${ext(pl.url)} title="${esc(pl.label)}"><span class="lbl">${esc(pl.label)}</span>${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
+    ${pl ? `<a class="btn-acc" href="${esc(pl.url)}"${pl.gate ? ` data-gate="${esc(app.id)}"` : ext(pl.url)} title="${esc(pl.label)}"><span class="lbl">${esc(pl.label)}</span>${icon('arrow')}</a>` : `<span class="btn-ghost-static">${esc(statusOf(app.status).label)}</span>`}
     <span class="sp"></span>
     ${downloadRepo ? `<span class="pcard-downloads" data-download-repo="${esc(downloadRepo)}"${downloadMatchOf(app) ? ` data-download-match="${esc(downloadMatchOf(app))}"` : ''} title="Downloads from GitHub releases" hidden>${icon('download')}<b></b><span class="u">downloads</span></span>` : ''}
     ${showsSourceIcon(app, pl) ? `<a class="ibtn" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener" title="Source on GitHub" aria-label="Source on GitHub">${icon('github')}</a>` : ''}
@@ -320,7 +322,7 @@ export function detailHTML(app, opts = {}) {
   // a video file uploaded with the app's media (mp4/webm) plays right on the page
   const vid = !yt && /\.(mp4|webm)$/i.test(app.videoUrl || '') && !/^https?:/i.test(app.videoUrl) ? app.videoUrl : '';
   const links = [];
-  if (pl) links.push(`<a class="btn-acc lg" href="${esc(pl.url)}"${ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>`);
+  if (pl) links.push(`<a class="btn-acc lg" href="${esc(pl.url)}"${pl.gate ? ` data-gate="${esc(app.id)}"` : ext(pl.url)}>${esc(pl.label)}${icon('arrow')}</a>`);
   if (app.pageUrl && (!pl || app.pageUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.pageUrl, base))}"${ext(app.pageUrl)}>${icon('globe')}Product page</a>`);
   if (app.repoUrl && (!pl || app.repoUrl !== pl.raw)) links.push(`<a class="btn-soft" href="${esc(href(app.repoUrl, base))}" target="_blank" rel="noopener">${icon('github')}Source</a>`);
   if (app.docsUrl) links.push(`<a class="btn-soft" href="${esc(href(app.docsUrl, base))}"${ext(app.docsUrl)}>${icon('book')}Docs</a>`);
@@ -369,9 +371,20 @@ export function socialLinksHTML(socials = [], cls = 'socials') {
 
 // Fields that never leave the hub.
 export const PRIVATE_FIELDS = ['notes', 'localPath', 'published', 'order', 'submission'];
-export function publicApp(app) {
+// gateApi: the email-to-download service. With it, a gated app's download address never reaches the public site.
+export function publicApp(app, gateApi) {
   const o = { ...app };
   for (const k of PRIVATE_FIELDS) delete o[k];
+  delete o.emailGate;
+  if (app.emailGate && typeof gateApi === 'string' && gateApi && (app.primaryUrl || app.repoUrl)) {
+    const target = app.primaryUrl || app.repoUrl;
+    o.gate = true; o.gateLabel = app.primaryLabel || 'Download';
+    for (const k of ['primaryUrl', 'repoUrl', 'releaseRepo', 'releaseAssets']) delete o[k];
+    if (o.pageUrl === target) delete o.pageUrl;
+    if (o.docsUrl === target) delete o.docsUrl;
+    if (/https?:|git@|\bgit\s+clone/i.test(o.installCommand || '')) delete o.installCommand;
+    if (o.description && o.description.includes(target)) o.description = o.description.split(target).join('#get');
+  }
   if (o.author) o.author = { name: o.author.name || '', url: o.author.url || '' };
   // Private repository (detected by auto-sync): no Source button or GitHub link on the public site.
   if (o.repoPrivate) delete o.repoUrl;
