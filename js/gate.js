@@ -1,6 +1,6 @@
 // Email-to-download on the public site: a gated app's button opens this dialog; the download address only arrives after
 // the email service accepts the email. Works on cards, in the app dialog and on app pages (…/#get opens it directly).
-import { icon, esc, accentStyle } from './render.js?v=9ced1f6b47';
+import { icon, esc, accentStyle } from './render.js?v=09517f8f31';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 const G = D.gate;

@@ -146,6 +146,11 @@ const P = {
   palette: '<path d="M12 3.5a8.5 8.5 0 0 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.1-.9-1.6-.9-2.6 0-1.1.8-1.7 1.9-1.7H17a3.5 3.5 0 0 0 3.5-3.5c0-4.2-3.8-7.5-8.5-7.5Z"/><circle cx="8" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/>',
   bot: '<rect x="4" y="8" width="16" height="11.5" rx="3.5"/><path d="M12 8V4.6M9 13v1.5M15 13v1.5M2.5 12.5v3M21.5 12.5v3"/><circle cx="12" cy="3.8" r=".8"/>',
   info: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5"/><circle cx="12" cy="8" r=".4"/>',
+  starfill: '<path d="m12 3.6 2.5 5.4 5.9.6-4.4 4 1.2 5.8L12 16.4l-5.2 3 1.2-5.8-4.4-4 5.9-.6Z" fill="currentColor" stroke-width="1.2"/>',
+  quote: '<path d="M10 7.5H6.5A2.5 2.5 0 0 0 4 10v2.5A1.5 1.5 0 0 0 5.5 14H8a2 2 0 0 1-2 2.5M20 7.5h-3.5A2.5 2.5 0 0 0 14 10v2.5a1.5 1.5 0 0 0 1.5 1.5H18a2 2 0 0 1-2 2.5"/>',
+  help: '<circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8 1c0 1.7-2.4 2.1-2.4 3.6"/><circle cx="12" cy="17" r=".4"/>',
+  award: '<circle cx="12" cy="9" r="5.5"/><path d="m9 13.8-1.5 6.7L12 18l4.5 2.5L15 13.8"/>',
+  minus: '<path d="M5 12h14"/>',
   // brand marks (simplified line versions)
   youtube: '<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7Z"/>',
   plug: '<path d="M9 3.5v4M15 3.5v4"/><path d="M6.5 7.5h11V11a5.5 5.5 0 0 1-11 0Z"/><path d="M12 16.5v4"/>',

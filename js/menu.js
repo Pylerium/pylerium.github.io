@@ -2,7 +2,7 @@
 // The menu is built from what is live on the page right now: every home-page section that rendered and is visible,
 // with live counts. It rebuilds itself whenever the page changes (filters, perks loading, sections appearing), so it never
 // lists a section that isn't there. On app pages it lists the home-page sections from the build, plus this page's parts.
-import { icon, esc } from './render.js?v=9ced1f6b47';
+import { icon, esc } from './render.js?v=09517f8f31';
 
 const D = JSON.parse(document.getElementById('site-data').textContent);
 const M = D.mobile || {}, BASE = window.SITE_BASE || '', HOME = document.body.classList.contains('home');
@@ -27,13 +27,16 @@ function labelOf(sec) {
   return (sec.dataset.nav || $('.kicker', sec)?.textContent || $('h2', sec)?.textContent || sec.id).trim().slice(0, 28);
 }
 function sections() {
-  if (HOME) return $$('main > section[id]').filter(s => s.id !== 'top' && !s.classList.contains('hero') && visible(s) && s.offsetHeight > 40)
-    .map(s => ({ id: s.id, href: `#${s.id}`, label: labelOf(s), icon: NAV.get(s.id)?.icon || ICON[s.id] || 'chevron', count: countOf(s.id, s) }));
+  const extra = (D.nav || []).filter(n => n.page || n.ext); // the builder's own pages and links
+  if (HOME) return [...$$('main > section[id]').filter(s => s.id !== 'top' && !s.classList.contains('hero') && visible(s) && s.offsetHeight > 40)
+    .map(s => ({ id: s.id, href: `#${s.id}`, label: labelOf(s), icon: NAV.get(s.id)?.icon || ICON[s.id] || 'chevron', count: countOf(s.id, s) })), ...extra];
   // app page: the home sections from the build, then this page's own parts
-  const home = (D.nav || []).map(n => ({ ...n, href: `${BASE}${n.href}` }));
+  const home = (D.nav || []).map(n => ({ ...n, href: n.ext ? n.href : `${BASE}${n.href}` }));
   const parts = $$('.app-sheet [id], .app-main section[id]').filter(el => visible(el) && /^(screens|features|changelog|faq|download|requirements|reviews|media|about)/i.test(el.id))
     .map(el => ({ id: el.id, href: `#${el.id}`, label: ($('h2, h3', el)?.textContent || el.id).trim().slice(0, 28), icon: 'chevron', count: '' }));
-  return [...parts, ...home];
+  // a page made in the builder: its own titled sections first
+  const own = $$('.page-main > section.b-sec[id]').filter(el => visible(el) && $('.sec-head h2', el)).map(el => ({ id: el.id, href: `#${el.id}`, label: $('.sec-head h2', el).textContent.trim().slice(0, 28), icon: 'chevron', count: '' }));
+  return [...parts, ...own, ...home];
 }
 
 // ---------- the drawer ----------
