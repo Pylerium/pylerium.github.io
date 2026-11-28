@@ -25,7 +25,6 @@
       "pylerium-manager/community-perks.png",
       "pylerium-manager/community-submissions.png",
       "pylerium-manager/community-supporters.png",
-      "pylerium-manager/connectors.png",
       "pylerium-manager/connectors-automation.png",
       "pylerium-manager/connectors-chrome-web-store.png",
       "pylerium-manager/connectors-cloudflare.png",
@@ -54,8 +53,6 @@
       "pylerium-manager/promo-library-media-and-screen-capture.png",
       "pylerium-manager/promo-scene.png",
       "pylerium-manager/promo-video-directed-promo-films.png",
-      "pylerium-manager/settings.png",
-      "pylerium-manager/settings-account.png",
       "pylerium-manager/settings-appearance.png",
       "pylerium-manager/settings-dashboard.png",
       "pylerium-manager/settings-data-backups.png",
@@ -68,12 +65,7 @@
       "pylerium-manager/site-settings-sections.png",
       "pylerium-manager/site-settings-social-links.png",
       "pylerium-manager/site-settings-text-announcement.png",
-      "pylerium-manager/store.png",
-      "pylerium-manager/store-apps-for-sale.png",
-      "pylerium-manager/store-licences.png",
-      "pylerium-manager/store-products-prices.png",
-      "pylerium-manager/store-tax.png",
-      "pylerium-manager/videos-embeds.png"
+      "pylerium-manager/store.png"
     ],
     "metricLabel": "Free trial",
     "metricValue": "14 days",
@@ -159,8 +151,7 @@
     ],
     "community": false,
     "createdAt": "2026-11-22",
-    "updatedAt": "2026-11-28",
-    "socialImage": "pylerium-manager/social-mwzqmvt9.png"
+    "updatedAt": "2026-11-28"
   },
   {
     "id": "pagepackage",
