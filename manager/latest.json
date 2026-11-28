@@ -1,10 +1,10 @@
 {
   "version": "1.7.2",
   "file": "PyleriumManager-1.7.2-Windows.zip",
-  "size": 36344786,
-  "sha256": "a83525eb80550ec5bee111ef3f77bd37d98774a2638c5de3a30fed37a3c5d0df",
+  "size": 36354600,
+  "sha256": "14e8de43d99912e6aafc8df5e8e7dab99d206615f80f1ac67aed8af421bc804f",
   "date": "2026-11-28",
-  "notes": "One-click updates: from this version on, Pylerium Manager asks, then installs new versions for you. Also new: Promo Studio rebuilt with directed videos, a timeline editor, voice-over and your own Icon Studio; capture page elements from any website, with deep scan; ask for an email before a download; phone access; and a refreshed dashboard and Edit Studio.",
-  "signature": "9ecs45d+u9JKgp7i7Oqwj0xc5XiJRNKpFErIfP98L9efuhfIkxgQZ4UqODN/YDUP6cYGO7LVh4hLxud7UQIQDA==",
+  "notes": "One-click updates: from this version on, Pylerium Manager asks, then installs new versions for you. Also new: Promo Studio rebuilt with directed videos, a timeline editor, voice-over written by your own Ollama model that follows what each screen shows, and your own Icon Studio; capture page elements from any website, with deep scan; ask for an email before a download; phone access; and a refreshed dashboard and Edit Studio.",
+  "signature": "+79GyxhPa5b4gSQfwcPEdSbv/Wea5VRyHeEfmy9PCZPBrC5eAHi0biEa+POqTDOsOpilQ5rxNrIoO2DCbm54BQ==",
   "downloadUrl": "https://github.com/Pylerium/pylerium.github.io/releases/download/pylerium-manager-v1.7.2/PyleriumManager-1.7.2-Windows.zip"
 }
