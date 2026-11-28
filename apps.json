@@ -15,7 +15,7 @@
     "accent": "violet",
     "glyph": "layers",
     "iconImage": "pylerium-manager/icon.png",
-    "cover": "",
+    "cover": "pylerium-manager/cover-mwzqnt4y.png",
     "screenshots": [
       "pylerium-manager/apps.png",
       "pylerium-manager/apps-category-all-1.png",
@@ -159,7 +159,8 @@
     ],
     "community": false,
     "createdAt": "2026-11-22",
-    "updatedAt": "2026-11-28"
+    "updatedAt": "2026-11-28",
+    "socialImage": "pylerium-manager/social-mwzqmvt9.png"
   },
   {
     "id": "pagepackage",
